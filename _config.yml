@@ -2,31 +2,31 @@
 #  User configuration
 # -----------------------------------------------------------------------------
 
-title:               어쩐지 오늘은
+title:               Just do it
 
 # The unique resource location of your page.
 # Set to `https://<username>.github.io` when hosting on GitHub Pages
-url:                 https://zzsza.github.io
+url:                 https://cjhjhj.github.io
 
 # Set to '' when hosting a blog on GitHub Pages, ie on `//<username>.github.io`
 # Set to '/<reponame>' when using the `gh-pages` branch of a repository
 baseurl:             ""
 
 # A very short description of your page
-tagline:             Machine Learning Engineer
+tagline:             Bioinformatician
 
 # A short description of the page, used in the sidebar and as fallback for the meta description tag.
 # Markdown enabled, but don't use more than one paragraph (enforced by `>`)
 description:         >
-  메모가 습관인 데이터쟁이입니다
+  Bioinformatics Research Scientist at SJCRH
 
 # This should be the same author as first entry in `_data/authors.yml`
 author:
-  name:              seongyun byeon
-  email:             snugyun01@gmail.com
+  name:              Ji-Hoon Cho
+  email:             cjhjhj@gmai.com
 
 # Fallback image and color
-image:               /assets/img/nap.jpg
+image:               /assets/img/BingWallpaper-2019-08-16.jpg
 color:               '#4f86aa'
 
 # The font used for headings. Expects a string that is a valid CSS font-family value.
@@ -50,7 +50,7 @@ google_analytics:    UA-110573232-1
 disqus_shortname:    zzsza
 
 # This text will appear in the footer of every page. Markdown enabled.
-copyright:           '&copy; 2017. by Seongyun Byeon'
+# copyright:           '&copy; 2017. by Seongyun Byeon'
 
 # Format of the permalinks
 permalink:           pretty

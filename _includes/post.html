@@ -42,10 +42,9 @@
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-
-
 <br/>
       {{ post.content }}
+      <!--
       <br/>
       <p>이 글이 도움이 되셨다면 추천 클릭을 부탁드립니다 :)</p>
       <br/>
@@ -55,7 +54,8 @@
       </div>
       <br/>
       <br/>
-       <!--블로그-하단-반응형 -->
+      -->
+    
       <ins class="adsbygoogle"
           style="display:block; width:100%; height:300px;"
           data-ad-client="ca-pub-5105555504153863"
@@ -63,8 +63,7 @@
           data-ad-format="auto"></ins>
       <script>
       (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
-
+      </script>      
     </div>
   {% else %}
     {{ post.excerpt }}
@@ -75,6 +74,7 @@
 {% unless include.link_title %}
   <hr class="dingbat" />
 
+  <!--
   <div class="share">
       <h2>Share this post</h2>
       <div class="share-body">
@@ -90,5 +90,6 @@
         </a>
     </div>
   </div>
+  -->
   <br/>
 {% endunless %}

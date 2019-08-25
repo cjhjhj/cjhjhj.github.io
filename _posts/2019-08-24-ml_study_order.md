@@ -1,5 +1,9 @@
-## Machine learning 관련 코스 목록 및 수강 순서
-
+---
+layout: post
+title: "Machine learning 관련 코스 목록 및 수강 순서"
+categories: ml
+comments: true
+---
 Chip Huyen의 twitter에서 펌
 
 1. Probability and Statistics by Stanford Online

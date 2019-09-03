@@ -19,4 +19,4 @@ Isotopic peaks들은 자연적으로 존재하는 동위원소들 (C, H, N, O �
 많은 경우 isotopic peak들은 monoisotopic peak에 비하면 intensity가 낮지만, mass에 따라서 혹은 peptide (species) 를 구성하는 원소들에 따라서 꽤 높은 intensity를 갖거나 monoisotopic peak보다 높은 intensity를 갖기도 한다.  
 Isotopic peaks가 중요한 이유중의 하나는 isotope spacing을 이용해서 해당 peptide의 charge state를 유추할 수 있기 때문이다. 예를 들어, M과 M+1 peak의 m/z 값 차이가 1에 가깝다면 z = 1이라는 의미이며, M과 M+1 peak의 m/z 값 차이가 0.5에 가깝다면 z = 2라는 의미이다. (그림 참조)
 
-![Image of peaks](/assets/img/proteomics/isotopicPeaks_charge.png)
+![Image of peaks](/assets/img/proteomics/isotopicPeaks_charge_20190903.png)

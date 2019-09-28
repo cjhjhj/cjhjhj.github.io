@@ -20,7 +20,8 @@ $$W_{ij} = \begin{bmatrix} w_{i_1j_1} & w_{i_1j_2} & w_{i_1j_3} \\
                            w_{i_2j_1} & w_{i_2j_2} & w_{i_2j_3} \\ 
                            w_{i_3j_1} & w_{i_3j_2} & w_{i_3j_3}
             \end{bmatrix}$$  
-Hidden layer _i_ 로의 input  
+
+Hidden layer _j_ 로의 input  
 $$ h1_{in1} = i_1w_{i_1j_1} + i_2w_{i_2j_1} + i_3w_{i_3j_1} + b_{j_1} $$  
 $$ h1_{in2} = i_1w_{i_1j_2} + i_2w_{i_2j_2} + i_3w_{i_3j_2} + b_{j_2} $$  
 ...
@@ -38,11 +39,12 @@ $$ \begin{bmatrix} h1_{in1} \\
 \begin{bmatrix} b_{j_1} \\
                 b_{j_2} \\
                 b_{j_3} \end{bmatrix} = 
-W_{ij}^T
-\begin{bmatrix} i_1 \\
-                i_2 \\
-                i_3 \end{bmatrix} +
-\begin{bmatrix} b_{j_1} \\
-                b_{j_2} \\
-                b_{j_3} \end{bmatrix}
-$$
+W_{ij}^TI + B $$  
+
+Relu ($=max(0, x)$) operation을 통한 hidden layer _j_ 의 output  
+$$ \begin{bmatrix} h1_{out1} \\ 
+                   h1_{out2} \\ 
+                   h1_{out3} \end{bmatrix} = 
+\begin{bmatrix} max(0, h1_{in1}) \\ 
+                max(0, h1_{in2}) \\ 
+                max(0, h1_{in3}) \end{bmatrix} $$  

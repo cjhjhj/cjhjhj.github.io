@@ -86,3 +86,40 @@ $$ \begin{bmatrix} h2_{out1} \\
 \begin{bmatrix} 1 / (1 + e^{-h2_{in1}}) \\ 
                 1 / (1 + e^{-h2_{in2}}) \\ 
                 1 / (1 + e^{-h2_{in3}}) \end{bmatrix} $$  
+
+### Layer 3 (output layer)
+<img src="/assets/img/ml/nn_example_layer3.png">
+
+두번째 hidden layer _k_ 로부터 output layer _l_ 로의 weight  
+$$W_{kl} = \begin{bmatrix} w_{k_1l_1} & w_{k_1l_2} & w_{k_1l_3} \\ 
+                           w_{k_2l_1} & w_{k_2l_2} & w_{k_2l_3} \\ 
+                           w_{k_3l_1} & w_{k_3l_2} & w_{k_3l_3}
+            \end{bmatrix}$$  
+
+Output layer _l_ 로의 input  
+$$ O_{in1} = h2_{out1}w_{k_1l_1} + h2_{out2}w_{k_2l_1} + h2_{out3}w_{k_3l_1} + b_{l_1} $$  
+$$ O_{in2} = h2_{out1}w_{k_1l_2} + h2_{out2}w_{k_2l_2} + h2_{out3}w_{k_3l_2} + b_{l_2} $$  
+...
+
+Matrix operation으로 표시하면,  
+$$ \begin{bmatrix} O_{in1} \\ 
+                   O_{in2} \\ 
+                   O_{in3} \end{bmatrix} = 
+\begin{bmatrix} w_{k_1l_1} & w_{k_2l_1} & w_{k_3l_1} \\
+                w_{k_1l_2} & w_{k_2l_2} & w_{k_3l_2} \\
+                w_{k_1l_3} & w_{k_2l_3} & w_{k_3l_3} \end{bmatrix} 
+\begin{bmatrix} h2_{out1} \\
+                h2_{out2} \\
+                h2_{out3} \end{bmatrix} +
+\begin{bmatrix} b_{l_1} \\
+                b_{l_2} \\
+                b_{l_3} \end{bmatrix} = 
+W_{kl}^Th2_{out} + B_l $$  
+
+Softmax ($=e^{O_{in_a} / (sum_{a = 1}^3{e^{O_{in_a}}})$) operation을 통한 output layer _l_ 의 output  
+$$ \begin{bmatrix} O_{out1} \\ 
+                   O_{out2} \\ 
+                   O_{out3} \end{bmatrix} = 
+\begin{bmatrix} e^{O_{in1}} / (sum_{a = 1}^3{e^{O_{in_a}}})  \\ 
+                e^{O_{in2}} / (sum_{a = 1}^3{e^{O_{in_a}}}) \\ 
+                e^{O_{in3}} / (sum_{a = 1}^3{e^{O_{in_a}}}) \end{bmatrix} $$  

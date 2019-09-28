@@ -126,10 +126,10 @@ $$ \begin{bmatrix} O_{out1} \\
 
 ### Error function
 여러 가지 error가 사용될 수 있지만, 이 예제에서는 cross-entropy를 사용하기로 한다.  
-$$ error = -(1/n)(\sum_{i = 1}^n {y_ilog(O_{out_i}) + (1 - y_i)log(1 - O_{out_i})} $$
+$$ error = -(1/n)(\sum_{i = 1}^n {(y_ilog(O_{out_i}) + (1 - y_i)log(1 - O_{out_i}))} $$
 
 ### Important derivatives
-BP는 기본적으로 error의 weight에 대한 변화량을 이용해서 새로운 weight를 구해나가는 gradient descent 방법이고,  
+BP는 기본적으로 error의 weight에 대한 변화량을 이용해서 새로운 weight를 구해나가는 gradient descent 방법이고, 
 그 변화량은 partial derivatives들과 chain rule에 의해서 계산된다.
 몇 가지 함수의 derivatives들을 미리 구해놓으면 쉽게 weight에 대한 error의 변화량을 구할 수 있다.
 

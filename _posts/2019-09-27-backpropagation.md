@@ -116,10 +116,10 @@ $$ \begin{bmatrix} O_{in1} \\
                 b_{l_3} \end{bmatrix} = 
 W_{kl}^Th2_{out} + B_l $$  
 
-Softmax ($=e^{O_{in_a} / (sum_{a = 1}^3{e^{O_{in_a}}})$) operation을 통한 output layer _l_ 의 output  
+Softmax ($=e^{O_{in_a} / (\sum_{a = 1}^3 {e^{O_{in_a}}})$) operation을 통한 output layer _l_ 의 output  
 $$ \begin{bmatrix} O_{out1} \\ 
                    O_{out2} \\ 
                    O_{out3} \end{bmatrix} = 
-\begin{bmatrix} e^{O_{in1}} / (sum_{a = 1}^3{e^{O_{in_a}}})  \\ 
-                e^{O_{in2}} / (sum_{a = 1}^3{e^{O_{in_a}}}) \\ 
-                e^{O_{in3}} / (sum_{a = 1}^3{e^{O_{in_a}}}) \end{bmatrix} $$  
+\begin{bmatrix} e^{O_{in1}} / (\sum_{a = 1}^3 {e^{O_{in_a}}})  \\ 
+                e^{O_{in2}} / (\sum_{a = 1}^3 {e^{O_{in_a}}}) \\ 
+                e^{O_{in3}} / (\sum_{a = 1}^3 {e^{O_{in_a}}}) \end{bmatrix} $$  

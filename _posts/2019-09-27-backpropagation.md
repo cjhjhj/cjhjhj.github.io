@@ -15,5 +15,34 @@ Backpropagation을 구현하기 위해서 알고리즘을 수학적으로 리뷰
 
 <img src="/assets/img/ml/nn_example_layer1.png">
 
-예제에서 input layer _i_ 에서 첫번째 hidden layer _j_ 로의 weight들은 다음과 같은 W<sub>ij</sub> matrix로 정의된다.  
-$$W_{ij} = \begin{bmatrix} w_{i_1j_1} & w_{i_1j_2} & w_{i_1j_3} \\ w_{i_2j_1} & w_{i_2j_2} & w_{i_2j_3} \\ w_{i_3j_1} & w_{i_3j_2} & w_{i_3j_3} \\ \end{bmatrix}$$  
+예제에서 input layer _i_ 에서 첫번째 hidden layer _j_ 로의 weight들은 다음과 같은 _W<sub>ij</sub>_ matrix로 정의되고,  
+$$W_{ij} = \begin{bmatrix} w_{i_1j_1} & w_{i_1j_2} & w_{i_1j_3} \\ 
+                           w_{i_2j_1} & w_{i_2j_2} & w_{i_2j_3} \\ 
+                           w_{i_3j_1} & w_{i_3j_2} & w_{i_3j_3}
+            \end{bmatrix}$$  
+hidden layer의 input은 다음과 같이 구할 수 있다.  
+$$h1_{in1} = i_1w_{i_1j_1} + i_2w_{i_2j_1} + i_3w_{i_3j_1} + b_j_1$$  
+$$h1_{in2} = i_1w_{i_1j_2} + i_2w_{i_2j_2} + i_3w_{i_3j_2} + b_j_2$$  
+...
+
+Matrix operation으로 표시하면  
+$$\begin{bmatrix} h1_{in1} \\ 
+                  h1_{in2} \\ 
+                  h1_{in3} \end{bmatrix} = 
+\begin{bmatrix} w_{i_1j_1} & w_{i_2j_1} & w_{i_3j_1} \\
+                w_{i_1j_2} & w_{i_2j_2} & w_{i_3j_2} \\
+                w_{i_1j_3} & w_{i_2j_3} & w_{i_3j_3} \end{bmatrix} 
+\begin{bmatrix} i_1 \\
+                i_2 \\
+                i_3 \end{bmatrix} +
+\begin{bmatrix} b_{j_1} \\
+                b_{j_2} \\
+                b_{j_3} \end{bmatrix} = 
+W_{ij}^T
+\begin{bmatrix} i_1 \\
+                i_2 \\
+                i_3 \end{bmatrix} +
+\begin{bmatrix} b_{j_1} \\
+                b_{j_2} \\
+                b_{j_3} \end{bmatrix} = 
+$$

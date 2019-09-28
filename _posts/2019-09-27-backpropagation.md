@@ -5,12 +5,12 @@ categories: ml
 comments: true
 ---
 
-Backpropagation을 구현하기 위해서 알고리즘을 수학적으로 리뷰해보고 python으로 구현하기 위해 정리를 해본다. 이 정리는 다음 웹사이트 (https://medium.com/@14prakash/back-propagation-is-very-simple-who-made-it-complicated-97b794c97e5c)의 내용을 기반으로 작성되었다.  
+Backpropagation (BP) 을 구현하기 위해서 알고리즘을 수학적으로 리뷰해보고 python으로 구현하기 위해 정리를 해본다. 이 정리는 다음 웹사이트 (https://medium.com/@14prakash/back-propagation-is-very-simple-who-made-it-complicated-97b794c97e5c)의 내용을 기반으로 작성되었다.  
 일반적인 neural network의 구조는 다음 그림과 같다.
 
 <img src="/assets/img/ml/nn_example.png">
 
-전체적인 알고리즘과 backpropagation의 수식을 유도하기 위해서는 먼저 forward propagation을 살펴보아야 한다. 
+전체적인 알고리즘과 BP의 수식을 유도하기 위해서는 먼저 forward propagation을 살펴보아야 한다. 
 먼저 input으로부터 첫번째 hidden layer의 input h1<sub>_in1_</sub>을 구하고, activation function (이 예제에서는 첫번째 layer에 Relu를 사용)을 거쳐 hidden layer의 output h1<sub>_out1_</sub>을 구하는 과정을 살펴보자.
 
 ### Layer 1
@@ -123,3 +123,14 @@ $$ \begin{bmatrix} O_{out1} \\
 \begin{bmatrix} e^{O_{in1}} / (\sum_{a = 1}^3 {e^{O_{in_a}}})  \\ 
                 e^{O_{in2}} / (\sum_{a = 1}^3 {e^{O_{in_a}}}) \\ 
                 e^{O_{in3}} / (\sum_{a = 1}^3 {e^{O_{in_a}}}) \end{bmatrix} $$  
+
+### Error function
+여러 가지 error가 사용될 수 있지만, 이 예제에서는 cross-entropy를 사용하기로 한다.  
+$$ error = -(1/n)(\sum_{i = 1}^n {y_ilog(O_{out_i}) + (1 - y_i)log(1 - O_{out_i})} $$
+
+### Important derivatives
+BP는 기본적으로 error의 weight에 대한 변화량을 이용해서 새로운 weight를 구해나가는 gradient descent 방법이고,  
+그 변화량은 partial derivatives들과 chain rule에 의해서 계산된다.
+몇 가지 함수의 derivatives들을 미리 구해놓으면 쉽게 weight에 대한 error의 변화량을 구할 수 있다.
+
+#### Derivative of sigmoid

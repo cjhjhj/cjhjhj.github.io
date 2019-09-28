@@ -15,7 +15,5 @@ Backpropagation을 구현하기 위해서 알고리즘을 수학적으로 리뷰
 
 <img src="/assets/img/ml/nn_example_layer1.png">
 
-예제에서 input layer _i_ 에서 첫번째 hidden layer _j_ 로의 weight들은 다음과 같은 W<sub>ij</sub> matrix로 정의된다.
-$$a = b + c$$
-$$W_ij = \begin{matrix} w_i1j1 & w_i1j2 & w_i1j3 \\ w_i2j1 & w_i2j2 & w_i2j3 \\ w_i3j1 & w_i3j2 & w_i3j3 \\ \end{matrix}$$
-
+예제에서 input layer _i_ 에서 첫번째 hidden layer _j_ 로의 weight들은 다음과 같은 W<sub>ij</sub> matrix로 정의된다.  
+$$W_{ij} = \begin{bmatrix} w_{i_1j_1} & w_{i_1j_2} & w_{i_1j_3} \\ w_{i_2j_1} & w_{i_2j_2} & w_{i_2j_3} \\ w_{i_3j_1} & w_{i_3j_2} & w_{i_3j_3} \\ \end{bmatrix}$$  

@@ -21,12 +21,12 @@ $$W_{ij} = \begin{bmatrix} w_{i_1j_1} & w_{i_1j_2} & w_{i_1j_3} \\
                            w_{i_3j_1} & w_{i_3j_2} & w_{i_3j_3}
             \end{bmatrix}$$  
 hidden layer의 input은 다음과 같이 구할 수 있다.  
-$$h1_{in1} = i_1w_{i_1j_1} + i_2w_{i_2j_1} + i_3w_{i_3j_1} + b_j_1$$  
-$$h1_{in2} = i_1w_{i_1j_2} + i_2w_{i_2j_2} + i_3w_{i_3j_2} + b_j_2$$  
+$$ h1_{in1} = i_1w_{i_1j_1} + i_2w_{i_2j_1} + i_3w_{i_3j_1} + b_{j_1} $$  
+$$ h1_{in2} = i_1w_{i_1j_2} + i_2w_{i_2j_2} + i_3w_{i_3j_2} + b_{j_2} $$  
 ...
 
 Matrix operation으로 표시하면  
-$$\begin{bmatrix} h1_{in1} \\ 
+$$ \begin{bmatrix} h1_{in1} \\ 
                   h1_{in2} \\ 
                   h1_{in3} \end{bmatrix} = 
 \begin{bmatrix} w_{i_1j_1} & w_{i_2j_1} & w_{i_3j_1} \\

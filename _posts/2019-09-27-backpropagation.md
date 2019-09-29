@@ -144,5 +144,8 @@ $$ \therefore \frac{d}{dx}Sigmoid(x) = Sigmoid(x)\cdot(1 - Sigmoid(x)) $$
 
 #### Derivative of ReLU
 $$ ReLU(x) = max(0, x) $$  
-$$ if x > 0, \frac{d}{dx}ReLU(x) = \frac{d}{dx}x = 1 $$  
-$$ Otherwise, \frac{d}{dx}ReLU(x) = \frac{d}{dx}0 = 0 $$
+$$x > 0 $$ 인 경우, \frac{d}{dx}ReLU(x) = \frac{d}{dx}(x) = 1 $$  
+그 외의 경우, $$ \frac{d}{dx}ReLU(x) = \frac{d}{dx}(0) = 0 $$
+
+#### Derivative of Softmax
+$$ \frac{d}{dx_i}Softmax(x_i) = \frac{d}{dx_i}(\frac{e^{x_i}}{e^{x_1} + e^{x_2} +\cdots+ e^{x_n}}) = \frac{d}{dx_i}(\frac{e^{x_i}}{\sum_{j = 1}^{n} {e^{x_j}}}) $$

@@ -11,7 +11,7 @@ Backpropagation (BP) 을 구현하기 위해서 알고리즘을 수학적으로 
 <img src="/assets/img/ml/nn_example.png">
 
 전체적인 알고리즘과 BP의 수식을 유도하기 위해서는 먼저 forward propagation을 살펴보아야 한다. 
-먼저 input으로부터 첫번째 hidden layer의 input h1<sub>_in1_</sub>을 구하고, activation function (이 예제에서는 첫번째 layer에 Relu를 사용)을 거쳐 hidden layer의 output h1<sub>_out1_</sub>을 구하는 과정을 살펴보자.
+먼저 input으로부터 첫번째 hidden layer의 input h1<sub>_in1_</sub>을 구하고, activation function (이 예제에서는 첫번째 layer에 ReLU (Rectified Linear Unit)를 사용)을 거쳐 hidden layer의 output h1<sub>_out1_</sub>을 구하는 과정을 살펴보자.
 
 ### Layer 1
 <img src="/assets/img/ml/nn_example_layer1.png">
@@ -42,7 +42,7 @@ $$ \begin{bmatrix} h1_{in1} \\
                 b_{j_3} \end{bmatrix} = 
 W_{ij}^TI + B_j $$  
 
-Relu ($=max(0, x)$) operation을 통한 hidden layer _j_ 의 output  
+ReLU ($=max(0, x)$) operation을 통한 hidden layer _j_ 의 output  
 $$ \begin{bmatrix} h1_{out1} \\ 
                    h1_{out2} \\ 
                    h1_{out3} \end{bmatrix} = 
@@ -133,10 +133,16 @@ BP는 기본적으로 error의 weight에 대한 변화량을 이용해서 새로
 그 변화량은 partial derivatives들과 chain rule에 의해서 계산된다.
 몇 가지 함수의 derivatives들을 미리 구해놓으면 쉽게 weight에 대한 error의 변화량을 구할 수 있다.
 
-#### Derivative of sigmoid
-$$ \frac{d}{dx}sigmoid(x) = \frac{d}{dx}\frac{1}{(1 + e^{-x})} =
+#### Derivative of Sigmoid
+$$ \frac{d}{dx}Sigmoid(x) = \frac{d}{dx}\frac{1}{(1 + e^{-x})} =
 \frac{(1)'(1 + e^{-x}) - 1(1 + e^{-x})'}{(1 + e^{-x}) ^ 2} = 
 \frac{e^{-x}}{(1 + e^{-x}) ^ 2} $$  
 (왜냐하면 $$ (1 + e^{-x})' = \frac{d}{dx}(1) + \frac{d}{dx}(e^{-x}) = 0 + (-1)e^{-x} $$ 이므로)  
 $$ \frac{e^{-x}}{(1 + e^{-x}) ^ 2} = \frac{1}{(1 + e^{-x})}\cdot\frac{e^{-x}}{(1 + e^{-x})} =
 \frac{1}{(1 + e^{-x})}\cdot(1 - \frac{1}{(1 + e^{-x})}) $$
+$$ \therefore \frac{d}{dx}Sigmoid(x) = Sigmoid(x)\cdot(1 - Sigmoid(x)) $$
+
+#### Derivative of ReLU
+$$ ReLU(x) = max(0, x) $$  
+$$ if x > 0, \frac{d}{dx}ReLU(x) = \frac{d}{dx}x = 1 $$  
+$$ Otherwise, \frac{d}{dx}ReLU(x) = \frac{d}{dx}0 = 0 $$

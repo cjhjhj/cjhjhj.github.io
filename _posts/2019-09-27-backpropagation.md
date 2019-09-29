@@ -134,3 +134,4 @@ BP는 기본적으로 error의 weight에 대한 변화량을 이용해서 새로
 몇 가지 함수의 derivatives들을 미리 구해놓으면 쉽게 weight에 대한 error의 변화량을 구할 수 있다.
 
 #### Derivative of sigmoid
+$$ \frac{dsigmoid}{dx} = \frac{d}{dx}\frac{1}{(1 + e^{-x})} $$

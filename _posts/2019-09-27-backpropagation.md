@@ -138,5 +138,5 @@ $$ \frac{d}{dx}sigmoid(x) = \frac{d}{dx}\frac{1}{(1 + e^{-x})} =
 \frac{(1)'(1 + e^{-x}) - 1(1 + e^{-x})'}{(1 + e^{-x}) ^ 2} = 
 \frac{e^{-x}}{(1 + e^{-x}) ^ 2} $$  
 (왜냐하면 $$ (1 + e^{-x})' = \frac{d}{dx}(1) + \frac{d}{dx}(e^{-x}) = 0 + (-1)e^{-x} $$ 이므로)  
-\frac{e^{-x}}{(1 + e^{-x}) ^ 2} = \frac{1}{(1 + e^{-x})}\cdot\frac{e^{-x}}{(1 + e^{-x})} =
-\frac{1}{(1 + e^{-x})}\cdot\(1 - frac{e^{-x}}{(1 + e^{-x})})
+$$ \frac{e^{-x}}{(1 + e^{-x}) ^ 2} = \frac{1}{(1 + e^{-x})}\cdot\frac{e^{-x}}{(1 + e^{-x})} =
+\frac{1}{(1 + e^{-x})}\cdot\(1 - frac{e^{-x}}{(1 + e^{-x})}) $$

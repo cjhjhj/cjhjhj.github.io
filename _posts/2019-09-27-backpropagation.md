@@ -137,5 +137,5 @@ BP는 기본적으로 error의 weight에 대한 변화량을 이용해서 새로
 $$ \frac{d}{dx}sigmoid(x) = \frac{d}{dx}\frac{1}{(1 + e^{-x})} =
 \frac{(1)'(1 + e^{-x}) - 1(1 + e^{-x})'}{(1 + e^{-x}) ^ 2} = 
 \frac{e^{-x}}{(1 + e^{-x}) ^ 2} $$
-($$ \frac{d}{dx}(1 + e^{-x}) = \frac{d}{dx}(1) + \frac{d}{dx}(1 + e^{-x}) = 0 + (-1)e^{-x} $$ 이므로)  
+(왜냐하면 $$ (1 + e^{-x})' = \frac{d}{dx}(1) + \frac{d}{dx}(e^{-x}) = 0 + (-1)e^{-x} $$ 이므로)  
 

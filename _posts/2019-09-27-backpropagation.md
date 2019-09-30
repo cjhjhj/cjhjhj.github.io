@@ -13,6 +13,7 @@ Backpropagation (BP) 을 구현하기 위해서 알고리즘을 수학적으로 
 전체적인 알고리즘과 BP의 수식을 유도하기 위해서는 먼저 forward propagation을 살펴보아야 한다. 
 먼저 input으로부터 첫번째 hidden layer의 input h1<sub>_in1_</sub>을 구하고, activation function (이 예제에서는 첫번째 layer에 ReLU (Rectified Linear Unit)를 사용)을 거쳐 hidden layer의 output h1<sub>_out1_</sub>을 구하는 과정을 살펴보자.
 
+## Forward propagation
 ### Layer 1
 <img src="/assets/img/ml/nn_example_layer1.png">
 
@@ -154,3 +155,5 @@ $$ = \frac{(e^{x_i})'(\sum_{j = 1}^{n} {e^{x_j}}) - (e^{x_i})(\sum_{j = 1}^{n} {
 \frac{e^{x_i}(\sum_{j = 1, j \neq i}^{n} {e^{x_j}})}{(\sum_{j = 1}^{n} {e^{x_j}})^2} $$  
 ($$ \frac{d}{dx_i} (\sum_{j = 1}^{n} {e^{x_j}}) = (0 + \cdots + \frac{d}{dx_i}(e^{x_i}) + \cdots + 0) = e^{x_i} $$ 이므로)
 
+## Backpropagation
+### Backpropagating error between output layer and hidden layer _k_

@@ -161,4 +161,4 @@ $$ = \frac{(e^{x_i})'(\sum_{j = 1}^{n} {e^{x_j}}) - (e^{x_i})(\sum_{j = 1}^{n} {
 
 위의 그림에서 맨 오른쪽의 빨간 화살표로 표시된 weight는 $w_{k_3l_1}$ 이어야 한다 (그림에 오류가 있음).
 
-Output layer와 그 직전 hidden layer 사이의 weight (즉 $W_{kj}$ matrix의 원소들, 예를 들면 $w_{k_1_l_1}$ )가 error에 미치는 영향은 $\frac{\partial{E_1}}{\partial{w_{k_1l_1}}}$ 로 계산할 수 있는데, 그림에서 보듯이 크게 세 단계를 거치는 chain rule로 표시할 수 있다.  
+Output layer와 그 직전 hidden layer 사이의 weight (즉 $W_{kj}$ matrix의 원소들, 예를 들면 $w_{k_1l_1}$)가 error에 미치는 영향은 $\frac{\partial{E_1}}{\partial{w_{k_1l_1}}}$ 로 계산할 수 있는데, 그림에서 보듯이 크게 세 단계를 거치는 chain rule로 표시할 수 있다.  

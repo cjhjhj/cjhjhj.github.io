@@ -137,7 +137,7 @@ BP는 기본적으로 error의 weight에 대한 변화량을 이용해서 새로
 $$ \frac{d}{dx}Sigmoid(x) = \frac{d}{dx}\frac{1}{(1 + e^{-x})} =
 \frac{(1)'(1 + e^{-x}) - 1(1 + e^{-x})'}{(1 + e^{-x}) ^ 2} = 
 \frac{e^{-x}}{(1 + e^{-x}) ^ 2} $$  
-(왜냐하면 $$ (1 + e^{-x})' = \frac{d}{dx}(1) + \frac{d}{dx}(e^{-x}) = 0 + (-1)e^{-x} $$ 이므로)  
+($$ (1 + e^{-x})' = \frac{d}{dx}(1) + \frac{d}{dx}(e^{-x}) = 0 + (-1)e^{-x} $$ 이므로)  
 $$ \frac{e^{-x}}{(1 + e^{-x}) ^ 2} = \frac{1}{(1 + e^{-x})}\cdot\frac{e^{-x}}{(1 + e^{-x})} =
 \frac{1}{(1 + e^{-x})}\cdot(1 - \frac{1}{(1 + e^{-x})}) $$
 $$ \therefore \frac{d}{dx}Sigmoid(x) = Sigmoid(x)\cdot(1 - Sigmoid(x)) $$
@@ -149,5 +149,7 @@ $$x > 0 $$ 인 경우, $$ \frac{d}{dx}ReLU(x) = \frac{d}{dx}(x) = 1 $$
 
 #### Derivative of Softmax
 $$ \frac{d}{dx_i}Softmax(x_i) = \frac{d}{dx_i}(\frac{e^{x_i}}{e^{x_1} + e^{x_2} +\cdots+ e^{x_n}}) = \frac{d}{dx_i}(\frac{e^{x_i}}{\sum_{j = 1}^{n} {e^{x_j}}}) $$
-$$ = \frac{(e^{x_i})'(\sum_{j = 1}^{n} {e^{x_j}}) - (e^{x_i})(\sum_{j = 1}^{n} {e^{x_j}})'}{(\sum_{j = 1}^{n} {e^{x_j}})^2} $$  
+$$ = \frac{(e^{x_i})'(\sum_{j = 1}^{n} {e^{x_j}}) - (e^{x_i})(\sum_{j = 1}^{n} {e^{x_j}})'}{(\sum_{j = 1}^{n} {e^{x_j}})^2} =
+\frac{e^{x_i}(\sum_{j = 1}^{n} {e^{x_j}}) - (e^{x_i})(e^{x_i})}{(\sum_{j = 1}^{n} {e^{x_j}})^2} $$  
+($$ \frac{d}{dx_i} (\sum_{j = 1}^{n} {e^{x_j}}) = \frac{d}{dx_i}(0 + 0 + \cdots + e^{x_i} + \cdots + 0) $$ 이므로)
 

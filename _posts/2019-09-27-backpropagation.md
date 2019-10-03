@@ -165,4 +165,4 @@ Output layer와 그 직전 hidden layer 사이의 weight (즉 $W_{kl}$ matrix의
 $$\frac{\partial{E_1}}{\partial{w_{k_1l_1}}} = 
 \frac{\partial{E_1}}{\partial{O_{out_1}}}\cdot\frac{\partial{O_{out_1}}}{\partial{O_{in_1}}}\cdot\frac{\partial{O_{in_1}}}{\partial{w_{k_1l_1}}} $$
 각각의 미분값을 살펴보도록 하자.  
-$$ \frac{\partial{E_1}}{\partial{O_{out_1}}} = \frac{\partial}{\partial{O_{out_1}}}(y_1log(O_{out_1}) + (1 - y_1)log(1 - O_{out_1}) $$
+$$ \frac{\partial{E_1}}{\partial{O_{out_1}}} = \frac{\partial}{\partial{O_{out_1}}}(y_1log(O_{out_1}) + (1 - y_1)log(1 - O_{out_1})) $$

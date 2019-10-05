@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "What are M, M+1, M+2, M+H, M+2H, ... peaks?"
+title: "TMT-labeling"
 categories: proteomics
 comments: true
 ---
@@ -21,3 +21,8 @@ mass가 달라진다 (그렇지만 그 합은 항상 일정하다 = isobaric).
 약 229 Da의 static modification이 발생하게 된다 (그림 출처: Bachor, R et al. Trends in the design of new isobaric labeling reagents for quantitative proteomics, Molecules. 2019; 24: E701).
 
 ![TMTmodification](/assets/img/proteomics/tmt_reporter2.png)
+
+
+TMT-10 plex의 경우 각각의 reporter는 다음의 mass를 갖는다 (positively charged).  
+|Label|<sup>12</sup>C|<sup>13</sup>C|<sup>14</sup>N|<sup>15</sup>N|H|e<sup>-</sup>|Mass|  
+|sig126|8||1||16|-1|126.1277259|  

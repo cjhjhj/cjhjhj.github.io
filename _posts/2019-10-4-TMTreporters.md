@@ -24,5 +24,6 @@ mass가 달라진다 (그렇지만 그 합은 항상 일정하다 = isobaric).
 
 
 TMT-10 plex의 경우 각각의 reporter는 다음의 mass를 갖는다 (positively charged).  
-|Label|<sup>12</sup>C|<sup>13</sup>C|<sup>14</sup>N|<sup>15</sup>N|H|e<sup>-</sup>|Mass|  
+|Label|<sup>12</sup>C|<sup>13</sup>C|<sup>14</sup>N|<sup>15</sup>N|H|e<sup>-</sup>|Mass| 
+|---|---|---|---|---|---|---|---|  
 |sig126|8||1||16|-1|126.1277259|  

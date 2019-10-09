@@ -17,7 +17,7 @@ Methods Mol Biol. 2016; 1355: 53-70).
 위의 그림에서 별표 (*, asterisk)는 isotope가 존재할 수 있는 위치를 나타내며, isotope의 위치에 따라서 reporter group과 balancer group의
 mass가 달라진다 (그렇지만 그 합은 항상 일정하다 = isobaric).
 
-아래 그림에서 보듯이 N-terminus와 결합하거나 Lysine에 결합되면 repoter와 balancer group만 modification에 기여하게 되므로, 
+아래 그림에서 보듯이 N-terminus와 결합하거나 Lysine에 결합되면 reporter와 balancer group만 modification에 기여하게 되므로, 
 약 229 Da의 static modification이 발생하게 된다 (그림 출처: Bachor, R et al. Trends in the design of new isobaric labeling reagents for quantitative proteomics, Molecules. 2019; 24: E701).
 
 ![TMTmodification](/assets/img/proteomics/tmt_reporter2.png)

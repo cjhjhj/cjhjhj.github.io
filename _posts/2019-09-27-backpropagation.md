@@ -165,10 +165,12 @@ $$ = \frac{(e^{x_i})'(\sum_{j = 1}^{n} {e^{x_j}}) - (e^{x_i})(\sum_{j = 1}^{n} {
 Output layer와 그 직전 hidden layer 사이의 weight (즉 $W_{kl}$ matrix의 원소들, 예를 들면 $w_{k_1l_1}$)가 error에 미치는 영향은 $\frac{\partial{E_1}}{\partial{w_{k_1l_1}}}$ 로 계산할 수 있는데, 위의 그림에서 보듯이 크게 세 단계를 거치는 chain rule로 표시할 수 있다.  
 $$\frac{\partial{E_1}}{\partial{w_{k_1l_1}}} = 
 \frac{\partial{E_1}}{\partial{O_{out_1}}}\cdot\frac{\partial{O_{out_1}}}{\partial{O_{in_1}}}\cdot\frac{\partial{O_{in_1}}}{\partial{w_{k_1l_1}}} $$
+
 각각의 미분값을 살펴보도록 하자.  
 $$ \frac{\partial{E_1}}{\partial{O_{out_1}}} = \frac{\partial}{\partial{O_{out_1}}}-(y_1log(O_{out_1}) + (1 - y_1)log(1 - O_{out_1})) $$
 $$ = -y_1\frac{d(log(O_{out_1}))}{dO_{out_1}} - (1 - y_1)\frac{d(log(1 - O_{out_1}))}{dO_{out_1}} $$
 $$ = -y_1\cdot\frac{1}{O_{out_1}} - (1 - y_1)\cdot(-\frac{1}{(1 - O_{out_1})}) = - \frac{y_1}{O_{out_1}} + \frac{(1 - y_1)}{(1 - O_{out_1})}$$
+
 Matrix operation으로 표시하면,
 $$ \begin{bmatrix} \frac{\partial{E_1}}{\partial{O_{out1}}} \\ 
                    \frac{\partial{E_2}}{\partial{O_{out2}}} \\ 
@@ -176,6 +178,7 @@ $$ \begin{bmatrix} \frac{\partial{E_1}}{\partial{O_{out1}}} \\
 \begin{bmatrix} - \frac{y_1}{O_{out_1}} + \frac{(1 - y_1)}{(1 - O_{out_1})}  \\ 
                 - \frac{y_2}{O_{out_2}} + \frac{(1 - y_2)}{(1 - O_{out_2})} \\ 
                 - \frac{y_3}{O_{out_3}} + \frac{(1 - y_3)}{(1 - O_{out_3})} \end{bmatrix} $$  
+
 두번째 미분값을 살펴보면,
 $$\frac{\partial{O_{out_1}}}{\partial{O_{in_1}}} = \frac{\partial}{\partial{O_{in_1}}}softmax(O_{in_1}) = \frac{\partial}{\partial{O_{in_1}}}(e^{O_{in_1}} / (\sum_{a = 1}^3 {e^{O_{in_a}}}))$$
 $$=\frac{e^{O_{in_1}}(e^{O_{in_2}} + e^{O_{in_3}})}{(e^{O_{in_1}} + e^{O_{in_2}} + e^{O_{in_3}}) ^ 2}$$ (위에서 미리 구했던 softmax의 미분 참조)  
@@ -188,7 +191,8 @@ $$ \begin{bmatrix} \frac{\partial{O_{out_1}}}{\partial{O_{in_1}}} \\
 \frac{e^{O_{in_2}}(e^{O_{in_1}} + e^{O_{in_3}})}{(e^{O_{in_1}} + e^{O_{in_2}} + e^{O_{in_3}}) ^ 2} \\ 
 \frac{e^{O_{in_3}}(e^{O_{in_1}} + e^{O_{in_2}})}{(e^{O_{in_1}} + e^{O_{in_2}} + e^{O_{in_3}}) ^ 2} 
 \end{bmatrix} $$
-세번째 미분값을 살펴보도록 하자.
+
+세번째 미분값은,
 $$\frac{\partial{O_{in1}}}{\partial{w_{k_1l_1}}} = \frac{\partial}{\partial{w_{k_1l_1}}}(h2_{out1}w_{k_1l_1} + h2_{out2}w_{k_2l_1} + h2_{out3}w_{k_3l_1} + b_{l_1}) = h2_{out1}$$
 $O_{in1}$에 기여하는 weight들은 $w_{k_\cdot l_1}$ 이므로 다음과 같은 matrix operation으로 표현할 수 있다.
 $$ \begin{bmatrix} 

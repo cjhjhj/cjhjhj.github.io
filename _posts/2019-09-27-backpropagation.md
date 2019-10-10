@@ -205,3 +205,15 @@ h2_{out1} \\
 h2_{out2} \\
 h2_{out3}
 \end{bmatrix} $$
+
+$W_{kl}$ matrix에 대해서 확대해보면,
+$$ \begin{bmatrix} 
+\frac{\partial{O_{in1}}}{\partial{w_{k_1l_1}}} & \frac{\partial{O_{in2}}}{\partial{w_{k_1l_2}}} & \frac{\partial{O_{in3}}}{\partial{w_{k_1l_3}}}\\
+\frac{\partial{O_{in1}}}{\partial{w_{k_2l_1}}} & \frac{\partial{O_{in2}}}{\partial{w_{k_2l_2}}} & \frac{\partial{O_{in3}}}{\partial{w_{k_2l_3}}}\\
+\frac{\partial{O_{in1}}}{\partial{w_{k_3l_1}}} & \frac{\partial{O_{in2}}}{\partial{w_{k_3l_2}}} & \frac{\partial{O_{in3}}}{\partial{w_{k_3l_3}}}
+\end{bmatrix} = 
+\begin{bmatrix} 
+h2_{out1} & h2_{out1} & h2_{out1} \\
+h2_{out2} & h2_{out2} & h2_{out2} \\
+h2_{out3} & h2_{out3} & h2_{out3}
+\end{bmatrix} $$

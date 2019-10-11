@@ -188,9 +188,11 @@ $$\frac{\partial{O_{out_1}}}{\partial{O_{in_1}}} = \frac{\partial}{\partial{O_{i
 $$=\frac{e^{O_{in_1}}(e^{O_{in_2}} + e^{O_{in_3}})}{(e^{O_{in_1}} + e^{O_{in_2}} + e^{O_{in_3}}) ^ 2}$$ (위에서 미리 구했던 softmax의 미분 참조)  
 
 Matrix operation으로 표시하면,
-$$ \begin{bmatrix} \frac{\partial{O_{out_1}}}{\partial{O_{in_1}}} \\ 
-                   \frac{\partial{O_{out_2}}}{\partial{O_{in_2}}} \\ 
-                   \frac{\partial{O_{out_3}}}{\partial{O_{in_3}}} \end{bmatrix} = 
+$$ \begin{bmatrix} 
+\frac{\partial{O_{out_1}}}{\partial{O_{in_1}}} \\ 
+\frac{\partial{O_{out_2}}}{\partial{O_{in_2}}} \\ 
+\frac{\partial{O_{out_3}}}{\partial{O_{in_3}}} 
+\end{bmatrix} = 
 \begin{bmatrix} \frac{e^{O_{in_1}}(e^{O_{in_2}} + e^{O_{in_3}})}{(e^{O_{in_1}} + e^{O_{in_2}} + e^{O_{in_3}}) ^ 2}  \\ 
 \frac{e^{O_{in_2}}(e^{O_{in_1}} + e^{O_{in_3}})}{(e^{O_{in_1}} + e^{O_{in_2}} + e^{O_{in_3}}) ^ 2} \\ 
 \frac{e^{O_{in_3}}(e^{O_{in_1}} + e^{O_{in_2}})}{(e^{O_{in_1}} + e^{O_{in_2}} + e^{O_{in_3}}) ^ 2} 
@@ -210,6 +212,28 @@ h2_{out1} \\
 h2_{out2} \\
 h2_{out3}
 \end{bmatrix} $$
+
+마찬가지로 $O_{in2}$와 $O_{in3}$에 기여하는 weight들은 각각 $w_{k_\cdot l_2}$, $w_{k_\cdot l_3}$ 이므로,
+\begin{bmatrix} 
+\frac{\partial{O_{in2}}}{\partial{w_{k_1l_2}}} \\
+\frac{\partial{O_{in2}}}{\partial{w_{k_2l_2}}} \\
+\frac{\partial{O_{in2}}}{\partial{w_{k_3l_2}}}
+\end{bmatrix} = 
+\begin{bmatrix} 
+h2_{out1} \\
+h2_{out2} \\
+h2_{out3}
+\end{bmatrix},
+\begin{bmatrix} 
+\frac{\partial{O_{in3}}}{\partial{w_{k_1l_3}}} \\
+\frac{\partial{O_{in3}}}{\partial{w_{k_2l_3}}} \\
+\frac{\partial{O_{in3}}}{\partial{w_{k_3l_3}}}
+\end{bmatrix} = 
+\begin{bmatrix} 
+h2_{out1} \\
+h2_{out2} \\
+h2_{out3}
+\end{bmatrix}$$
 
 $W_{kl}$ matrix에 대해서 확대해보면,
 $$ \begin{bmatrix} 

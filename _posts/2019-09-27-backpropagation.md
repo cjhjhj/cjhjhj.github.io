@@ -300,3 +300,88 @@ $$W_{kl}^{new} = W_{kl} - \alpha\cdot\delta{W_{kl}}$$
 한단계 더 뒤로 가서 hidden layer j와 k 사이에서의 backpropagation을 알아보도록 하자.
 <img src="/assets/img/ml/nn_example_bp2.png">
 
+
+$$\frac{\partial{E}}{\partial{w_{j_1k_1}}} = \frac{\partial{E}}{\partial{h2_{out_1}}} \cdot  \frac{\partial{h2_{out_1}}}{\partial{h2_{in_1}}} \cdot \frac{\partial{h2_{in_1}}}{\partial{w_{j_1k_1}}}$$
+
+$$ \frac{\partial{h2_{out_1}}}{\partial{h2_{in_1}}} = \frac{\partial}{\partial{h2_{in_1}}} (sigmoid(h2_{in_1})) = sigmoid(h2_{in_1})\cdot(1 - sigmoid(h2_{in_1}))$$
+
+$$ \begin{bmatrix} 
+\frac{\partial{h2_{out_1}}}{\partial{h2_{in_1}}} \\
+\frac{\partial{h2_{out_2}}}{\partial{h2_{in_2}}} \\
+\frac{\partial{h2_{out_3}}}{\partial{h2_{in_3}}} 
+\end{bmatrix} 
+= \begin{bmatrix} 
+sigmoid(h2_{in_1})\cdot(1 - sigmoid(h2_{in_1})) \\
+sigmoid(h2_{in_2})\cdot(1 - sigmoid(h2_{in_2})) \\
+sigmoid(h2_{in_3})\cdot(1 - sigmoid(h2_{in_3}))
+\end{bmatrix}  $$
+
+$$ \frac{\partial{h2_{in_1}}}{\partial{w_{j_1k_1}}} = \frac{\partial}{\partial{w_{j_1k_1}}}(h1_{out1}w_{j_1k_1} + h1_{out2}w_{j_2k_1} + h1_{out3}w_{j_3k_1} + b_{k_1}) = h1_{out1} $$
+
+$$ \begin{bmatrix} 
+\frac{\partial{h2_{in1}}}{\partial{w_{j_1k1}}} & \frac{\partial{h2_{in2}}}{\partial{w_{j_1k_2}}} & \frac{\partial{h2_{in3}}}{\partial{w_{j_1k_3}}}\\
+\frac{\partial{h2_{in1}}}{\partial{w_{j_2k1}}} & \frac{\partial{h2_{in2}}}{\partial{w_{j_2k_2}}} & \frac{\partial{h2_{in3}}}{\partial{w_{j_2k_3}}}\\
+\frac{\partial{h2_{in1}}}{\partial{w_{j_3k1}}} & \frac{\partial{h2_{in2}}}{\partial{w_{j_3k_2}}} & \frac{\partial{h2_{in3}}}{\partial{w_{j_3k_3}}}
+\end{bmatrix} = 
+\begin{bmatrix} 
+h1_{out1} & h1_{out1} & h1_{out1} \\
+h1_{out2} & h1_{out2} & h1_{out2} \\
+h1_{out3} & h1_{out3} & h1_{out3}
+\end{bmatrix} $$
+
+$$\frac{\partial{E}}{\partial{h2_{out_1}}} = \frac{\partial{(E_1 + E_2 + E_3)}}{\partial{h2_{out_1}}} = \frac{\partial{E_1}}{\partial{h2_{out_1}}} + \frac{\partial{E_2}}{\partial{h2_{out_1}}} + \frac{\partial{E_3}}{\partial{h2_{out_1}}}$$
+
+$$ \frac{\partial{E_1}}{\partial{h2_{out_1}}} = \frac{\partial{E_1}}{\partial{O_{out_1}}} \cdot \frac{\partial{O_{out_1}}}{\partial{O_{in_1}}} \cdot \frac{\partial{O_{in_1}}}{\partial{h2_{out_1}}}$$
+$$ \frac{\partial{E_2}}{\partial{h2_{out_1}}} = \frac{\partial{E_2}}{\partial{O_{out_2}}} \cdot \frac{\partial{O_{out_2}}}{\partial{O_{in_2}}} \cdot \frac{\partial{O_{in_2}}}{\partial{h2_{out_1}}}$$
+$$ \frac{\partial{E_3}}{\partial{h2_{out_1}}} = \frac{\partial{E_3}}{\partial{O_{out_3}}} \cdot \frac{\partial{O_{out_3}}}{\partial{O_{in_3}}} \cdot \frac{\partial{O_{in_3}}}{\partial{h2_{out_1}}}$$
+
+$$ \begin{bmatrix} 
+\frac{\partial{E}}{\partial{h2_{out_1}}} \\
+\frac{\partial{E}}{\partial{h2_{out_2}}} \\
+\frac{\partial{E}}{\partial{h2_{out_3}}}
+\end{bmatrix} = 
+\begin{bmatrix} 
+\frac{\partial{E_1}}{\partial{O_{out_1}}} \cdot \frac{\partial{O_{out_1}}}{\partial{O_{in_1}}} \cdot \frac{\partial{O_{in_1}}}{\partial{h2_{out_1}}} + \frac{\partial{E_2}}{\partial{O_{out_2}}} \cdot \frac{\partial{O_{out_2}}}{\partial{O_{in_2}}} \cdot \frac{\partial{O_{in_2}}}{\partial{h2_{out_1}}} + \frac{\partial{E_3}}{\partial{O_{out_3}}} \cdot \frac{\partial{O_{out_3}}}{\partial{O_{in_3}}} \cdot \frac{\partial{O_{in_3}}}{\partial{h2_{out_1}}} \\
+\frac{\partial{E_1}}{\partial{O_{out_1}}} \cdot \frac{\partial{O_{out_1}}}{\partial{O_{in_1}}} \cdot \frac{\partial{O_{in_1}}}{\partial{h2_{out_2}}} + \frac{\partial{E_2}}{\partial{O_{out_2}}} \cdot \frac{\partial{O_{out_2}}}{\partial{O_{in_2}}} \cdot \frac{\partial{O_{in_2}}}{\partial{h2_{out_2}}} + \frac{\partial{E_3}}{\partial{O_{out_3}}} \cdot \frac{\partial{O_{out_3}}}{\partial{O_{in_3}}} \cdot \frac{\partial{O_{in_3}}}{\partial{h2_{out_2}}} \\
+\frac{\partial{E_1}}{\partial{O_{out_1}}} \cdot \frac{\partial{O_{out_1}}}{\partial{O_{in_1}}} \cdot \frac{\partial{O_{in_1}}}{\partial{h2_{out_3}}} + \frac{\partial{E_2}}{\partial{O_{out_2}}} \cdot \frac{\partial{O_{out_2}}}{\partial{O_{in_2}}} \cdot \frac{\partial{O_{in_2}}}{\partial{h2_{out_3}}} + \frac{\partial{E_3}}{\partial{O_{out_3}}} \cdot \frac{\partial{O_{out_3}}}{\partial{O_{in_3}}} \cdot \frac{\partial{O_{in_3}}}{\partial{h2_{out_3}}}
+\end{bmatrix} $$
+
+$$ O_{in_1} = h2_{out_1}w_{k_1l_1} + h2_{out_2}w_{k_2l_1} + h2_{out_3}w_{k_3l_1} + b_{l_1} $$
+
+$$ O_{in_2} = h2_{out_1}w_{k_1l_2} + h2_{out_2}w_{k_2l_2} + h2_{out_3}w_{k_3l_2} + b_{l_2} $$
+  
+$$ \begin{bmatrix} 
+\frac{\partial{O_{in_1}}}{\partial{h2_{out_1}}}  & \frac{\partial{O_{in_2}}}{\partial{h2_{out_1}}} & \frac{\partial{O_{in_3}}}{\partial{h2_{out_1}}} \\
+\frac{\partial{O_{in_1}}}{\partial{h2_{out_2}}}  & \frac{\partial{O_{in_2}}}{\partial{h2_{out_2}}} & \frac{\partial{O_{in_3}}}{\partial{h2_{out_2}}} \\
+\frac{\partial{O_{in_1}}}{\partial{h2_{out_3}}}  & \frac{\partial{O_{in_2}}}{\partial{h2_{out_3}}} & \frac{\partial{O_{in_3}}}{\partial{h2_{out_3}}}
+\end{bmatrix} = 
+\begin{bmatrix} 
+w_{k_1l_1} & w_{k_1l_2} & w_{k_1l_3} \\
+w_{k_2l_1} & w_{k_2l_2} & w_{k_2l_3} \\
+w_{k_3l_1} & w_{k_3l_2} & w_{k_3l_3}
+\end{bmatrix} $$
+
+$$ \begin{bmatrix} 
+\frac{\partial{E}}{\partial{h2_{out_1}}} \\
+\frac{\partial{E}}{\partial{h2_{out_2}}} \\
+\frac{\partial{E}}{\partial{h2_{out_3}}}
+\end{bmatrix} = 
+\begin{bmatrix} 
+w_{k_1l_1} & w_{k_1l_2} & w_{k_1l_3} \\
+w_{k_2l_1} & w_{k_2l_2} & w_{k_2l_3} \\
+w_{k_3l_1} & w_{k_3l_2} & w_{k_3l_3}
+\end{bmatrix} \cdot 
+\left (
+\begin{bmatrix}
+\frac{\partial{E_1}}{\partial{O_{out_1}}} \\
+\frac{\partial{E_2}}{\partial{O_{out_2}}} \\
+\frac{\partial{E_3}}{\partial{O_{out_3}}}
+\end{bmatrix}
+\ast
+\begin{bmatrix}
+\frac{\partial{O_{out_1}}}{\partial{O_{in_1}}} \\
+\frac{\partial{O_{out_2}}}{\partial{O_{in_2}}} \\
+\frac{\partial{O_{out_3}}}{\partial{O_{in_3}}}
+\end{bmatrix}
+\right )
+$$

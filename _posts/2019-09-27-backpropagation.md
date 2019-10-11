@@ -214,7 +214,7 @@ h2_{out3}
 \end{bmatrix} $$
 
 마찬가지로 $O_{in2}$와 $O_{in3}$에 기여하는 weight들은 각각 $w_{k_\cdot l_2}$, $w_{k_\cdot l_3}$ 이므로,
-\begin{bmatrix} 
+$$\begin{bmatrix} 
 \frac{\partial{O_{in2}}}{\partial{w_{k_1l_2}}} \\
 \frac{\partial{O_{in2}}}{\partial{w_{k_2l_2}}} \\
 \frac{\partial{O_{in2}}}{\partial{w_{k_3l_2}}}

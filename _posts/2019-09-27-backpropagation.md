@@ -277,16 +277,19 @@ $$ = \begin{bmatrix}
 \frac{\partial{E_1}}{\partial{O_{out_1}}} & \frac{\partial{E_2}}{\partial{O_{out_2}}} & \frac{\partial{E_3}}{\partial{O_{out_3}}} \\
 \frac{\partial{E_1}}{\partial{O_{out_1}}} & \frac{\partial{E_2}}{\partial{O_{out_2}}} & \frac{\partial{E_3}}{\partial{O_{out_3}}}
 \end{bmatrix} 
-*
+x
 \begin{bmatrix} 
 \frac{\partial{O_{out_1}}}{\partial{O_{in_1}}} & \frac{\partial{O_{out_2}}}{\partial{O_{in_2}}} & \frac{\partial{O_{out_3}}}{\partial{O_{in_3}}} \\
 \frac{\partial{O_{out_1}}}{\partial{O_{in_1}}} & \frac{\partial{O_{out_2}}}{\partial{O_{in_2}}} & \frac{\partial{O_{out_3}}}{\partial{O_{in_3}}} \\
 \frac{\partial{O_{out_1}}}{\partial{O_{in_1}}} & \frac{\partial{O_{out_2}}}{\partial{O_{in_2}}} & \frac{\partial{O_{out_3}}}{\partial{O_{in_3}}}
 \end{bmatrix}
-*
+x
 \begin{bmatrix} 
 \frac{\partial{O_{in_1}}}{\partial{w_{k_1l_1}}} & \frac{\partial{O_{in_2}}}{\partial{w_{k_1l_2}}} & \frac{\partial{O_{in_3}}}{\partial{w_{k_1l_3}}} \\
 \frac{\partial{O_{in_1}}}{\partial{w_{k_2l_1}}} & \frac{\partial{O_{in_2}}}{\partial{w_{k_2l_2}}} & \frac{\partial{O_{in_3}}}{\partial{w_{k_2l_3}}} \\
 \frac{\partial{O_{in_1}}}{\partial{w_{k_3l_1}}} & \frac{\partial{O_{in_2}}}{\partial{w_{k_3l_2}}} & \frac{\partial{O_{in_3}}}{\partial{w_{k_3l_3}}}
-\end{bmatrix}
-$$
+\end{bmatrix} $$
+Operator x는 element-wise product를 나타낸다.
+
+### Backpropagating error between hidden layer _j_ and _k_
+이번에는 한단계 더 뒤로 가서 hidden layer j와 k 사이에서의 backpropagation을 알아보도록 하자.

@@ -253,14 +253,14 @@ $ \frac{\partial{E}}{\partial{w_{k_1l_2}}} =  \frac{\partial{E_2}}{\partial{w_{k
 $$ \begin{bmatrix} 
 \frac{\partial{E}}{\partial{w_{k_1l_1}}} & \frac{\partial{E}}{\partial{w_{k_1l_2}}} & \frac{\partial{E}}{\partial{w_{k_1l_3}}} \\ 
 \frac{\partial{E}}{\partial{w_{k_2l_1}}} & \frac{\partial{E}}{\partial{w_{k_2l_2}}} & \frac{\partial{E}}{\partial{w_{k_2l_3}}} \\ 
-\frac{\partial{E}}{\partial{w_{k_3l_1}}} & \frac{\partial{E}}{\partial{w_{k_3l_2}}} & \frac{\partial{E}}{\partial{w_{k_3l_3}}} \\ 
+\frac{\partial{E}}{\partial{w_{k_3l_1}}} & \frac{\partial{E}}{\partial{w_{k_3l_2}}} & \frac{\partial{E}}{\partial{w_{k_3l_3}}}
 \end{bmatrix} = 
 \begin{bmatrix} 
 \frac{\partial{E_1}}{\partial{w_{k_1l_1}}} & \frac{\partial{E_2}}{\partial{w_{k_1l_2}}} & \frac{\partial{E_3}}{\partial{w_{k_1l_3}}} \\ 
 \frac{\partial{E_1}}{\partial{w_{k_2l_1}}} & \frac{\partial{E_2}}{\partial{w_{k_2l_2}}} & \frac{\partial{E_3}}{\partial{w_{k_2l_3}}} \\ 
-\frac{\partial{E_1}}{\partial{w_{k_3l_1}}} & \frac{\partial{E_2}}{\partial{w_{k_3l_2}}} & \frac{\partial{E_3}}{\partial{w_{k_3l_3}}} \\ 
-\end{bmatrix} =
-\begin{bmatrix} 
+\frac{\partial{E_1}}{\partial{w_{k_3l_1}}} & \frac{\partial{E_2}}{\partial{w_{k_3l_2}}} & \frac{\partial{E_3}}{\partial{w_{k_3l_3}}}
+\end{bmatrix} $$
+$$ = \begin{bmatrix} 
 \frac{\partial{E_1}}{\partial{O_{out_1}}}\frac{\partial{O_{out_1}}}{\partial{O_{in_1}}}\frac{\partial{O_{in_1}}}{\partial{w_{k_1l_1}}}
 & \frac{\partial{E_2}}{\partial{O_{out_2}}}\frac{\partial{O_{out_2}}}{\partial{O_{in_2}}}\frac{\partial{O_{in_2}}}{\partial{w_{k_1l_2}}}
 & \frac{\partial{E_3}}{\partial{O_{out_3}}}\frac{\partial{O_{out_3}}}{\partial{O_{in_3}}}\frac{\partial{O_{in_3}}}{\partial{w_{k_1l_3}}} \\
@@ -270,8 +270,9 @@ $$ \begin{bmatrix}
 \frac{\partial{E_1}}{\partial{O_{out_1}}}\frac{\partial{O_{out_1}}}{\partial{O_{in_1}}}\frac{\partial{O_{in_1}}}{\partial{w_{k_3l_1}}}
 & \frac{\partial{E_2}}{\partial{O_{out_2}}}\frac{\partial{O_{out_2}}}{\partial{O_{in_2}}}\frac{\partial{O_{in_2}}}{\partial{w_{k_3l_2}}}
 & \frac{\partial{E_3}}{\partial{O_{out_3}}}\frac{\partial{O_{out_3}}}{\partial{O_{in_3}}}\frac{\partial{O_{in_3}}}{\partial{w_{k_3l_3}}}
-\end{bmatrix} 
-= \begin{bmatrix} 
+\end{bmatrix}  $$
+
+$$ = \begin{bmatrix} 
 \frac{\partial{E_1}}{\partial{O_{out_1}}} & \frac{\partial{E_2}}{\partial{O_{out_2}}} & \frac{\partial{E_3}}{\partial{O_{out_3}}} \\
 \frac{\partial{E_1}}{\partial{O_{out_1}}} & \frac{\partial{E_2}}{\partial{O_{out_2}}} & \frac{\partial{E_3}}{\partial{O_{out_3}}} \\
 \frac{\partial{E_1}}{\partial{O_{out_1}}} & \frac{\partial{E_2}}{\partial{O_{out_2}}} & \frac{\partial{E_3}}{\partial{O_{out_3}}}

@@ -183,7 +183,7 @@ $$ \begin{bmatrix} \frac{\partial{E_1}}{\partial{O_{out1}}} \\
                 - \frac{y_3}{O_{out_3}} + \frac{(1 - y_3)}{(1 - O_{out_3})} \end{bmatrix} $$  
 
 
-두번째 미분값을 살펴보면,
+두번째 미분값을 살펴보면,  
 $$\frac{\partial{O_{out_1}}}{\partial{O_{in_1}}} = \frac{\partial}{\partial{O_{in_1}}}softmax(O_{in_1}) = \frac{\partial}{\partial{O_{in_1}}}(e^{O_{in_1}} / (\sum_{a = 1}^3 {e^{O_{in_a}}}))$$
 $$=\frac{e^{O_{in_1}}(e^{O_{in_2}} + e^{O_{in_3}})}{(e^{O_{in_1}} + e^{O_{in_2}} + e^{O_{in_3}}) ^ 2}$$ (위에서 미리 구했던 softmax의 미분 참조)  
 
@@ -199,8 +199,8 @@ $$ \begin{bmatrix}
 \end{bmatrix} $$
 
 
-세번째 미분값은,
-$$\frac{\partial{O_{in1}}}{\partial{w_{k_1l_1}}} = \frac{\partial}{\partial{w_{k_1l_1}}}(h2_{out1}w_{k_1l_1} + h2_{out2}w_{k_2l_1} + h2_{out3}w_{k_3l_1} + b_{l_1}) = h2_{out1}$$
+세번째 미분값은,  
+$$\frac{\partial{O_{in1}}}{\partial{w_{k_1l_1}}} = \frac{\partial}{\partial{w_{k_1l_1}}}(h2_{out1}w_{k_1l_1} + h2_{out2}w_{k_2l_1} + h2_{out3}w_{k_3l_1} + b_{l_1}) = h2_{out1}$$  
 $O_{in1}$에 기여하는 weight들은 $w_{k_\cdot l_1}$ 이므로 다음과 같은 matrix operation으로 표현할 수 있다.
 $$ \begin{bmatrix} 
 \frac{\partial{O_{in1}}}{\partial{w_{k_1l_1}}} \\
@@ -246,3 +246,47 @@ h2_{out1} & h2_{out1} & h2_{out1} \\
 h2_{out2} & h2_{out2} & h2_{out2} \\
 h2_{out3} & h2_{out3} & h2_{out3}
 \end{bmatrix} $$
+
+
+위의 그림을 다시 한번 상기하면서 $W_{kj}$에 대한 error의 미분값을 정리해보자.  
+$w_{k_1l_1}$은 $E_1$에만 기여를 하므로 $ \frac{\partial{E}}{\partial{w_{k_1l_1}}} =  \frac{\partial{E_1}}{\partial{w_{k_1l_1}}} $ 이 되고, $w_{k_1l_2}$은 $E_2$에만 기여를 하므로 
+$ \frac{\partial{E}}{\partial{w_{k_1l_2}}} =  \frac{\partial{E_2}}{\partial{w_{k_1l_1}}} $ 가 된다. 일반화를 시켜보면  
+$$ \begin{bmatrix} 
+\frac{\partial{E}}{\partial{w_{k_1l_1}}} & \frac{\partial{E}}{\partial{w_{k_1l_2}}} & \frac{\partial{E}}{\partial{w_{k_1l_3}}} \\ 
+\frac{\partial{E}}{\partial{w_{k_2l_1}}} & \frac{\partial{E}}{\partial{w_{k_2l_2}}} & \frac{\partial{E}}{\partial{w_{k_2l_3}}} \\ 
+\frac{\partial{E}}{\partial{w_{k_3l_1}}} & \frac{\partial{E}}{\partial{w_{k_3l_2}}} & \frac{\partial{E}}{\partial{w_{k_3l_3}}} \\ 
+\end{bmatrix} = 
+\begin{bmatrix} 
+\frac{\partial{E_1}}{\partial{w_{k_1l_1}}} & \frac{\partial{E_2}}{\partial{w_{k_1l_2}}} & \frac{\partial{E_3}}{\partial{w_{k_1l_3}}} \\ 
+\frac{\partial{E_1}}{\partial{w_{k_2l_1}}} & \frac{\partial{E_2}}{\partial{w_{k_2l_2}}} & \frac{\partial{E_3}}{\partial{w_{k_2l_3}}} \\ 
+\frac{\partial{E_1}}{\partial{w_{k_3l_1}}} & \frac{\partial{E_2}}{\partial{w_{k_3l_2}}} & \frac{\partial{E_3}}{\partial{w_{k_3l_3}}} \\ 
+\end{bmatrix} =
+\begin{bmatrix} 
+\frac{\partial{E_1}}{\partial{O_{out_1}}}\frac{\partial{O_{out_1}}}{\partial{O_{in_1}}}\frac{\partial{O_{in_1}}}{\partial{w_{k_1l_1}}}
+& \frac{\partial{E_2}}{\partial{O_{out_2}}}\frac{\partial{O_{out_2}}}{\partial{O_{in_2}}}\frac{\partial{O_{in_2}}}{\partial{w_{k_1l_2}}}
+& \frac{\partial{E_3}}{\partial{O_{out_3}}}\frac{\partial{O_{out_3}}}{\partial{O_{in_3}}}\frac{\partial{O_{in_3}}}{\partial{w_{k_1l_3}}} \\
+\frac{\partial{E_1}}{\partial{O_{out_1}}}\frac{\partial{O_{out_1}}}{\partial{O_{in_1}}}\frac{\partial{O_{in_1}}}{\partial{w_{k_2l_1}}}
+& \frac{\partial{E_2}}{\partial{O_{out_2}}}\frac{\partial{O_{out_2}}}{\partial{O_{in_2}}}\frac{\partial{O_{in_2}}}{\partial{w_{k_2l_2}}}
+& \frac{\partial{E_3}}{\partial{O_{out_3}}}\frac{\partial{O_{out_3}}}{\partial{O_{in_3}}}\frac{\partial{O_{in_3}}}{\partial{w_{k_2l_3}}} \\
+\frac{\partial{E_1}}{\partial{O_{out_1}}}\frac{\partial{O_{out_1}}}{\partial{O_{in_1}}}\frac{\partial{O_{in_1}}}{\partial{w_{k_3l_1}}}
+& \frac{\partial{E_2}}{\partial{O_{out_2}}}\frac{\partial{O_{out_2}}}{\partial{O_{in_2}}}\frac{\partial{O_{in_2}}}{\partial{w_{k_3l_2}}}
+& \frac{\partial{E_3}}{\partial{O_{out_3}}}\frac{\partial{O_{out_3}}}{\partial{O_{in_3}}}\frac{\partial{O_{in_3}}}{\partial{w_{k_3l_3}}}
+\end{bmatrix} 
+= \begin{bmatrix} 
+\frac{\partial{E_1}}{\partial{O_{out_1}}} & \frac{\partial{E_2}}{\partial{O_{out_2}}} & \frac{\partial{E_3}}{\partial{O_{out_3}}} \\
+\frac{\partial{E_1}}{\partial{O_{out_1}}} & \frac{\partial{E_2}}{\partial{O_{out_2}}} & \frac{\partial{E_3}}{\partial{O_{out_3}}} \\
+\frac{\partial{E_1}}{\partial{O_{out_1}}} & \frac{\partial{E_2}}{\partial{O_{out_2}}} & \frac{\partial{E_3}}{\partial{O_{out_3}}}
+\end{bmatrix} 
+*
+\begin{bmatrix} 
+\frac{\partial{O_{out_1}}}{\partial{O_{in_1}}} & \frac{\partial{O_{out_2}}}{\partial{O_{in_2}}} & \frac{\partial{O_{out_3}}}{\partial{O_{in_3}}} \\
+\frac{\partial{O_{out_1}}}{\partial{O_{in_1}}} & \frac{\partial{O_{out_2}}}{\partial{O_{in_2}}} & \frac{\partial{O_{out_3}}}{\partial{O_{in_3}}} \\
+\frac{\partial{O_{out_1}}}{\partial{O_{in_1}}} & \frac{\partial{O_{out_2}}}{\partial{O_{in_2}}} & \frac{\partial{O_{out_3}}}{\partial{O_{in_3}}}
+\end{bmatrix}
+*
+\begin{bmatrix} 
+\frac{\partial{O_{in_1}}}{\partial{w_{k_1l_1}}} & \frac{\partial{O_{in_2}}}{\partial{w_{k_1l_2}}} & \frac{\partial{O_{in_3}}}{\partial{w_{k_1l_3}}} \\
+\frac{\partial{O_{in_1}}}{\partial{w_{k_2l_1}}} & \frac{\partial{O_{in_2}}}{\partial{w_{k_2l_2}}} & \frac{\partial{O_{in_3}}}{\partial{w_{k_2l_3}}} \\
+\frac{\partial{O_{in_1}}}{\partial{w_{k_3l_1}}} & \frac{\partial{O_{in_2}}}{\partial{w_{k_3l_2}}} & \frac{\partial{O_{in_3}}}{\partial{w_{k_3l_3}}}
+\end{bmatrix}
+$$

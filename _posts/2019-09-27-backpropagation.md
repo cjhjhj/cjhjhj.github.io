@@ -161,15 +161,16 @@ $$ = \frac{(e^{x_i})'(\sum_{j = 1}^{n} {e^{x_j}}) - (e^{x_i})(\sum_{j = 1}^{n} {
 
 위의 그림에서 맨 오른쪽의 빨간 화살표로 표시된 weight는 $w_{k_3l_1}$ 이어야 한다 (그림에 오류가 있음).
 
-Output layer와 그 직전 hidden layer 사이의 weight (즉 $W_{kl}$ matrix의 원소들, 예를 들면 $w_{k_1l_1}$)가 error에 미치는 영향은 $\frac{\partial{E_1}}{\partial{w_{k_1l_1}}}$ 로 계산할 수 있는데, 위의 그림에서 보듯이 크게 세 단계를 거치는 chain rule로 표시할 수 있다.  
-$$\frac{\partial{E_1}}{\partial{w_{k_1l_1}}} = 
-\frac{\partial{E_1}}{\partial{O_{out_1}}}\cdot\frac{\partial{O_{out_1}}}{\partial{O_{in_1}}}\cdot\frac{\partial{O_{in_1}}}{\partial{w_{k_1l_1}}} $$
+Output layer와 그 직전 hidden layer 사이의 weight (즉 $W_{kl}$ matrix의 원소들, 예를 들면 $w_{k_1l_1}$)가 error에 미치는 영향은 $\frac{\partial{E}}{\partial{w_{k_1l_1}}}$ 로 계산할 수 있는데, 위의 그림에서 보듯이 크게 세 단계를 거치는 chain rule로 표시할 수 있다.  
+$$\frac{\partial{E}}{\partial{w_{k_1l_1}}} = 
+\frac{\partial{E}}{\partial{O_{out_1}}}\cdot\frac{\partial{O_{out_1}}}{\partial{O_{in_1}}}\cdot\frac{\partial{O_{in_1}}}{\partial{w_{k_1l_1}}} $$
 
 각각의 미분값을 살펴보도록 하자.  
 
 첫번째 미분값은,
 
-$$ \frac{\partial{E_1}}{\partial{O_{out_1}}} = \frac{\partial}{\partial{O_{out_1}}}-(y_1log(O_{out_1}) + (1 - y_1)log(1 - O_{out_1})) $$
+$$ \frac{\partial{E}}{\partial{O_{out_1}}} = \frac{\partial{E_1}}{\partial{O_{out_1}}} $$ ($O_{out_1}$은 $E_1$에만 기여를 )
+$$ \frac{\partial}{\partial{O_{out_1}}}-(y_1log(O_{out_1}) + (1 - y_1)log(1 - O_{out_1})) $$
 $$ = -y_1\frac{d(log(O_{out_1}))}{dO_{out_1}} - (1 - y_1)\frac{d(log(1 - O_{out_1}))}{dO_{out_1}} $$
 $$ = -y_1\cdot\frac{1}{O_{out_1}} - (1 - y_1)\cdot(-\frac{1}{(1 - O_{out_1})}) = - \frac{y_1}{O_{out_1}} + \frac{(1 - y_1)}{(1 - O_{out_1})}$$
 
@@ -250,7 +251,8 @@ h2_{out3} & h2_{out3} & h2_{out3}
 위의 그림을 다시 한번 상기하면서 $W_{kj}$에 대한 error의 미분값을 정리해보자.  
 $w_{k_1l_1}$은 $E_1$에만 기여를 하므로 $ \frac{\partial{E}}{\partial{w_{k_1l_1}}} =  \frac{\partial{E_1}}{\partial{w_{k_1l_1}}} $ 이 되고, $w_{k_1l_2}$은 $E_2$에만 기여를 하므로 
 $ \frac{\partial{E}}{\partial{w_{k_1l_2}}} =  \frac{\partial{E_2}}{\partial{w_{k_1l_1}}} $ 가 된다. 일반화를 시켜보면  
-$$ \begin{bmatrix} 
+$$ \delta{W_{kl}} =
+\begin{bmatrix} 
 \frac{\partial{E}}{\partial{w_{k_1l_1}}} & \frac{\partial{E}}{\partial{w_{k_1l_2}}} & \frac{\partial{E}}{\partial{w_{k_1l_3}}} \\ 
 \frac{\partial{E}}{\partial{w_{k_2l_1}}} & \frac{\partial{E}}{\partial{w_{k_2l_2}}} & \frac{\partial{E}}{\partial{w_{k_2l_3}}} \\ 
 \frac{\partial{E}}{\partial{w_{k_3l_1}}} & \frac{\partial{E}}{\partial{w_{k_3l_2}}} & \frac{\partial{E}}{\partial{w_{k_3l_3}}}
@@ -277,19 +279,24 @@ $$ = \begin{bmatrix}
 \frac{\partial{E_1}}{\partial{O_{out_1}}} & \frac{\partial{E_2}}{\partial{O_{out_2}}} & \frac{\partial{E_3}}{\partial{O_{out_3}}} \\
 \frac{\partial{E_1}}{\partial{O_{out_1}}} & \frac{\partial{E_2}}{\partial{O_{out_2}}} & \frac{\partial{E_3}}{\partial{O_{out_3}}}
 \end{bmatrix} 
-x
+\ast
 \begin{bmatrix} 
 \frac{\partial{O_{out_1}}}{\partial{O_{in_1}}} & \frac{\partial{O_{out_2}}}{\partial{O_{in_2}}} & \frac{\partial{O_{out_3}}}{\partial{O_{in_3}}} \\
 \frac{\partial{O_{out_1}}}{\partial{O_{in_1}}} & \frac{\partial{O_{out_2}}}{\partial{O_{in_2}}} & \frac{\partial{O_{out_3}}}{\partial{O_{in_3}}} \\
 \frac{\partial{O_{out_1}}}{\partial{O_{in_1}}} & \frac{\partial{O_{out_2}}}{\partial{O_{in_2}}} & \frac{\partial{O_{out_3}}}{\partial{O_{in_3}}}
 \end{bmatrix}
-x
+\ast
 \begin{bmatrix} 
 \frac{\partial{O_{in_1}}}{\partial{w_{k_1l_1}}} & \frac{\partial{O_{in_2}}}{\partial{w_{k_1l_2}}} & \frac{\partial{O_{in_3}}}{\partial{w_{k_1l_3}}} \\
 \frac{\partial{O_{in_1}}}{\partial{w_{k_2l_1}}} & \frac{\partial{O_{in_2}}}{\partial{w_{k_2l_2}}} & \frac{\partial{O_{in_3}}}{\partial{w_{k_2l_3}}} \\
 \frac{\partial{O_{in_1}}}{\partial{w_{k_3l_1}}} & \frac{\partial{O_{in_2}}}{\partial{w_{k_3l_2}}} & \frac{\partial{O_{in_3}}}{\partial{w_{k_3l_3}}}
 \end{bmatrix} $$
-Operator x는 element-wise product를 나타낸다.
+Operator \*는 element-wise product를 나타낸다.  
+
+새로운 weight는 learning rate, $\alpha$와 위에서 구한 gradient $\delta{W_{kl}}$에 의해서 구할 수 있다.
+$$W_{kl}^{new} = W_{kl} - \alpha\cdot\delta{W_{kl}}$$
 
 ### Backpropagating error between hidden layer _j_ and _k_
-이번에는 한단계 더 뒤로 가서 hidden layer j와 k 사이에서의 backpropagation을 알아보도록 하자.
+한단계 더 뒤로 가서 hidden layer j와 k 사이에서의 backpropagation을 알아보도록 하자.
+<img src="/assets/img/ml/nn_example_bp2.png">
+

@@ -338,7 +338,7 @@ h1_{out3} & h1_{out3} & h1_{out3}
 \end{bmatrix} $$
 
 
-세번째, $\frac{\partial{E}}{\partial{h2_{out_1}}}$ 는 조금 복잡한데, $h2_{out_1}$이 모든 error, 즉 $E_1, E_2, E_3$에 모두 기여를 하기 때문이다.  
+세번째 $\frac{\partial{E}}{\partial{h2_{out_1}}}$ 는 조금 복잡한데 $h2_{out_1}$이 모든 error, 즉 $E_1, E_2, E_3$에 모두 기여를 하기 때문이다.  
 $$ \frac{\partial{E}}{\partial{h2_{out_1}}} = \frac{\partial{(E_1 + E_2 + E_3)}}{\partial{h2_{out_1}}} = \frac{\partial{E_1}}{\partial{h2_{out_1}}} + \frac{\partial{E_2}}{\partial{h2_{out_1}}} + \frac{\partial{E_3}}{\partial{h2_{out_1}}} $$  
 
 각각의 미분값을 정리해보면 다음과 같다.  

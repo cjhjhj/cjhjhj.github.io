@@ -342,10 +342,9 @@ h1_{out3} & h1_{out3} & h1_{out3}
 $$ \frac{\partial{E}}{\partial{h2_{out_1}}} = \frac{\partial{(E_1 + E_2 + E_3)}}{\partial{h2_{out_1}}} = \frac{\partial{E_1}}{\partial{h2_{out_1}}} + \frac{\partial{E_2}}{\partial{h2_{out_1}}} + \frac{\partial{E_3}}{\partial{h2_{out_1}}} $$  
 
 각각의 미분값을 정리해보면 다음과 같다.  
-$$ \frac{\partial{E_1}}{\partial{h2_{out_1}}} = \frac{\partial{E_1}}{\partial{O_{out_1}}} \cdot \frac{\partial{O_{out_1}}}{\partial{O_{in_1}}} \cdot \frac{\partial{O_{in_1}}}{\partial{h2_{out_1}}}$$
-$$ \frac{\partial{E_2}}{\partial{h2_{out_1}}} = \frac{\partial{E_2}}{\partial{O_{out_2}}} \cdot \frac{\partial{O_{out_2}}}{\partial{O_{in_2}}} \cdot \frac{\partial{O_{in_2}}}{\partial{h2_{out_1}}}$$
-$$ \frac{\partial{E_3}}{\partial{h2_{out_1}}} = \frac{\partial{E_3}}{\partial{O_{out_3}}} \cdot \frac{\partial{O_{out_3}}}{\partial{O_{in_3}}} \cdot \frac{\partial{O_{in_3}}}{\partial{h2_{out_1}}}$$
-
+$$ \frac{\partial{E_1}}{\partial{h2_{out_1}}} = \frac{\partial{E_1}}{\partial{O_{out_1}}} \cdot \frac{\partial{O_{out_1}}}{\partial{O_{in_1}}} \cdot \frac{\partial{O_{in_1}}}{\partial{h2_{out_1}}} $$  
+$$ \frac{\partial{E_2}}{\partial{h2_{out_1}}} = \frac{\partial{E_2}}{\partial{O_{out_2}}} \cdot \frac{\partial{O_{out_2}}}{\partial{O_{in_2}}} \cdot \frac{\partial{O_{in_2}}}{\partial{h2_{out_1}}} $$  
+$$ \frac{\partial{E_3}}{\partial{h2_{out_1}}} = \frac{\partial{E_3}}{\partial{O_{out_3}}} \cdot \frac{\partial{O_{out_3}}}{\partial{O_{in_3}}} \cdot \frac{\partial{O_{in_3}}}{\partial{h2_{out_1}}} $$  
 
 
 $$ \begin{bmatrix} 

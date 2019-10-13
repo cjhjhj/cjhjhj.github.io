@@ -305,7 +305,7 @@ $$ \frac{\partial{E}}{\partial{w_{j_1k_1}}} = \frac{\partial{E}}{\partial{h2_{ou
 
 
 첫번째, $h2_{in_1}$과 $h2_{out_1}$ 사이의 관계는 sigmoid 함수로 표현되고, 그 미분식은 위에서 미리 유도되었다.
-$$ \frac{\partial{h2_{out_1}}}{\partial{h2_{in_1}}} = \frac{\partial}{\partial{h2_{in_1}}} (sigmoid(h2_{in_1})) = sigmoid(h2_{in_1})\cdot(1 - sigmoid(h2_{in_1}))$$
+$$ \frac{\partial{h2_{out_1}}}{\partial{h2_{in_1}}} = \frac{\partial}{\partial{h2_{in_1}}} (sigmoid(h2_{in_1})) = sigmoid(h2_{in_1})\cdot(1 - sigmoid(h2_{in_1})) $$
 
 
 Matrix operation으로 표현하면,
@@ -320,9 +320,12 @@ sigmoid(h2_{in_2})\cdot(1 - sigmoid(h2_{in_2})) \\
 sigmoid(h2_{in_3})\cdot(1 - sigmoid(h2_{in_3}))
 \end{bmatrix}  $$
 
-두번째, $w_{jk}$와 $h2_{in_1}$과의 관계는
+
+두번째, $w_{j_1k_1}$와 $h2_{in_1}$과의 관계는 간단하게 다음과 같이 표현된다.
 $$ \frac{\partial{h2_{in_1}}}{\partial{w_{j_1k_1}}} = \frac{\partial}{\partial{w_{j_1k_1}}}(h1_{out1}w_{j_1k_1} + h1_{out2}w_{j_2k_1} + h1_{out3}w_{j_3k_1} + b_{k_1}) = h1_{out1} $$
 
+
+$w_{j\cdot k_1}$, $w_{j\cdot k_2}$, $w_{j\cdot k_3}$은 각각 $h2_{in_1}$, $h2_{in_2}$, $h2_{in_3}$에만 기여하므로 matrix operation으로 표현하면,
 $$ \begin{bmatrix} 
 \frac{\partial{h2_{in1}}}{\partial{w_{j_1k1}}} & \frac{\partial{h2_{in2}}}{\partial{w_{j_1k_2}}} & \frac{\partial{h2_{in3}}}{\partial{w_{j_1k_3}}}\\
 \frac{\partial{h2_{in1}}}{\partial{w_{j_2k1}}} & \frac{\partial{h2_{in2}}}{\partial{w_{j_2k_2}}} & \frac{\partial{h2_{in3}}}{\partial{w_{j_2k_3}}}\\

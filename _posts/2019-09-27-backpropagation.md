@@ -300,11 +300,15 @@ $$W_{kl}^{new} = W_{kl} - \alpha\cdot\delta{W_{kl}}$$
 한단계 더 뒤로 가서 hidden layer j와 k 사이에서의 backpropagation을 알아보도록 하자.
 <img src="/assets/img/ml/nn_example_bp2.png">
 
+위에서와 마찬가지로 $w_{j_1k_1}$의 error에 대한 변화량 $\frac{\partial{E}}{\partial{w_{j_1k_1}}}$은 chain rule에 의해서 다음과 같이 나타낼 수 있다.
+$$ \frac{\partial{E}}{\partial{w_{j_1k_1}}} = \frac{\partial{E}}{\partial{h2_{out_1}}} \cdot  \frac{\partial{h2_{out_1}}}{\partial{h2_{in_1}}} \cdot \frac{\partial{h2_{in_1}}}{\partial{w_{j_1k_1}}} $$
 
-$$\frac{\partial{E}}{\partial{w_{j_1k_1}}} = \frac{\partial{E}}{\partial{h2_{out_1}}} \cdot  \frac{\partial{h2_{out_1}}}{\partial{h2_{in_1}}} \cdot \frac{\partial{h2_{in_1}}}{\partial{w_{j_1k_1}}}$$
 
+첫번째, $h2_{in_1}$과 $h2_{out_1}$ 사이의 관계는 sigmoid 함수로 표현되고, 그 미분식은 위에서 미리 유도되었다.
 $$ \frac{\partial{h2_{out_1}}}{\partial{h2_{in_1}}} = \frac{\partial}{\partial{h2_{in_1}}} (sigmoid(h2_{in_1})) = sigmoid(h2_{in_1})\cdot(1 - sigmoid(h2_{in_1}))$$
 
+
+Matrix operation으로 표현하면,
 $$ \begin{bmatrix} 
 \frac{\partial{h2_{out_1}}}{\partial{h2_{in_1}}} \\
 \frac{\partial{h2_{out_2}}}{\partial{h2_{in_2}}} \\
@@ -316,6 +320,7 @@ sigmoid(h2_{in_2})\cdot(1 - sigmoid(h2_{in_2})) \\
 sigmoid(h2_{in_3})\cdot(1 - sigmoid(h2_{in_3}))
 \end{bmatrix}  $$
 
+두번째, $w_{}$ $$
 $$ \frac{\partial{h2_{in_1}}}{\partial{w_{j_1k_1}}} = \frac{\partial}{\partial{w_{j_1k_1}}}(h1_{out1}w_{j_1k_1} + h1_{out2}w_{j_2k_1} + h1_{out3}w_{j_3k_1} + b_{k_1}) = h1_{out1} $$
 
 $$ \begin{bmatrix} 

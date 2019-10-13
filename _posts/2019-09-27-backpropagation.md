@@ -320,7 +320,7 @@ sigmoid(h2_{in_2})\cdot(1 - sigmoid(h2_{in_2})) \\
 sigmoid(h2_{in_3})\cdot(1 - sigmoid(h2_{in_3}))
 \end{bmatrix}  $$
 
-두번째, $w_{}$ $$
+두번째, $w_{jk}$와 $h2_{in_1}$과의 관계는
 $$ \frac{\partial{h2_{in_1}}}{\partial{w_{j_1k_1}}} = \frac{\partial}{\partial{w_{j_1k_1}}}(h1_{out1}w_{j_1k_1} + h1_{out2}w_{j_2k_1} + h1_{out3}w_{j_3k_1} + b_{k_1}) = h1_{out1} $$
 
 $$ \begin{bmatrix} 

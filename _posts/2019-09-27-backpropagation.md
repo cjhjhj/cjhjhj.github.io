@@ -304,7 +304,7 @@ $$W_{kl}^{new} = W_{kl} - \alpha\cdot\delta{W_{kl}}$$
 $$ \frac{\partial{E}}{\partial{w_{j_1k_1}}} = \frac{\partial{E}}{\partial{h2_{out_1}}} \cdot  \frac{\partial{h2_{out_1}}}{\partial{h2_{in_1}}} \cdot \frac{\partial{h2_{in_1}}}{\partial{w_{j_1k_1}}} $$
 
 
-첫번째, $ h2_{in_1}$ 과 $h2_{out_1}$ 사이의 관계는 sigmoid 함수로 표현되고, 그 미분식은 위에서 미리 유도되었다.
+첫번째, $h2_{in_1}$ 과 $h2_{out_1}$ 사이의 관계는 sigmoid 함수로 표현되고, 그 미분식은 위에서 미리 유도되었다.
 $$ \frac{\partial{h2_{out_1}}}{\partial{h2_{in_1}}} = \frac{\partial}{\partial{h2_{in_1}}} (sigmoid(h2_{in_1})) = sigmoid(h2_{in_1})\cdot(1 - sigmoid(h2_{in_1})) $$
 
 
@@ -339,11 +339,14 @@ h1_{out3} & h1_{out3} & h1_{out3}
 
 
 세번째, $\frac{\partial{E}}{\partial{h2_{out_1}}}$ 는 조금 복잡한데, $h2_{out_1}$이 모든 error, 즉 $E_1, E_2, E_3$에 모두 기여를 하기 때문이다.  
-$$\frac{\partial{E}}{\partial{h2_{out_1}}} = \frac{\partial{(E_1 + E_2 + E_3)}}{\partial{h2_{out_1}}} = \frac{\partial{E_1}}{\partial{h2_{out_1}}} + \frac{\partial{E_2}}{\partial{h2_{out_1}}} + \frac{\partial{E_3}}{\partial{h2_{out_1}}}$$
+$$ \frac{\partial{E}}{\partial{h2_{out_1}}} = \frac{\partial{(E_1 + E_2 + E_3)}}{\partial{h2_{out_1}}} = \frac{\partial{E_1}}{\partial{h2_{out_1}}} + \frac{\partial{E_2}}{\partial{h2_{out_1}}} + \frac{\partial{E_3}}{\partial{h2_{out_1}}} $$  
 
+각각의 미분값을 정리해보면 다음과 같다.  
 $$ \frac{\partial{E_1}}{\partial{h2_{out_1}}} = \frac{\partial{E_1}}{\partial{O_{out_1}}} \cdot \frac{\partial{O_{out_1}}}{\partial{O_{in_1}}} \cdot \frac{\partial{O_{in_1}}}{\partial{h2_{out_1}}}$$
 $$ \frac{\partial{E_2}}{\partial{h2_{out_1}}} = \frac{\partial{E_2}}{\partial{O_{out_2}}} \cdot \frac{\partial{O_{out_2}}}{\partial{O_{in_2}}} \cdot \frac{\partial{O_{in_2}}}{\partial{h2_{out_1}}}$$
 $$ \frac{\partial{E_3}}{\partial{h2_{out_1}}} = \frac{\partial{E_3}}{\partial{O_{out_3}}} \cdot \frac{\partial{O_{out_3}}}{\partial{O_{in_3}}} \cdot \frac{\partial{O_{in_3}}}{\partial{h2_{out_1}}}$$
+
+
 
 $$ \begin{bmatrix} 
 \frac{\partial{E}}{\partial{h2_{out_1}}} \\

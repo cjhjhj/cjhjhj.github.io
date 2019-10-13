@@ -304,7 +304,7 @@ $$W_{kl}^{new} = W_{kl} - \alpha\cdot\delta{W_{kl}}$$
 $$ \frac{\partial{E}}{\partial{w_{j_1k_1}}} = \frac{\partial{E}}{\partial{h2_{out_1}}} \cdot  \frac{\partial{h2_{out_1}}}{\partial{h2_{in_1}}} \cdot \frac{\partial{h2_{in_1}}}{\partial{w_{j_1k_1}}} $$
 
 
-첫번째, $h2_{in_1}$과 $h2_{out_1}$ 사이의 관계는 sigmoid 함수로 표현되고, 그 미분식은 위에서 미리 유도되었다.
+첫번째, $ h2_{in_1}$ 과 $h2_{out_1}$ 사이의 관계는 sigmoid 함수로 표현되고, 그 미분식은 위에서 미리 유도되었다.
 $$ \frac{\partial{h2_{out_1}}}{\partial{h2_{in_1}}} = \frac{\partial}{\partial{h2_{in_1}}} (sigmoid(h2_{in_1})) = sigmoid(h2_{in_1})\cdot(1 - sigmoid(h2_{in_1})) $$
 
 

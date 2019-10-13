@@ -325,7 +325,7 @@ sigmoid(h2_{in_3})\cdot(1 - sigmoid(h2_{in_3}))
 $$ \frac{\partial{h2_{in_1}}}{\partial{w_{j_1k_1}}} = \frac{\partial}{\partial{w_{j_1k_1}}}(h1_{out1}w_{j_1k_1} + h1_{out2}w_{j_2k_1} + h1_{out3}w_{j_3k_1} + b_{k_1}) = h1_{out1} $$
 
 
-Weight $w_{j\cdot k_1}, w_{j\cdot k_2}, w_{j\cdot k_3}$은 각각 $h2_{in_1}, h2_{in_2}, h2_{in_3}$에만 기여하므로 matrix operation으로 표현하면,  
+Weight $w_{j\cdot k_1}, w_{j\cdot k_2}, w_{j\cdot k_3}$은 각각 $h2_{in_1}, h2_{in_2}, h2_{in_3}$ 에만 기여하므로 matrix operation으로 표현하면,  
 $$ \begin{bmatrix} 
 \frac{\partial{h2_{in1}}}{\partial{w_{j_1k1}}} & \frac{\partial{h2_{in2}}}{\partial{w_{j_1k_2}}} & \frac{\partial{h2_{in3}}}{\partial{w_{j_1k_3}}}\\
 \frac{\partial{h2_{in1}}}{\partial{w_{j_2k1}}} & \frac{\partial{h2_{in2}}}{\partial{w_{j_2k_2}}} & \frac{\partial{h2_{in3}}}{\partial{w_{j_2k_3}}}\\
@@ -338,7 +338,7 @@ h1_{out3} & h1_{out3} & h1_{out3}
 \end{bmatrix} $$
 
 
-세번째 $\frac{\partial{E}}{\partial{h2_{out_1}}}$ 는 조금 복잡한데 $h2_{out_1}$이 모든 error, 즉 $E_1, E_2, E_3$에 모두 기여를 하기 때문이다.  
+세번째 $\frac{\partial{E}}{\partial{h2_{out_1}}}$ 는 조금 복잡한데 $h2_{out_1}$ 이 모든 error, 즉 $E_1, E_2, E_3$ 에 모두 기여를 하기 때문이다.  
 $$ \frac{\partial{E}}{\partial{h2_{out_1}}} = \frac{\partial{(E_1 + E_2 + E_3)}}{\partial{h2_{out_1}}} = \frac{\partial{E_1}}{\partial{h2_{out_1}}} + \frac{\partial{E_2}}{\partial{h2_{out_1}}} + \frac{\partial{E_3}}{\partial{h2_{out_1}}} $$  
 
 각각의 미분값을 정리해보면 다음과 같다.  
@@ -347,6 +347,7 @@ $$ \frac{\partial{E_2}}{\partial{h2_{out_1}}} = \frac{\partial{E_2}}{\partial{O_
 $$ \frac{\partial{E_3}}{\partial{h2_{out_1}}} = \frac{\partial{E_3}}{\partial{O_{out_3}}} \cdot \frac{\partial{O_{out_3}}}{\partial{O_{in_3}}} \cdot \frac{\partial{O_{in_3}}}{\partial{h2_{out_1}}} $$  
 
 
+Matrix operation으로 표현해보면,  
 $$ \begin{bmatrix} 
 \frac{\partial{E}}{\partial{h2_{out_1}}} \\
 \frac{\partial{E}}{\partial{h2_{out_2}}} \\
@@ -357,6 +358,7 @@ $$ \begin{bmatrix}
 \frac{\partial{E_1}}{\partial{O_{out_1}}} \cdot \frac{\partial{O_{out_1}}}{\partial{O_{in_1}}} \cdot \frac{\partial{O_{in_1}}}{\partial{h2_{out_2}}} + \frac{\partial{E_2}}{\partial{O_{out_2}}} \cdot \frac{\partial{O_{out_2}}}{\partial{O_{in_2}}} \cdot \frac{\partial{O_{in_2}}}{\partial{h2_{out_2}}} + \frac{\partial{E_3}}{\partial{O_{out_3}}} \cdot \frac{\partial{O_{out_3}}}{\partial{O_{in_3}}} \cdot \frac{\partial{O_{in_3}}}{\partial{h2_{out_2}}} \\
 \frac{\partial{E_1}}{\partial{O_{out_1}}} \cdot \frac{\partial{O_{out_1}}}{\partial{O_{in_1}}} \cdot \frac{\partial{O_{in_1}}}{\partial{h2_{out_3}}} + \frac{\partial{E_2}}{\partial{O_{out_2}}} \cdot \frac{\partial{O_{out_2}}}{\partial{O_{in_2}}} \cdot \frac{\partial{O_{in_2}}}{\partial{h2_{out_3}}} + \frac{\partial{E_3}}{\partial{O_{out_3}}} \cdot \frac{\partial{O_{out_3}}}{\partial{O_{in_3}}} \cdot \frac{\partial{O_{in_3}}}{\partial{h2_{out_3}}}
 \end{bmatrix} $$
+
 
 $$ O_{in_1} = h2_{out_1}w_{k_1l_1} + h2_{out_2}w_{k_2l_1} + h2_{out_3}w_{k_3l_1} + b_{l_1} $$
 

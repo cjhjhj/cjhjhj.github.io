@@ -325,7 +325,7 @@ sigmoid(h2_{in_3})\cdot(1 - sigmoid(h2_{in_3}))
 $$ \frac{\partial{h2_{in_1}}}{\partial{w_{j_1k_1}}} = \frac{\partial}{\partial{w_{j_1k_1}}}(h1_{out1}w_{j_1k_1} + h1_{out2}w_{j_2k_1} + h1_{out3}w_{j_3k_1} + b_{k_1}) = h1_{out1} $$
 
 
-$w_{j\cdot k_1}$, $w_{j\cdot k_2}$, $w_{j\cdot k_3}$은 각각 $h2_{in_1}$, $h2_{in_2}$, $h2_{in_3}$에만 기여하므로 matrix operation으로 표현하면,  
+Weight $w_{j\cdot k_1}, w_{j\cdot k_2}, w_{j\cdot k_3}$은 각각 $h2_{in_1}, h2_{in_2}, h2_{in_3}$에만 기여하므로 matrix operation으로 표현하면,  
 $$ \begin{bmatrix} 
 \frac{\partial{h2_{in1}}}{\partial{w_{j_1k1}}} & \frac{\partial{h2_{in2}}}{\partial{w_{j_1k_2}}} & \frac{\partial{h2_{in3}}}{\partial{w_{j_1k_3}}}\\
 \frac{\partial{h2_{in1}}}{\partial{w_{j_2k1}}} & \frac{\partial{h2_{in2}}}{\partial{w_{j_2k_2}}} & \frac{\partial{h2_{in3}}}{\partial{w_{j_2k_3}}}\\

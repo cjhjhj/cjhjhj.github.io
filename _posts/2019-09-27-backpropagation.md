@@ -170,7 +170,7 @@ $$\frac{\partial{E}}{\partial{w_{k_1l_1}}} =
 
 첫번째 미분값은,
 
-$$ \frac{\partial{E}}{\partial{O_{out_1}}} = \frac{\partial{E_1}}{\partial{O_{out_1}}} $$ ($O_{out_1}$은 $E_1$에만 기여를 )
+$$ \frac{\partial{E}}{\partial{O_{out_1}}} = \frac{\partial{E_1}}{\partial{O_{out_1}}} $$ ($O_{out_1}$은 $E_1$에만 기여를 하므로)
 $$ \frac{\partial}{\partial{O_{out_1}}}-(y_1log(O_{out_1}) + (1 - y_1)log(1 - O_{out_1})) $$
 $$ = -y_1\frac{d(log(O_{out_1}))}{dO_{out_1}} - (1 - y_1)\frac{d(log(1 - O_{out_1}))}{dO_{out_1}} $$
 $$ = -y_1\cdot\frac{1}{O_{out_1}} - (1 - y_1)\cdot(-\frac{1}{(1 - O_{out_1})}) = - \frac{y_1}{O_{out_1}} + \frac{(1 - y_1)}{(1 - O_{out_1})}$$
@@ -263,6 +263,7 @@ $$ \delta{W_{kl}} =
 \frac{\partial{E_1}}{\partial{w_{k_2l_1}}} & \frac{\partial{E_2}}{\partial{w_{k_2l_2}}} & \frac{\partial{E_3}}{\partial{w_{k_2l_3}}} \\ 
 \frac{\partial{E_1}}{\partial{w_{k_3l_1}}} & \frac{\partial{E_2}}{\partial{w_{k_3l_2}}} & \frac{\partial{E_3}}{\partial{w_{k_3l_3}}}
 \end{bmatrix} $$
+
 $$ = \begin{bmatrix} 
 \frac{\partial{E_1}}{\partial{O_{out_1}}}\frac{\partial{O_{out_1}}}{\partial{O_{in_1}}}\frac{\partial{O_{in_1}}}{\partial{w_{k_1l_1}}}
 & \frac{\partial{E_2}}{\partial{O_{out_2}}}\frac{\partial{O_{out_2}}}{\partial{O_{in_2}}}\frac{\partial{O_{in_2}}}{\partial{w_{k_1l_2}}}
@@ -365,7 +366,6 @@ $$ = \begin{bmatrix}
 \frac{\partial{E_1}}{\partial{O_{out_1}}} \cdot \frac{\partial{O_{out_1}}}{\partial{O_{in_1}}} \cdot \frac{\partial{O_{in_1}}}{\partial{h2_{out_2}}} + \frac{\partial{E_2}}{\partial{O_{out_2}}} \cdot \frac{\partial{O_{out_2}}}{\partial{O_{in_2}}} \cdot \frac{\partial{O_{in_2}}}{\partial{h2_{out_2}}} + \frac{\partial{E_3}}{\partial{O_{out_3}}} \cdot \frac{\partial{O_{out_3}}}{\partial{O_{in_3}}} \cdot \frac{\partial{O_{in_3}}}{\partial{h2_{out_2}}} \\
 \frac{\partial{E_1}}{\partial{O_{out_1}}} \cdot \frac{\partial{O_{out_1}}}{\partial{O_{in_1}}} \cdot \frac{\partial{O_{in_1}}}{\partial{h2_{out_3}}} + \frac{\partial{E_2}}{\partial{O_{out_2}}} \cdot \frac{\partial{O_{out_2}}}{\partial{O_{in_2}}} \cdot \frac{\partial{O_{in_2}}}{\partial{h2_{out_3}}} + \frac{\partial{E_3}}{\partial{O_{out_3}}} \cdot \frac{\partial{O_{out_3}}}{\partial{O_{in_3}}} \cdot \frac{\partial{O_{in_3}}}{\partial{h2_{out_3}}}
 \end{bmatrix} $$
-
 
 $$ O_{in_1} = h2_{out_1}w_{k_1l_1} + h2_{out_2}w_{k_2l_1} + h2_{out_3}w_{k_3l_1} + b_{l_1} $$
 

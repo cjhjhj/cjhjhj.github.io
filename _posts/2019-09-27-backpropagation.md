@@ -252,6 +252,7 @@ h2_{out3} & h2_{out3} & h2_{out3}
 위의 그림을 다시 한번 상기하면서 $W_{kj}$에 대한 error의 미분값을 정리해보자.  
 $w_{k_1l_1}$은 $E_1$에만 기여를 하므로 $ \frac{\partial{E}}{\partial{w_{k_1l_1}}} =  \frac{\partial{E_1}}{\partial{w_{k_1l_1}}} $ 이 되고, $w_{k_1l_2}$은 $E_2$에만 기여를 하므로 
 $ \frac{\partial{E}}{\partial{w_{k_1l_2}}} =  \frac{\partial{E_2}}{\partial{w_{k_1l_1}}} $ 가 된다. 일반화를 시켜보면  
+
 $$ \delta{W_{kl}} =
 \begin{bmatrix} 
 \frac{\partial{E}}{\partial{w_{k_1l_1}}} & \frac{\partial{E}}{\partial{w_{k_1l_2}}} & \frac{\partial{E}}{\partial{w_{k_1l_3}}} \\ 

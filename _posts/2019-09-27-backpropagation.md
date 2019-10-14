@@ -7,7 +7,7 @@ comments: true
 ---
 
 
-test4
+test5
 
 Backpropagation (BP) 을 구현하기 위해서 알고리즘을 수학적으로 리뷰해보고 python으로 구현하기 위해 정리를 해본다. 이 정리는 다음 웹사이트 (https://medium.com/@14prakash/back-propagation-is-very-simple-who-made-it-complicated-97b794c97e5c)의 내용을 기반으로 작성되었다.  
 일반적인 neural network의 구조는 다음 그림과 같다.
@@ -181,7 +181,9 @@ BP는 기본적으로 error의 weight에 대한 변화량을 이용해서 새로
 몇 가지 함수의 derivatives들을 미리 구해놓으면 쉽게 weight에 대한 error의 변화량을 구할 수 있다.
 
 #### Derivative of Sigmoid
-먼저 $(1 + e^{-x})' = \frac{d}{dx}(1) + \frac{d}{dx}(e^{-x}) = 0 + (-1)e^{-x}$ 임을 기억하자.  
+먼저 다음의 미분을 기억하자.  
+$$(1 + e^{-x})' = \frac{d}{dx}(1) + \frac{d}{dx}(e^{-x}) = 0 + (-1)e^{-x}$$  
+Sigmoid의 미분은 다음과 같이 정리할 수 있다.  
 $$\frac{d}{dx}Sigmoid(x) = \frac{d}{dx}\frac{1}{(1 + e^{-x})} 
 = \frac{(1)'(1 + e^{-x}) - 1(1 + e^{-x})'}{(1 + e^{-x}) ^ 2} = \frac{e^{-x}}{(1 + e^{-x}) ^ 2}$$  
 $$\frac{e^{-x}}{(1 + e^{-x}) ^ 2} = \frac{1}{(1 + e^{-x})}\cdot\frac{e^{-x}}{(1 + e^{-x})} 
@@ -359,7 +361,7 @@ $$W_{kl}^{new} = W_{kl} - \alpha\cdot\delta{W_{kl}}$$
 $$\frac{\partial{E}}{\partial{w_{j_1k_1}}} = \frac{\partial{E}}{\partial{h2_{out_1}}} \cdot  \frac{\partial{h2_{out_1}}}{\partial{h2_{in_1}}} \cdot \frac{\partial{h2_{in_1}}}{\partial{w_{j_1k_1}}}$$
 
 
-첫번째, $h2_{in_1}$ 과 $h2_{out_1}$ 사이의 관계는 sigmoid 함수로 표현되고, 그 미분식은 위에서 미리 유도되었다.
+첫번째, $h2\_{in\_1}$ 과 $h2\_{out\_1}$ 사이의 관계는 sigmoid 함수로 표현되고, 그 미분식은 위에서 미리 유도되었다.
 $$\frac{\partial{h2_{out_1}}}{\partial{h2_{in_1}}} 
 = \frac{\partial}{\partial{h2_{in_1}}} (sigmoid(h2_{in_1})) 
 = sigmoid(h2_{in_1})\cdot(1 - sigmoid(h2_{in_1}))$$
@@ -384,7 +386,7 @@ $$\frac{\partial{h2_{in_1}}}{\partial{w_{j_1k_1}}}
 = h1_{out1}$$
 
 
-Weight $w_{j\cdot k_1}, w_{j\cdot k_2}, w_{j\cdot k_3}$은 각각 $h2_{in_1}$, $h2_{in_2}$, $h2_{in_3}$ 에만 기여하므로 matrix operation으로 표현하면,  
+Weight $w_{j\cdot k_1}, w_{j\cdot k_2}, w_{j\cdot k_3}$은 각각 $h2\_{in\_1}, h2\_{in\_2}, h2\_{in\_3}$ 에만 기여하므로 matrix operation으로 표현하면,  
 $$\begin{bmatrix} 
   \frac{\partial{h2_{in1}}}{\partial{w_{j_1k1}}} & \frac{\partial{h2_{in2}}}{\partial{w_{j_1k_2}}} & \frac{\partial{h2_{in3}}}{\partial{w_{j_1k_3}}}\\
   \frac{\partial{h2_{in1}}}{\partial{w_{j_2k1}}} & \frac{\partial{h2_{in2}}}{\partial{w_{j_2k_2}}} & \frac{\partial{h2_{in3}}}{\partial{w_{j_2k_3}}}\\

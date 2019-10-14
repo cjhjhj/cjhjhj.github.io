@@ -7,7 +7,7 @@ comments: true
 ---
 
 
-test3
+test4
 
 Backpropagation (BP) 을 구현하기 위해서 알고리즘을 수학적으로 리뷰해보고 python으로 구현하기 위해 정리를 해본다. 이 정리는 다음 웹사이트 (https://medium.com/@14prakash/back-propagation-is-very-simple-who-made-it-complicated-97b794c97e5c)의 내용을 기반으로 작성되었다.  
 일반적인 neural network의 구조는 다음 그림과 같다.
@@ -159,7 +159,7 @@ $$\begin{bmatrix}
 \end{bmatrix} = 
 W_{kl}^Th2_{out} + B_l$$  
 
-Softmax ($= e^{O_{in_a}} / (\sum_{a = 1}^3 {e^{O_{in_a}}})$) operation을 통한 output layer _l_ 의 output  
+Softmax ($= e^{O\_{in\_a}} / (\sum\_{a = 1}^3 {e^{O\_{in\_a}}})$) operation을 통한 output layer _l_ 의 output  
 $$\begin{bmatrix}
   O_{out1} \\ 
   O_{out2} \\ 
@@ -206,7 +206,7 @@ $$= \frac{(e^{x_i})'(\sum_{j = 1}^{n} {e^{x_j}}) - (e^{x_i})(\sum_{j = 1}^{n} {e
 ### Backpropagating error between output layer and hidden layer _k_
 <img src="/assets/img/ml/nn_example_bp1.png">
 
-위의 그림에서 맨 오른쪽의 빨간 화살표로 표시된 weight는 $w_{k_3l_1}$ 이어야 한다 (그림에 오류가 있음).
+위의 그림에서 맨 오른쪽의 빨간 화살표로 표시된 weight는 $w\_{k\_3l\_1}$ 이어야 한다 (그림에 오류가 있음).
 
 Output layer와 그 직전 hidden layer 사이의 weight (즉 $W_{kl}$ matrix의 원소들, 예를 들면 $w_{k_1l_1}$)가 error에 미치는 영향은 $\frac{\partial{E}}{\partial{w_{k_1l_1}}}$ 로 계산할 수 있는데, 위의 그림에서 보듯이 크게 세 단계를 거치는 chain rule로 표시할 수 있다.  
 $$\frac{\partial{E}}{\partial{w_{k_1l_1}}}

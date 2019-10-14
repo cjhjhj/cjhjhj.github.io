@@ -2,6 +2,7 @@
 layout: post
 title: "Backpropagation"
 categories: ml
+use_math: true
 comments: true
 ---
 

@@ -426,13 +426,13 @@ $$= \begin{bmatrix}
   \frac{\partial{E_1}}{\partial{O_{out_1}}} \frac{\partial{O_{out_1}}}{\partial{O_{in_1}}} \frac{\partial{O_{in_1}}}{\partial{h2_{out_3}}} + \frac{\partial{E_2}}{\partial{O_{out_2}}} \frac{\partial{O_{out_2}}}{\partial{O_{in_2}}} \frac{\partial{O_{in_2}}}{\partial{h2_{out_3}}} + \frac{\partial{E_3}}{\partial{O_{out_3}}} \frac{\partial{O_{out_3}}}{\partial{O_{in_3}}} \frac{\partial{O_{in_3}}}{\partial{h2_{out_3}}}
 \end{bmatrix}$$  
 
-위의 식을 잘 살펴보면 $\frac{\partial{E_1}}{\partial{O_{out_1}}} \frac{\partial{O_{out_1}}}{\partial{O_{in_1}}}$은 output layer와 hidden layer _k_ 사이의 backpropagation을 계산할 때 이미 구해놓은 값이라는 것을 알 수 있다. 따라서 $\frac{\partial{O_{in_1}}}{\partial{h2_{out_1}}}$만 유도하면 된다. 
-$O_{in_1}, O_{in_2}$등은 다음과 같이 표현되므로,  
+위의 식을 잘 살펴보면 $\frac{\partial{E_1}}{\partial{O_{out_1}}} \frac{\partial{O_{out_1}}}{\partial{O_{in_1}}}$은 output layer와 hidden layer _k_ 사이의 backpropagation을 계산할 때 이미 구해놓은 값이라는 것을 알 수 있다. 따라서 $\frac{\partial{O\_{in\_1}}}{\partial{h2\_{out\_1}}}$만 유도하면 된다. 
+$O\_{in\_1}, O\_{in\_2}$등은 다음과 같이 표현되므로,  
 $$O_{in_1} = h2_{out_1}w_{k_1l_1} + h2_{out_2}w_{k_2l_1} + h2_{out_3}w_{k_3l_1} + b_{l_1}$$  
 $$O_{in_2} = h2_{out_1}w_{k_1l_2} + h2_{out_2}w_{k_2l_2} + h2_{out_3}w_{k_3l_2} + b_{l_2}$$  
 $$ ... $$  
 
-$\frac{\partial{O_{in_\cdot}}}{\partial{h2_{out_\cdot}}}$ 은 다음과 같이 표현된다.  
+$\frac{\partial{O\_{in_\cdot}}}{\partial{h2\_{out\_\cdot}}}$ 은 다음과 같이 표현된다.  
 $$\begin{bmatrix} 
   \frac{\partial{O_{in_1}}}{\partial{h2_{out_1}}}  & \frac{\partial{O_{in_2}}}{\partial{h2_{out_1}}} & \frac{\partial{O_{in_3}}}{\partial{h2_{out_1}}} \\
   \frac{\partial{O_{in_1}}}{\partial{h2_{out_2}}}  & \frac{\partial{O_{in_2}}}{\partial{h2_{out_2}}} & \frac{\partial{O_{in_3}}}{\partial{h2_{out_2}}} \\
@@ -444,7 +444,7 @@ $$\begin{bmatrix}
   w_{k_3l_1} & w_{k_3l_2} & w_{k_3l_3}
 \end{bmatrix}$$  
 
-정리해보면, 다음과 같은 matrix operation을 통해서 $\frac{\partial{E}}{\partial{h2_{out_\cdot}}}$을 구할 수 있다.  
+정리해보면, 다음과 같은 matrix operation을 통해서 $\frac{\partial{E}}{\partial{h2\_{out\_\cdot}}}$을 구할 수 있다.  
 $$\begin{bmatrix} 
   \frac{\partial{E}}{\partial{h2_{out_1}}} \\
   \frac{\partial{E}}{\partial{h2_{out_2}}} \\

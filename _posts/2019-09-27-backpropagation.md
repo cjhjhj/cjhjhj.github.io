@@ -7,7 +7,7 @@ comments: true
 ---
 
 
-test2
+test3
 
 Backpropagation (BP) 을 구현하기 위해서 알고리즘을 수학적으로 리뷰해보고 python으로 구현하기 위해 정리를 해본다. 이 정리는 다음 웹사이트 (https://medium.com/@14prakash/back-propagation-is-very-simple-who-made-it-complicated-97b794c97e5c)의 내용을 기반으로 작성되었다.  
 일반적인 neural network의 구조는 다음 그림과 같다.
@@ -181,9 +181,9 @@ BP는 기본적으로 error의 weight에 대한 변화량을 이용해서 새로
 몇 가지 함수의 derivatives들을 미리 구해놓으면 쉽게 weight에 대한 error의 변화량을 구할 수 있다.
 
 #### Derivative of Sigmoid
+먼저 $(1 + e^{-x})' = \frac{d}{dx}(1) + \frac{d}{dx}(e^{-x}) = 0 + (-1)e^{-x}$ 임을 기억하자.  
 $$\frac{d}{dx}Sigmoid(x) = \frac{d}{dx}\frac{1}{(1 + e^{-x})} 
 = \frac{(1)'(1 + e^{-x}) - 1(1 + e^{-x})'}{(1 + e^{-x}) ^ 2} = \frac{e^{-x}}{(1 + e^{-x}) ^ 2}$$  
-$(1 + e^{-x})' = \frac{d}{dx}(1) + \frac{d}{dx}(e^{-x}) = 0 + (-1)e^{-x}$ 이므로  
 $$\frac{e^{-x}}{(1 + e^{-x}) ^ 2} = \frac{1}{(1 + e^{-x})}\cdot\frac{e^{-x}}{(1 + e^{-x})} 
 = \frac{1}{(1 + e^{-x})}\cdot(1 - \frac{1}{(1 + e^{-x})})$$  
 $$\therefore \frac{d}{dx}Sigmoid(x) = Sigmoid(x)\cdot(1 - Sigmoid(x))$$
@@ -216,9 +216,9 @@ $$\frac{\partial{E}}{\partial{w_{k_1l_1}}}
 
 첫번째 미분값은,
 
-$$\frac{\partial{E}}{\partial{O_{out_1}}} = \frac{\partial{E_1}}{\partial{O_{out_1}}}$$ ($O_{out_1}$은 $E_1$에만 기여를 하므로)
-$$\frac{\partial}{\partial{O_{out_1}}}-(y_1log(O_{out_1}) + (1 - y_1)log(1 - O_{out_1}))$$
-$$= -y_1\frac{d(log(O_{out_1}))}{dO_{out_1}} - (1 - y_1)\frac{d(log(1 - O_{out_1}))}{dO_{out_1}}$$
+$$\frac{\partial{E}}{\partial{O_{out_1}}} = \frac{\partial{E_1}}{\partial{O_{out_1}}}$$ ($O_{out_1}$은 $E_1$에만 기여를 하므로)  
+$$\frac{\partial}{\partial{O_{out_1}}}-(y_1log(O_{out_1}) + (1 - y_1)log(1 - O_{out_1}))$$  
+$$= -y_1\frac{d(log(O_{out_1}))}{dO_{out_1}} - (1 - y_1)\frac{d(log(1 - O_{out_1}))}{dO_{out_1}}$$  
 $$= -y_1\cdot\frac{1}{O_{out_1}} - (1 - y_1)\cdot(-\frac{1}{(1 - O_{out_1})}) = - \frac{y_1}{O_{out_1}} + \frac{(1 - y_1)}{(1 - O_{out_1})}$$
 
 Matrix operation으로 표시하면,  
@@ -237,7 +237,7 @@ $$\begin{bmatrix}
 두번째 미분값을 살펴보면,  
 $$\frac{\partial{O_{out_1}}}{\partial{O_{in_1}}} 
 = \frac{\partial}{\partial{O_{in_1}}}softmax(O_{in_1}) 
-= \frac{\partial}{\partial{O_{in_1}}}(e^{O_{in_1}} / (\sum_{a = 1}^3 {e^{O_{in_a}}}))$$
+= \frac{\partial}{\partial{O_{in_1}}}(e^{O_{in_1}} / (\sum_{a = 1}^3 {e^{O_{in_a}}}))$$  
 $$=\frac{e^{O_{in_1}}(e^{O_{in_2}} + e^{O_{in_3}})}{(e^{O_{in_1}} + e^{O_{in_2}} + e^{O_{in_3}}) ^ 2}$$ (위에서 미리 구했던 softmax의 미분 참조)  
 
 Matrix operation으로 표시하면,
@@ -256,7 +256,7 @@ $$\begin{bmatrix}
 세번째 미분값은,  
 $$\frac{\partial{O_{in1}}}{\partial{w_{k_1l_1}}} 
 = \frac{\partial}{\partial{w_{k_1l_1}}}(h2_{out1}w_{k_1l_1} + h2_{out2}w_{k_2l_1} + h2_{out3}w_{k_3l_1} + b_{l_1}) = h2_{out1}$$  
-$O_{in1}$에 기여하는 weight들은 $w_{k_\cdot l_1}$ 이므로 다음과 같은 matrix operation으로 표현할 수 있다.
+$O_{in1}$에 기여하는 weight들은 $w_{k_\cdot l_1}$ 이므로 다음과 같은 matrix operation으로 표현할 수 있다.  
 $$\begin{bmatrix} 
   \frac{\partial{O_{in1}}}{\partial{w_{k_1l_1}}} \\
   \frac{\partial{O_{in1}}}{\partial{w_{k_2l_1}}} \\
@@ -268,7 +268,7 @@ $$\begin{bmatrix}
   h2_{out3}
 \end{bmatrix}$$
 
-마찬가지로 $O_{in2}$와 $O_{in3}$에 기여하는 weight들은 각각 $w_{k_\cdot l_2}$, $w_{k_\cdot l_3}$ 이므로,
+마찬가지로 $O_{in2}$와 $O_{in3}$에 기여하는 weight들은 각각 $w_{k_\cdot l_2}$, $w_{k_\cdot l_3}$ 이므로,  
 $$\begin{bmatrix} 
   \frac{\partial{O_{in2}}}{\partial{w_{k_1l_2}}} \\
   \frac{\partial{O_{in2}}}{\partial{w_{k_2l_2}}} \\
@@ -290,7 +290,7 @@ $$\begin{bmatrix}
   h2_{out3}
 \end{bmatrix}$$
 
-$W_{kl}$ matrix에 대해서 확대해보면,
+$W_{kl}$ matrix에 대해서 확대해보면,  
 $$\begin{bmatrix}
   \frac{\partial{O_{in1}}}{\partial{w_{k_1l_1}}} & \frac{\partial{O_{in2}}}{\partial{w_{k_1l_2}}} & \frac{\partial{O_{in3}}}{\partial{w_{k_1l_3}}}\\
   \frac{\partial{O_{in1}}}{\partial{w_{k_2l_1}}} & \frac{\partial{O_{in2}}}{\partial{w_{k_2l_2}}} & \frac{\partial{O_{in3}}}{\partial{w_{k_2l_3}}}\\
@@ -317,7 +317,7 @@ $$\delta{W_{kl}} =
   \frac{\partial{E_1}}{\partial{w_{k_1l_1}}} & \frac{\partial{E_2}}{\partial{w_{k_1l_2}}} & \frac{\partial{E_3}}{\partial{w_{k_1l_3}}} \\ 
   \frac{\partial{E_1}}{\partial{w_{k_2l_1}}} & \frac{\partial{E_2}}{\partial{w_{k_2l_2}}} & \frac{\partial{E_3}}{\partial{w_{k_2l_3}}} \\ 
   \frac{\partial{E_1}}{\partial{w_{k_3l_1}}} & \frac{\partial{E_2}}{\partial{w_{k_3l_2}}} & \frac{\partial{E_3}}{\partial{w_{k_3l_3}}}
-\end{bmatrix}$$
+\end{bmatrix}$$  
 $$= \begin{bmatrix} 
   \frac{\partial{E_1}}{\partial{O_{out_1}}}\frac{\partial{O_{out_1}}}{\partial{O_{in_1}}}\frac{\partial{O_{in_1}}}{\partial{w_{k_1l_1}}}
   & \frac{\partial{E_2}}{\partial{O_{out_2}}}\frac{\partial{O_{out_2}}}{\partial{O_{in_2}}}\frac{\partial{O_{in_2}}}{\partial{w_{k_1l_2}}}
@@ -328,7 +328,7 @@ $$= \begin{bmatrix}
   \frac{\partial{E_1}}{\partial{O_{out_1}}}\frac{\partial{O_{out_1}}}{\partial{O_{in_1}}}\frac{\partial{O_{in_1}}}{\partial{w_{k_3l_1}}}
   & \frac{\partial{E_2}}{\partial{O_{out_2}}}\frac{\partial{O_{out_2}}}{\partial{O_{in_2}}}\frac{\partial{O_{in_2}}}{\partial{w_{k_3l_2}}}
   & \frac{\partial{E_3}}{\partial{O_{out_3}}}\frac{\partial{O_{out_3}}}{\partial{O_{in_3}}}\frac{\partial{O_{in_3}}}{\partial{w_{k_3l_3}}}
-\end{bmatrix}$$
+\end{bmatrix}$$  
 $$= \begin{bmatrix} 
   \frac{\partial{E_1}}{\partial{O_{out_1}}} & \frac{\partial{E_2}}{\partial{O_{out_2}}} & \frac{\partial{E_3}}{\partial{O_{out_3}}} \\
   \frac{\partial{E_1}}{\partial{O_{out_1}}} & \frac{\partial{E_2}}{\partial{O_{out_2}}} & \frac{\partial{E_3}}{\partial{O_{out_3}}} \\
@@ -345,7 +345,7 @@ $$= \begin{bmatrix}
   \frac{\partial{O_{in_1}}}{\partial{w_{k_1l_1}}} & \frac{\partial{O_{in_2}}}{\partial{w_{k_1l_2}}} & \frac{\partial{O_{in_3}}}{\partial{w_{k_1l_3}}} \\
   \frac{\partial{O_{in_1}}}{\partial{w_{k_2l_1}}} & \frac{\partial{O_{in_2}}}{\partial{w_{k_2l_2}}} & \frac{\partial{O_{in_3}}}{\partial{w_{k_2l_3}}} \\
   \frac{\partial{O_{in_1}}}{\partial{w_{k_3l_1}}} & \frac{\partial{O_{in_2}}}{\partial{w_{k_3l_2}}} & \frac{\partial{O_{in_3}}}{\partial{w_{k_3l_3}}}
-\end{bmatrix}$$
+\end{bmatrix}$$  
 Operator \*는 element-wise product를 나타낸다.  
 
 새로운 weight는 learning rate, $\alpha$와 위에서 구한 gradient $\delta{W_{kl}}$에 의해서 구할 수 있다.
@@ -417,14 +417,14 @@ $$\begin{bmatrix}
   \frac{\partial{E_1}}{\partial{h2_{out_1}}} + \frac{\partial{E_2}}{\partial{h2_{out_1}}} + \frac{\partial{E_3}}{\partial{h2_{out_1}}} \\
   \frac{\partial{E_1}}{\partial{h2_{out_2}}} + \frac{\partial{E_2}}{\partial{h2_{out_2}}} + \frac{\partial{E_3}}{\partial{h2_{out_2}}} \\
   \frac{\partial{E_1}}{\partial{h2_{out_3}}} + \frac{\partial{E_2}}{\partial{h2_{out_3}}} + \frac{\partial{E_3}}{\partial{h2_{out_3}}}
-\end{bmatrix} $$
+\end{bmatrix} $$  
 $$= \begin{bmatrix} 
   \frac{\partial{E_1}}{\partial{O_{out_1}}} \cdot \frac{\partial{O_{out_1}}}{\partial{O_{in_1}}} \cdot \frac{\partial{O_{in_1}}}{\partial{h2_{out_1}}} + \frac{\partial{E_2}}{\partial{O_{out_2}}} \cdot \frac{\partial{O_{out_2}}}{\partial{O_{in_2}}} \cdot \frac{\partial{O_{in_2}}}{\partial{h2_{out_1}}} + \frac{\partial{E_3}}{\partial{O_{out_3}}} \cdot \frac{\partial{O_{out_3}}}{\partial{O_{in_3}}} \cdot \frac{\partial{O_{in_3}}}{\partial{h2_{out_1}}} \\
   \frac{\partial{E_1}}{\partial{O_{out_1}}} \cdot \frac{\partial{O_{out_1}}}{\partial{O_{in_1}}} \cdot \frac{\partial{O_{in_1}}}{\partial{h2_{out_2}}} + \frac{\partial{E_2}}{\partial{O_{out_2}}} \cdot \frac{\partial{O_{out_2}}}{\partial{O_{in_2}}} \cdot \frac{\partial{O_{in_2}}}{\partial{h2_{out_2}}} + \frac{\partial{E_3}}{\partial{O_{out_3}}} \cdot \frac{\partial{O_{out_3}}}{\partial{O_{in_3}}} \cdot \frac{\partial{O_{in_3}}}{\partial{h2_{out_2}}} \\
   \frac{\partial{E_1}}{\partial{O_{out_1}}} \cdot \frac{\partial{O_{out_1}}}{\partial{O_{in_1}}} \cdot \frac{\partial{O_{in_1}}}{\partial{h2_{out_3}}} + \frac{\partial{E_2}}{\partial{O_{out_2}}} \cdot \frac{\partial{O_{out_2}}}{\partial{O_{in_2}}} \cdot \frac{\partial{O_{in_2}}}{\partial{h2_{out_3}}} + \frac{\partial{E_3}}{\partial{O_{out_3}}} \cdot \frac{\partial{O_{out_3}}}{\partial{O_{in_3}}} \cdot \frac{\partial{O_{in_3}}}{\partial{h2_{out_3}}}
-\end{bmatrix}$$
-$$O_{in_1} = h2_{out_1}w_{k_1l_1} + h2_{out_2}w_{k_2l_1} + h2_{out_3}w_{k_3l_1} + b_{l_1}$$
-$$O_{in_2} = h2_{out_1}w_{k_1l_2} + h2_{out_2}w_{k_2l_2} + h2_{out_3}w_{k_3l_2} + b_{l_2}$$
+\end{bmatrix}$$  
+$$O_{in_1} = h2_{out_1}w_{k_1l_1} + h2_{out_2}w_{k_2l_1} + h2_{out_3}w_{k_3l_1} + b_{l_1}$$  
+$$O_{in_2} = h2_{out_1}w_{k_1l_2} + h2_{out_2}w_{k_2l_2} + h2_{out_3}w_{k_3l_2} + b_{l_2}$$  
 $$\begin{bmatrix} 
   \frac{\partial{O_{in_1}}}{\partial{h2_{out_1}}}  & \frac{\partial{O_{in_2}}}{\partial{h2_{out_1}}} & \frac{\partial{O_{in_3}}}{\partial{h2_{out_1}}} \\
   \frac{\partial{O_{in_1}}}{\partial{h2_{out_2}}}  & \frac{\partial{O_{in_2}}}{\partial{h2_{out_2}}} & \frac{\partial{O_{in_3}}}{\partial{h2_{out_2}}} \\

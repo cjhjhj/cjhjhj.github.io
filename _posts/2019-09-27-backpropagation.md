@@ -2,12 +2,8 @@
 layout: post
 title: "Backpropagation"
 categories: ml
-use_math: true
 comments: true
 ---
-
-
-test7
 
 Backpropagation (BP) 을 구현하기 위해서 알고리즘을 수학적으로 리뷰해보고 python으로 구현하기 위해 정리를 해본다. 이 정리는 다음 웹사이트 (https://medium.com/@14prakash/back-propagation-is-very-simple-who-made-it-complicated-97b794c97e5c)의 내용을 기반으로 작성되었다.  
 일반적인 neural network의 구조는 다음 그림과 같다.
@@ -30,15 +26,15 @@ $$W_{ij} =
 \end{bmatrix}$$  
 
 Hidden layer _j_ 로의 input  
-$$h1_{in1} = i_1w_{i_1j_1} + i_2w_{i_2j_1} + i_3w_{i_3j_1} + b_{j_1}$$  
-$$h1_{in2} = i_1w_{i_1j_2} + i_2w_{i_2j_2} + i_3w_{i_3j_2} + b_{j_2}$$  
+$$h1_{in_1} = i_1w_{i_1j_1} + i_2w_{i_2j_1} + i_3w_{i_3j_1} + b_{j_1}$$  
+$$h1_{in_2} = i_1w_{i_1j_2} + i_2w_{i_2j_2} + i_3w_{i_3j_2} + b_{j_2}$$  
 ...
 
 Matrix operation으로 표시하면,  
 $$\begin{bmatrix}
-  h1_{in1} \\ 
-  h1_{in2} \\ 
-  h1_{in3}
+  h1_{in_1} \\ 
+  h1_{in_2} \\ 
+  h1_{in_3}
 \end{bmatrix} = 
 \begin{bmatrix}
   w_{i_1j_1} & w_{i_2j_1} & w_{i_3j_1} \\
@@ -59,14 +55,14 @@ W_{ij}^TI + B_j$$
 
 ReLU ($=max(0, x)$) operation을 통한 hidden layer _j_ 의 output  
 $$\begin{bmatrix}
-  h1_{out1} \\ 
-  h1_{out2} \\ 
-  h1_{out3}
+  h1_{out_1} \\ 
+  h1_{out_2} \\ 
+  h1_{out_3}
 \end{bmatrix} = 
 \begin{bmatrix}
-  max(0, h1_{in1}) \\ 
-  max(0, h1_{in2}) \\ 
-  max(0, h1_{in3}) 
+  max(0, h1_{in_1}) \\ 
+  max(0, h1_{in_2}) \\ 
+  max(0, h1_{in_3}) 
 \end{bmatrix}$$  
 
 ### Layer 2
@@ -81,15 +77,15 @@ $$W_{jk} =
 \end{bmatrix}$$  
 
 Hidden layer _k_ 로의 input  
-$$h2_{in1} = h1_{out1}w_{j_1k_1} + h1_{out2}w_{j_2k_1} + h1_{out3}w_{j_3k_1} + b_{k_1}$$  
-$$h2_{in2} = h1_{out1}w_{j_1k_2} + h1_{out2}w_{j_2k_2} + h1_{out3}w_{j_3k_2} + b_{k_2}$$  
+$$h2_{in_1} = h1_{out_1}w_{j_1k_1} + h1_{out_2}w_{j_2k_1} + h1_{out_3}w_{j_3k_1} + b_{k_1}$$  
+$$h2_{in_2} = h1_{out_1}w_{j_1k_2} + h1_{out_2}w_{j_2k_2} + h1_{out_3}w_{j_3k_2} + b_{k_2}$$  
 ...
 
 Matrix operation으로 표시하면,  
 $$\begin{bmatrix}
-  h2_{in1} \\ 
-  h2_{in2} \\ 
-  h2_{in3}
+  h2_{in_1} \\ 
+  h2_{in_2} \\ 
+  h2_{in_3}
 \end{bmatrix} = 
 \begin{bmatrix}
   w_{j_1k_1} & w_{j_2k_1} & w_{j_3k_1} \\
@@ -97,9 +93,9 @@ $$\begin{bmatrix}
   w_{j_1k_3} & w_{j_2k_3} & w_{j_3k_3}
 \end{bmatrix} 
 \begin{bmatrix}
-  h1_{out1} \\
-  h1_{out2} \\
-  h1_{out3}
+  h1_{out_1} \\
+  h1_{out_2} \\
+  h1_{out_3}
 \end{bmatrix} +
 \begin{bmatrix}
   b_{k_1} \\
@@ -110,14 +106,14 @@ W_{jk}^Th1_{out} + B_k$$
 
 Sigmoid ($=1 / (1+e^{-x})$) operation을 통한 hidden layer _k_ 의 output  
 $$\begin{bmatrix}
-  h2_{out1} \\ 
-  h2_{out2} \\ 
-  h2_{out3}
+  h2_{out_1} \\ 
+  h2_{out_2} \\ 
+  h2_{out_3}
 \end{bmatrix} = 
 \begin{bmatrix}
-  1 / (1 + e^{-h2_{in1}}) \\ 
-  1 / (1 + e^{-h2_{in2}}) \\ 
-  1 / (1 + e^{-h2_{in3}})
+  1 / (1 + e^{-h2_{in_1}}) \\ 
+  1 / (1 + e^{-h2_{in_2}}) \\ 
+  1 / (1 + e^{-h2_{in_3}})
 \end{bmatrix}$$  
 
 ### Layer 3 (output layer)
@@ -132,15 +128,15 @@ $$W_{kl} =
 \end{bmatrix}$$  
 
 Output layer _l_ 로의 input  
-$$O_{in1} = h2_{out1}w_{k_1l_1} + h2_{out2}w_{k_2l_1} + h2_{out3}w_{k_3l_1} + b_{l_1}$$  
-$$O_{in2} = h2_{out1}w_{k_1l_2} + h2_{out2}w_{k_2l_2} + h2_{out3}w_{k_3l_2} + b_{l_2}$$  
+$$O_{in_1} = h2_{out_1}w_{k_1l_1} + h2_{out_2}w_{k_2l_1} + h2_{out_3}w_{k_3l_1} + b_{l_1}$$  
+$$O_{in_2} = h2_{out_1}w_{k_1l_2} + h2_{out_2}w_{k_2l_2} + h2_{out_3}w_{k_3l_2} + b_{l_2}$$  
 ...
 
 Matrix operation으로 표시하면,  
 $$\begin{bmatrix}
-  O_{in1} \\ 
-  O_{in2} \\ 
-  O_{in3}
+  O_{in_1} \\ 
+  O_{in_2} \\ 
+  O_{in_3}
 \end{bmatrix} = 
 \begin{bmatrix}
   w_{k_1l_1} & w_{k_2l_1} & w_{k_3l_1} \\
@@ -148,9 +144,9 @@ $$\begin{bmatrix}
   w_{k_1l_3} & w_{k_2l_3} & w_{k_3l_3}
 \end{bmatrix} 
 \begin{bmatrix}
-  h2_{out1} \\
-  h2_{out2} \\
-  h2_{out3}
+  h2_{out_1} \\
+  h2_{out_2} \\
+  h2_{out_3}
 \end{bmatrix} +
 \begin{bmatrix}
   b_{l_1} \\
@@ -161,14 +157,14 @@ W_{kl}^Th2_{out} + B_l$$
 
 Softmax ($= e^{O\_{in\_a}} / (\sum\_{a = 1}^3 {e^{O\_{in\_a}}})$) operation을 통한 output layer _l_ 의 output  
 $$\begin{bmatrix}
-  O_{out1} \\ 
-  O_{out2} \\ 
-  O_{out3}
+  O_{out_1} \\ 
+  O_{out_2} \\ 
+  O_{out_3}
 \end{bmatrix} = 
 \begin{bmatrix}
-  e^{O_{in1}} / (\sum_{a = 1}^3 {e^{O_{in_a}}}) \\ 
-  e^{O_{in2}} / (\sum_{a = 1}^3 {e^{O_{in_a}}}) \\ 
-  e^{O_{in3}} / (\sum_{a = 1}^3 {e^{O_{in_a}}})
+  e^{O_{in_1}} / (\sum_{a = 1}^3 {e^{O_{in_a}}}) \\ 
+  e^{O_{in_2}} / (\sum_{a = 1}^3 {e^{O_{in_a}}}) \\ 
+  e^{O_{in_3}} / (\sum_{a = 1}^3 {e^{O_{in_a}}})
 \end{bmatrix}$$  
 
 ### Error function

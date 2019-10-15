@@ -469,3 +469,34 @@ $$\begin{bmatrix}
     \frac{\partial{O_{out_3}}}{\partial{O_{in_3}}}
   \end{bmatrix}
 \right )$$
+
+
+최종적으로 구하고자 하는 matrix는  
+$$\delta{W_{jk}} = 
+\begin{bmatrix} 
+  \frac{\partial{E}}{\partial{w_{j_1k_1}}} & \frac{\partial{E}}{\partial{w_{j_1k_2}}} & \frac{\partial{E}}{\partial{w_{j_1k_3}}} \\ 
+  \frac{\partial{E}}{\partial{w_{j_2k_1}}} & \frac{\partial{E}}{\partial{w_{j_2k_2}}} & \frac{\partial{E}}{\partial{w_{j_2k_3}}} \\ 
+  \frac{\partial{E}}{\partial{w_{j_3k_1}}} & \frac{\partial{E}}{\partial{w_{j_3k_2}}} & \frac{\partial{E}}{\partial{w_{j_3k_3}}}
+\end{bmatrix}$$  
+$$= \begin{bmatrix} 
+  \frac{\partial{E}}{\partial{h2_{out_1}}}\frac{\partial{h2_{out_1}}}{\partial{h2_{in_1}}}\frac{\partial{h2_{in_1}}}{\partial{w_{j_1k_1}}} & \frac{\partial{E}}{\partial{h2_{out_2}}}\frac{\partial{h2_{out_2}}}{\partial{h2_{in_2}}}\frac{\partial{h2_{in_2}}}{\partial{w_{j_1k_2}}} & \frac{\partial{E}}{\partial{h2_{out_3}}}\frac{\partial{h2_{out_3}}}{\partial{h2_{in_3}}}\frac{\partial{h2_{in_3}}}{\partial{w_{j_1k_3}}} \\
+    \frac{\partial{E}}{\partial{h2_{out_1}}}\frac{\partial{h2_{out_1}}}{\partial{h2_{in_1}}}\frac{\partial{h2_{in_1}}}{\partial{w_{j_2k_1}}} & \frac{\partial{E}}{\partial{h2_{out_2}}}\frac{\partial{h2_{out_2}}}{\partial{h2_{in_2}}}\frac{\partial{h2_{in_2}}}{\partial{w_{j_1k_2}}} & \frac{\partial{E}}{\partial{h2_{out_3}}}\frac{\partial{h2_{out_3}}}{\partial{h2_{in_3}}}\frac{\partial{h2_{in_3}}}{\partial{w_{j_1k_3}}} \\
+    \frac{\partial{E}}{\partial{h2_{out_1}}}\frac{\partial{h2_{out_1}}}{\partial{h2_{in_1}}}\frac{\partial{h2_{in_1}}}{\partial{w_{j_3k_1}}} & \frac{\partial{E}}{\partial{h2_{out_2}}}\frac{\partial{h2_{out_2}}}{\partial{h2_{in_2}}}\frac{\partial{h2_{in_2}}}{\partial{w_{j_3k_2}}} & \frac{\partial{E}}{\partial{h2_{out_3}}}\frac{\partial{h2_{out_3}}}{\partial{h2_{in_3}}}\frac{\partial{h2_{in_3}}}{\partial{w_{j_3k_3}}}
+\end{bmatrix}$$ 
+$$= \begin{bmatrix} 
+  \frac{\partial{E}}{\partial{h2_{out_1}}} & \frac{\partial{E}}{\partial{h2_{out_2}}} & \frac{\partial{E}}{\partial{h2_{out_3}}} \\
+  \frac{\partial{E}}{\partial{h2_{out_1}}} & \frac{\partial{E}}{\partial{h2_{out_2}}} & \frac{\partial{E}}{\partial{h2_{out_3}}} \\
+  \frac{\partial{E}}{\partial{h2_{out_1}}} & \frac{\partial{E}}{\partial{h2_{out_2}}} & \frac{\partial{E}}{\partial{h2_{out_3}}}
+\end{bmatrix} 
+\ast
+\begin{bmatrix} 
+  \frac{\partial{h2_{out_1}}}{\partial{h2_{in_1}}} & \frac{\partial{h2_{out_2}}}{\partial{h2_{in_2}}} & \frac{\partial{h2_{out_3}}}{\partial{h2_{in_3}}} \\
+  \frac{\partial{h2_{out_1}}}{\partial{h2_{in_1}}} & \frac{\partial{h2_{out_2}}}{\partial{h2_{in_2}}} & \frac{\partial{h2_{out_3}}}{\partial{h2_{in_3}}} \\
+  \frac{\partial{h2_{out_1}}}{\partial{h2_{in_1}}} & \frac{\partial{h2_{out_2}}}{\partial{h2_{in_2}}} & \frac{\partial{h2_{out_3}}}{\partial{h2_{in_3}}}
+\end{bmatrix}
+\ast
+\begin{bmatrix} 
+  \frac{\partial{h2_{in_1}}}{\partial{w_{j_1k_1}}} & \frac{\partial{h2_{in_2}}}{\partial{w_{j_1k_2}}} & \frac{\partial{h2_{in_3}}}{\partial{w_{j_1k_3}}} \\
+  \frac{\partial{h2_{in_1}}}{\partial{w_{j_2k_1}}} & \frac{\partial{h2_{in_2}}}{\partial{w_{j_2k_2}}} & \frac{\partial{h2_{in_3}}}{\partial{w_{j_2k_3}}} \\
+  \frac{\partial{h2_{in_1}}}{\partial{w_{j_3k_1}}} & \frac{\partial{h2_{in_2}}}{\partial{w_{j_3k_2}}} & \frac{\partial{h2_{in_3}}}{\partial{w_{j_3k_3}}}
+\end{bmatrix}$$

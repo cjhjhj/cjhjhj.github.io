@@ -194,14 +194,15 @@ $x > 0$ 인 경우, $\frac{d}{dx}ReLU(x) = \frac{d}{dx}(x) = 1$
 
 #### Derivative of Softmax
 Softmax는 probability를 표현할 때 주로 사용되므로 $Softmax(x_i) = p(x_i)$라고 정의하자.
-$$\frac{d}{dx_i}Softmax(x_i) 
-= \frac{d}{dx_i}p(x_i)
+$$\frac{d}{dx_i}p(x_i)
 = \frac{d}{dx_i}(\frac{e^{x_i}}{e^{x_1} + e^{x_2} +\cdots+ e^{x_n}}) 
 = \frac{d}{dx_i}(\frac{e^{x_i}}{\sum_{j = 1}^{n} {e^{x_j}}})$$
 $$= \frac{(e^{x_i})'(\sum_{j = 1}^{n} {e^{x_j}}) - (e^{x_i})(\sum_{j = 1}^{n} {e^{x_j}})'}{(\sum_{j = 1}^{n} {e^{x_j}})^2} 
-= \frac{e^{x_i}(\sum_{j = 1}^{n} {e^{x_j}}) - (e^{x_i})(e^{x_i})}{(\sum_{j = 1}^{n} {e^{x_j}})^2} 
-= \frac{e^{x_i}(\sum_{j = 1, j \neq i}^{n} {e^{x_j}})}{(\sum_{j = 1}^{n} {e^{x_j}})^2}$$  
-($\frac{d}{dx_i} (\sum_{j = 1}^{n} {e^{x_j}}) = (0 + \cdots + \frac{d}{dx_i}(e^{x_i}) + \cdots + 0) = e^{x_i}$ 이므로)
+= \frac{e^{x_i}(\sum_{j = 1}^{n} {e^{x_j}}) - (e^{x_i})(e^{x_i})}{(\sum_{j = 1}^{n} {e^{x_j}})^2} \\
+= \frac{e^{x_i}(\sum_{j = 1}^{n} {e^{x_j}} - e^{x_i})}{(\sum_{j = 1}^{n} {e^{x_j}})^2} \\
+= \frac{e^{x_i}}{\sum_{j = 1}^{n} {e^{x_j}}}\frac{(\sum_{j = 1}^{n} {e^{x_j}} - e^{x_i})}{\sum_{j = 1}^{n} {e^{x_j}}} \\
+= \frac{e^{x_i}}{\sum_{j = 1}^{n} {e^{x_j}}}\left(1 - \frac{e^{x_i}}{\sum_{j = 1}^{n} {e^{x_j}}}\right) \\
+= p(x_i)(1 - p(x_i))$$
 
 ## Backpropagation
 ### Backpropagating error between output layer and hidden layer _k_

@@ -168,7 +168,7 @@ $$\begin{bmatrix}
 \end{bmatrix}$$  
 
 ### Error function
-여러 가지 error가 사용될 수 있지만, 이 예제에서는 cross-entropy를 사용하기로 한다.  
+여러 가지 error가 사용될 수 있지만, 이 예제에서는 cross-entropy를 사용했다.  
 $$error = -(1/n)(\sum_{i = 1}^n {(y_ilog(O_{out_i}) + (1 - y_i)log(1 - O_{out_i}))}$$
 
 ### Important derivatives
@@ -180,11 +180,12 @@ BP는 기본적으로 error의 weight에 대한 변화량을 이용해서 새로
 먼저 다음의 미분을 기억하자.  
 $$(1 + e^{-x})' = \frac{d}{dx}(1) + \frac{d}{dx}(e^{-x}) = 0 + (-1)e^{-x}$$  
 Sigmoid의 미분은 다음과 같이 정리할 수 있다.  
-$$\frac{d}{dx}Sigmoid(x) = \frac{d}{dx}\frac{1}{(1 + e^{-x})} 
+먼저 $Sigmoid(x) = \theta(x) = \frac{1}{(1 + e^{-x})}$라고 정의하고,  
+$$\frac{d}{dx}\theta(x) = \frac{d}{dx}\frac{1}{(1 + e^{-x})} 
 = \frac{(1)'(1 + e^{-x}) - 1(1 + e^{-x})'}{(1 + e^{-x}) ^ 2} = \frac{e^{-x}}{(1 + e^{-x}) ^ 2}$$  
 $$\frac{e^{-x}}{(1 + e^{-x}) ^ 2} = \frac{1}{(1 + e^{-x})}\cdot\frac{e^{-x}}{(1 + e^{-x})} 
 = \frac{1}{(1 + e^{-x})}\cdot(1 - \frac{1}{(1 + e^{-x})})$$  
-$$\therefore \frac{d}{dx}Sigmoid(x) = Sigmoid(x)\cdot(1 - Sigmoid(x))$$
+$$\therefore \frac{d}{dx}\theta(x) = \theta(x)\cdot(1 - \theta(x))$$
 
 #### Derivative of ReLU
 $$ReLU(x) = max(0, x)$$  
@@ -192,7 +193,9 @@ $x > 0$ 인 경우, $\frac{d}{dx}ReLU(x) = \frac{d}{dx}(x) = 1$
 그 외의 경우, $\frac{d}{dx}ReLU(x) = \frac{d}{dx}(0) = 0$
 
 #### Derivative of Softmax
+Softmax는 probability를 표현할 때 주로 사용되므로 $Softmax(x_i) = p(x_i)$라고 정의하자.
 $$\frac{d}{dx_i}Softmax(x_i) 
+= \frac{d}{dx_i}p(x_i)
 = \frac{d}{dx_i}(\frac{e^{x_i}}{e^{x_1} + e^{x_2} +\cdots+ e^{x_n}}) 
 = \frac{d}{dx_i}(\frac{e^{x_i}}{\sum_{j = 1}^{n} {e^{x_j}}})$$
 $$= \frac{(e^{x_i})'(\sum_{j = 1}^{n} {e^{x_j}}) - (e^{x_i})(\sum_{j = 1}^{n} {e^{x_j}})'}{(\sum_{j = 1}^{n} {e^{x_j}})^2} 

@@ -54,4 +54,4 @@ $$h_{out} = ReLU(h_{in}) =
   max(0, h_{in_1}) & max(0, h_{in_2}) & \cdots & max(0, h_{in_{10}})
 \end{bmatrix}$$
 
-test2
+test3

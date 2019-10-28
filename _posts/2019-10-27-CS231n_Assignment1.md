@@ -53,7 +53,8 @@ $$h_{out} = ReLU(h_{in}) =
 \begin{bmatrix}
   max(0, h_{in_1}) & max(0, h_{in_2}) & \cdots & max(0, h_{in_{10}})
 \end{bmatrix}$$  
-$$o_{in} = h_{out} \cdot W^2 =
+$$\begin{aligned}
+o_{in} & = h_{out} \cdot W^2 =
 \begin{bmatrix}
   h_{out_1} & \cdots & h_{out_{10}} 
 \end{bmatrix}
@@ -62,14 +63,17 @@ $$o_{in} = h_{out} \cdot W^2 =
   w^2_{21} & w^2_{22} & w^2_{23} \\
   \vdots & \ddots & \vdots \\
   w^2_{10,1} & w^2_{10,2} & w^2_{10,3}
-\end{bmatrix} = 
+\end{bmatrix} \\
+& = 
 \begin{bmatrix}
   o_{in_1} & o_{in_2} & o_{in_3}
-\end {bmatrix}$$  
+\end {bmatrix}
+\end{aligned}$$  
 $$o_{out} = softmax(o_{in}) = 
 \begin{bmatrix}
   \frac{e^{o_{in_1}}}{\sum_{j = 1}^3 e^{o_{in_j}}} &
   \frac{e^{o_{in_2}}}{\sum_{j = 1}^3 e^{o_{in_j}}} &
   \frac{e^{o_{in_3}}}{\sum_{j = 1}^3 e^{o_{in_j}}}
-\end{bmatrix}$$
+\end{bmatrix}$$  
+
 test5

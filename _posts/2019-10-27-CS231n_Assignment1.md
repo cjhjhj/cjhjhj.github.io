@@ -66,9 +66,7 @@ $$o_{in} = h_{out} \cdot W^2 =
   w^2_{10,1} & w^2_{10,2} & w^2_{10,3}
 \end{bmatrix} = 
 \begin{bmatrix}
-  o_{in_1} \\
-  o_{in_2} \\
-  o_{in_3}
+  o_{in_1} & o_{in_2} & o_{in_3}
 \end {bmatrix}$$
 
 $$o_{out} = softmax(o_{in}) = 

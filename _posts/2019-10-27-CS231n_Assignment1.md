@@ -23,7 +23,13 @@ From "two_layer_net.ipynb", the conditions are as follows,
 - num_classes = 3
 - num_inputs = 5
 
-Let's assume that (for one input sample), $x$ = [1 x 4] vector, $W^1$ = [4 x 10] matrix, $W^2$ = [10 x 3] matrix, 
+<figure>
+
+
+Softmax loss function is defined as follows,  
+$$ L = \sum_i L_i = \sum_i \left( \frac{e^{o_{in_i}}}{\sum_j e^{o_{in_j}}} \right) $$ 
+
+It means that (for one input sample), $x$ = [1 x 4] vector, $W^1$ = [4 x 10] matrix, $W^2$ = [10 x 3] matrix, 
 $h_{in}$ and $h_{out}$ = [1 x 10] vector, and $o_{in}$ and $o_{out}$ = [1 x 3] vector, i.e. scores for three classes.
 
     def __init__(self, input_size, hidden_size, output_size, std=1e-4):

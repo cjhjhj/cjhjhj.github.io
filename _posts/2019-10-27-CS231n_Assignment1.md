@@ -23,7 +23,7 @@ From "two_layer_net.ipynb", the conditions are as follows,
 - num_classes = 3
 - num_inputs = 5
 
-<figure>  
+Figure
 
 
 Softmax loss function is defined as follows,  

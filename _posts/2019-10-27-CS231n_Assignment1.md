@@ -70,6 +70,6 @@ $$o_{out} = softmax(o_{in}) =
 \begin{bmatrix}
   \frac{e^{o_{in_1}}}{\sum_{j = 1}^3 e^{o_{in_j}}} &
   \frac{e^{o_{in_2}}}{\sum_{j = 1}^3 e^{o_{in_j}}} &
-  \frac{e^{o_{in_3}}}{\sum_{j = 1}^3 e^{o_{in_j}}} &
+  \frac{e^{o_{in_3}}}{\sum_{j = 1}^3 e^{o_{in_j}}}
 \end{bmatrix}$$
 test5

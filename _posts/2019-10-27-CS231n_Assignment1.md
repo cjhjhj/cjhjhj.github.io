@@ -14,24 +14,21 @@ weight matrices. The network uses a ReLU nonlinearity after the first fully conn
 
 
 In other words, the network has the following architecture:  
-
-input - fully connected layer - ReLU - fully connected layer - softmax  
-
+_input - fully connected layer - ReLU - fully connected layer - softmax_  
 The outputs of the second fully-connected layer are the scores for each class.
 
-From "two_layer_net", the conditions are as follows,
-  input_size = 4
-  hidden_size = 10
-  num_classes = 3
-  num_inputs = 5
+From "two_layer_net.ipynb", the conditions are as follows,
+- input_size = 4
+- hidden_size = 10
+- num_classes = 3
+- num_inputs = 5
 
 Let's assume that (for one input sample), __x__ = [1 x 4] vector, __W<sup>1</sup>__ = [4 x 10] matrix, 
 __W<sup>2</sup>__ = [10 x 3] matrix, __h<sub>in</sub>__ and __h<sub>out</sub>__ = [1 x 10] vector, and 
 __o<sub>in</sub>__ and __o<sub>out</sub>__ = [1 x 3] vector, i.e. scores for three classes.
 
-$X$, $y$, $W^1$, $W^2$
+asdf $X$, $y$, $W^1$, $W^2$
 
-"""
 
   def __init__(self, input_size, hidden_size, output_size, std=1e-4):
     """
@@ -43,6 +40,7 @@ $X$, $y$, $W^1$, $W^2$
     b1: First layer biases; has shape (H,)
     W2: Second layer weights; has shape (H, C)
     b2: Second layer biases; has shape (C,)
+
 ### Layer 1
 <img src="/assets/img/ml/nn_example_layer1.png">
 

@@ -33,5 +33,15 @@ It means that (for one input sample), $x$ = [1 x 4] vector, $W^1$ = [4 x 10] mat
 $h_{in}$ and $h_{out}$ = [1 x 10] vector, and $o_{in}$ and $o_{out}$ = [1 x 3] vector, i.e. scores for three classes.  
 
 ### Forward-propagation
+$$h_{in} = x \cdot W^1 \\
+h_{out} = relu(h_{in}) = max(0, h_{in}) \\
+o_{in} = h_{out} \cdot W^2 \\
+o_{out} = softmax(o_{in}) \\
+= \begin{bmatrix}
+  \frac{e^{o_{in_1}}}{\sum_j e^{o_{in_j}}} \\
+  \frac{e^{o_{in_2}}}{\sum_j e^{o_{in_j}}} \\
+  \frac{e^{o_{in_3}}}{\sum_j e^{o_{in_j}}} \\
+\end{bmatrix} \\
+L = \sum_i \left(\frac{e^{o_{in_i}}}{\sum_j e^{o_{in_j}}}\right)$$
 
 ### Back-propagation

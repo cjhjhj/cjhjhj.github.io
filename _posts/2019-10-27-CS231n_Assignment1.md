@@ -42,7 +42,7 @@ $$h_{in} = x \cdot W^1 =
   w^1_{21} & w^1_{22} & \cdots & w^1_{2,10} \\
   \vdots & \vdots & \ddots & \vdots \\
   w^1_{41} & w^1_{42} & \cdots & w^1_{4,10}
-\end{bmatrix} = 
+\end{bmatrix} \\ = 
 \begin{bmatrix}
   h_{in_1} & h_{in_2} & \cdots & h_{in_{10}}
 \end {bmatrix}$$

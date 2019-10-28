@@ -50,9 +50,10 @@ h_{in} & = x \cdot W^1 =
 \end{bmatrix} 
 \end{aligned}$$  
 
+
 $$h_{out} = ReLU(h_{in}) = 
 \begin{bmatrix}
   max(0, h_{in_1}) & max(0, h_{in_2}) & \cdots & max(0, h_{in_{10}})
 \end{bmatrix}$$
 
-test
+test2

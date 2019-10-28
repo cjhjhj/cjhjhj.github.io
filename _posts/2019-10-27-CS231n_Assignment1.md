@@ -50,7 +50,7 @@ h_{in} & = x \cdot W^1 =
 \end{bmatrix} 
 \end{aligned}$$
 
-$$h_{out} = relu(h_{in}) = 
+$$h_{out} = ReLU(h_{in}) = 
 \begin{bmatrix}
   max(0, h_{in_1}) & max(0, h_{in_2}) & \cdots & max(0, h_{in_{10}})
 \end{bmatrix}$$
@@ -62,7 +62,7 @@ $$o_{in} = h_{out} \cdot W^2 =
 \begin{bmatrix}
   w^2_{11} & w^2_{12} & w^2_{13} \\
   w^2_{21} & w^2_{22} & w^2_{23} \\
-  \vdots & \ddots & \vdots \\
+  \vdots & \vdots & \vdots \\
   w^2_{10,1} & w^2_{10,2} & w^2_{10,3}
 \end{bmatrix} = 
 \begin{bmatrix}

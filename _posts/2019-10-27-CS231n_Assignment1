@@ -19,7 +19,17 @@ input - fully connected layer - ReLU - fully connected layer - softmax
 
 The outputs of the second fully-connected layer are the scores for each class.
 
+From "two_layer_net", the conditions are as follows,
+  input_size = 4
+  hidden_size = 10
+  num_classes = 3
+  num_inputs = 5
 
+Let's assume that (for one input sample), __x__ = [1 x 4] vector, __W<sup>1</sup>__ = [4 x 10] matrix, 
+__W<sup>2</sup>__ = [10 x 3] matrix, __h<sub>in</sub>__ and __h<sub>out</sub>__ = [1 x 10] vector, and 
+__o<sub>in</sub>__ and __o<sub>out</sub>__ = [1 x 3] vector, i.e. scores for three classes.
+
+$X$, $y$, $W^1$, $W^2$
 
 """
 

@@ -38,6 +38,25 @@ $$h_{in} = x \cdot W^1 =
   x_1 & x_2 & x_3 & x_4 
 \end{bmatrix}
 \begin{bmatrix}
+  w^1_{11} & w^1_{12} & \cdots & w^1_{1,10} \\
+  w^1_{21} & w^1_{22} & \cdots & w^1_{2,10} \\
+  \vdots & \vdots & \ddots & \vdots \\
+  w^1_{41} & w^1_{42} & \cdots & w^1_{4,10}
+\end{bmatrix} = 
+\begin{bmatrix}
+  h_{in_1} & h_{in_2} & \cdots & h_{in_{10}}
+\end {bmatrix}$$
+
+$$h_{out} = relu(h_{in}) = 
+\begin{bmatrix}
+  max(0, h_{in_1}) & max(0, h_{in_2}) & \cdots & max(0, h_{in_{10}})
+\end{bmatrix}$$
+
+$$o_{in} = h_{out} \cdot W^2 =
+\begin{bmatrix}
+  x_1 & x_2 & x_3 & x_4 
+\end{bmatrix}
+\begin{bmatrix}
   w^1_{11} & w^1_{12} & \cdots & w^1_{14} \\
   w^1_{21} & w^1_{22} & \cdots & w^1_{24} \\
   \vdots & \vdots & \ddots & \vdots \\
@@ -49,8 +68,6 @@ $$h_{in} = x \cdot W^1 =
   \vdots \\
   h_{in_{10}}
 \end {bmatrix}$$
-
-
 
 $$h_{out} = relu(h_{in}) = max(0, h_{in}) \\
 o_{in} = h_{out} \cdot W^2 \\

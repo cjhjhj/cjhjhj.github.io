@@ -23,23 +23,19 @@ From "two_layer_net.ipynb", the conditions are as follows,
 - num_classes = 3
 - num_inputs = 5
 
-Let's assume that (for one input sample), __x__ = [1 x 4] vector, __W<sup>1</sup>__ = [4 x 10] matrix, 
-__W<sup>2</sup>__ = [10 x 3] matrix, __h<sub>in</sub>__ and __h<sub>out</sub>__ = [1 x 10] vector, and 
-__o<sub>in</sub>__ and __o<sub>out</sub>__ = [1 x 3] vector, i.e. scores for three classes.
+Let's assume that (for one input sample), $x$ = [1 x 4] vector, $W^1$ = [4 x 10] matrix, $W^2$ = [10 x 3] matrix, 
+$h_{in}$ and $h_{out}$ = [1 x 10] vector, and $o_{in}$ and $o_{out}$ = [1 x 3] vector, i.e. scores for three classes.
 
-asdf $X$, $y$, $W^1$, $W^2$
+    def __init__(self, input_size, hidden_size, output_size, std=1e-4):
+      """
+      Initialize the model. Weights are initialized to small random values and
+      biases are initialized to zero. Weights and biases are stored in the
+      variable self.params, which is a dictionary with the following keys:
 
-
-  def __init__(self, input_size, hidden_size, output_size, std=1e-4):
-    """
-    Initialize the model. Weights are initialized to small random values and
-    biases are initialized to zero. Weights and biases are stored in the
-    variable self.params, which is a dictionary with the following keys:
-
-    W1: First layer weights; has shape (D, H)
-    b1: First layer biases; has shape (H,)
-    W2: Second layer weights; has shape (H, C)
-    b2: Second layer biases; has shape (C,)
+      W1: First layer weights; has shape (D, H)
+      b1: First layer biases; has shape (H,)
+      W2: Second layer weights; has shape (H, C)
+      b2: Second layer biases; has shape (C,)
 
 ### Layer 1
 <img src="/assets/img/ml/nn_example_layer1.png">

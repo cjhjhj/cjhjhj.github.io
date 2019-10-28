@@ -26,7 +26,7 @@ From "two_layer_net.ipynb", the conditions are as follows,
 Figure
 
 
-Softmax loss function is defined as follows,  
+Softmax loss function is defined as follows.  
 
 $$L = \sum_i L_i = \sum_i \left(\frac{e^{o_{in_i}}}{\sum_j e^{o_{in_j}}}\right)$$  
 

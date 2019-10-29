@@ -74,10 +74,11 @@ $$o_{out} = softmax(o_{in}) =
   \frac{e^{o_{in_1}}}{\sum_{j = 1}^3 e^{o_{in_j}}} &
   \frac{e^{o_{in_2}}}{\sum_{j = 1}^3 e^{o_{in_j}}} &
   \frac{e^{o_{in_3}}}{\sum_{j = 1}^3 e^{o_{in_j}}}
-\end{bmatrix} \\ \\  
+\end{bmatrix} \\\\  
 L = \sum_{j = 1}^3 o_{out_j} = o_{out_1} + o_{out_2} + o_{out_3}$$  
 
-test
+
+test2
 
 ### Back-propagation
 First, let's think about the update of $W^2$ matrix (i.e. back-progation between output and hidden layers). According to the chain rule,

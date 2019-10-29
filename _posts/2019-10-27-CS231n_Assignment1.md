@@ -33,8 +33,7 @@ It means that (for one input sample), $x$ = [1 x 4] vector, $W^1$ = [4 x 10] mat
 $h_{in}$ and $h_{out}$ = [1 x 10] vector, and $o_{in}$ and $o_{out}$ = [1 x 3] vector, i.e. scores for three classes.  
 
 ### Forward-propagation
-$$
-\begin{aligned}
+$$\begin{aligned}
   h_{in} & = x \cdot W^1 = 
   \begin{bmatrix}
     x_1 & x_2 & x_3 & x_4 
@@ -53,7 +52,6 @@ $$
 h_{out} = ReLU(h_{in}) = 
 \begin{bmatrix}
   max(0, h_{in_1}) & max(0, h_{in_2}) & \cdots & max(0, h_{in_{10}})
-\end{bmatrix}
-$$
+\end{bmatrix}$$
 
-test
+test2

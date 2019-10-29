@@ -34,7 +34,7 @@ $h_{in}$ and $h_{out}$ = [1 x 10] vector, and $o_{in}$ and $o_{out}$ = [1 x 3] v
 
 ### Forward-propagation
 $$ a = b \\[10pt]
-  b = c \\[5pt]
-  c = d $$
+b = c \\[5pt]
+c = d $$
 
-test4
+test5

@@ -102,7 +102,7 @@ $$\begin{aligned}
   \frac{\partial p(o_{in_1})}{\partial o_{in_1}} & 
   \frac{\partial p(o_{in_2})}{\partial o_{in_1}} & 
   \frac{\partial p(o_{in_3})}{\partial o_{in_1}}
-\end{bmatrix} \\
+\end{bmatrix} \\[10pt]
 & = 
 \frac{\partial p(o_{in_1})}{\partial o_{in_1}} = 
 p(o_{in_1})(1 - p(o_{in_1}))
@@ -114,4 +114,4 @@ $$\frac{\partial o_{in_1}}{\partial w^2_{11}} =
 \frac{\partial}{\partial w^2_{11}} ( h_{out_1}w^2_{11} + h_{out_2}w^2_{21}+ \cdots + h_{out_{10}}w^2_{10,1}) = 
 h_{out_1}$$  
 
-test
+test1

@@ -91,16 +91,18 @@ $$L = \sum_{j = 1}^3 o_{out_j} = o_{out_1} + o_{out_2} + o_{out_3}$$
 First, let's think about the update of $W^2$ matrix (i.e. back-progation between output and hidden layers). According to the chain rule,
 the derivative of loss w.r.t $w^2_{11}$ can be expressed as follows,  
 $$\frac{\partial L}{\partial w^2_{11}} = \frac{\partial L}{\partial o_{out_1}}\frac{\partial o_{out_1}}{\partial o_{in_1}}\frac{\partial o_{in_1}}{\partial w^2_{11}}$$  
+
 The first derivative is  
 $$\frac{\partial L}{\partial o_{out_1}} = \frac{\partial}{\partial o_{out_1}} (o_{out_1} + o_{out_2} + o_{out_3}) = 1$$  
+
 The second derivative is  
 $$\begin{aligned}
 \frac{\partial o_{out_1}}{\partial o_{in_1}} & = 
 \begin{bmatrix}
-  \frac{\partial p_{o_{in_1}}}{\partial o_{in_1}} & 
-  \frac{\partial p_{o_{in_2}}}{\partial o_{in_1}} & 
-  \frac{\partial p_{o_{in_3}}}{\partial o_{in_1}}
+  \frac{\partial p(o_{in_1})}{\partial o_{in_1}} & 
+  \frac{\partial p(o_{in_2})}{\partial o_{in_1}} & 
+  \frac{\partial p(o_{in_3})}{\partial o_{in_1}}
 \end{bmatrix} \\
 & = 
-\frac{\partial p_{o_{in_1}}}{\partial o_{in_1}} = 
-p_{o_{in_1}}(1 - p_{o_{in_1}})$$ 
+\frac{\partial p(o_{in_1})}{\partial o_{in_1}} = 
+p(o_{in_1})(1 - p(o_{in_1}))$$ 

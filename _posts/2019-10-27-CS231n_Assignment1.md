@@ -70,7 +70,7 @@ o_{in} & = h_{out} \cdot W^2 =
   o_{in_1} & o_{in_2} & o_{in_3}
 \end {bmatrix}
 \end{aligned}$$  
-Let softmax(x) function be $p(x)$,   
+Let softmax(x) function be $p(x)$,  
 $$\begin{aligned}
 o_{out} & = softmax(o_{in}) = p(o_{in}) =
 \begin{bmatrix}
@@ -87,7 +87,7 @@ $$L = \sum_{j = 1}^3 o_{out_j} = o_{out_1} + o_{out_2} + o_{out_3}$$
 
 ### Back-propagation
 First, let's think about the update of $W^2$ matrix (i.e. back-progation between output and hidden layers). According to the chain rule,
-the derivative of loss w.r.t $w^2\_{11}$ can be expressed as follows,  
+the derivative of loss w.r.t $w^2_{11}$ can be expressed as follows,  
 $$\frac{\partial L}{\partial w^2_{11}} = \frac{\partial L}{\partial o_{out_1}}\frac{\partial o_{out_1}}{\partial o_{in_1}}\frac{\partial o_{in_1}}{\partial w^2_{11}}$$  
 The first derivative is  
 $$\frac{\partial L}{\partial o_{out_1}} = \frac{\partial}{\partial o_{out_1}} (o_{out_1} + o_{out_2} + o_{out_3}) = 1$$  

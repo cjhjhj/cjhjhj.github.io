@@ -102,8 +102,11 @@ $$\begin{aligned}
   \frac{\partial p(o_{in_1})}{\partial o_{in_1}} & 
   \frac{\partial p(o_{in_2})}{\partial o_{in_1}} & 
   \frac{\partial p(o_{in_3})}{\partial o_{in_1}}
-\end{bmatrix} \\
+\end{bmatrix} \\[10pt]
 & = 
 \frac{\partial p(o_{in_1})}{\partial o_{in_1}} = 
 p(o_{in_1})(1 - p(o_{in_1}))
 \end{aligned}$$ 
+
+
+test

@@ -70,9 +70,11 @@ o_{in} & = h_{out} \cdot W^2 =
   o_{in_1} & o_{in_2} & o_{in_3}
 \end {bmatrix}
 \end{aligned}$$  
-Let softmax(x) function be $p(x)$,  
+
+Let $softmax(x)$ function be $p(x)$,  
 $$\begin{aligned}
-o_{out} & = softmax(o_{in}) = p(o_{in}) =
+o_{out} & = softmax(o_{in}) = p(o_{in}) \\
+& =
 \begin{bmatrix}
   p(o_{in_1}) & p(o_{in_2}) & p(o_{in_3})
 \end{bmatrix} \\
@@ -81,7 +83,8 @@ o_{out} & = softmax(o_{in}) = p(o_{in}) =
   \frac{e^{o_{in_1}}}{\sum_{j = 1}^3 e^{o_{in_j}}} &
   \frac{e^{o_{in_2}}}{\sum_{j = 1}^3 e^{o_{in_j}}} &
   \frac{e^{o_{in_3}}}{\sum_{j = 1}^3 e^{o_{in_j}}}
-\end{bmatrix}$$  
+\end{bmatrix}
+\end{aligned}$$  
 $$ $$  
 $$L = \sum_{j = 1}^3 o_{out_j} = o_{out_1} + o_{out_2} + o_{out_3}$$  
 

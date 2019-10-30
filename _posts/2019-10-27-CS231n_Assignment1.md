@@ -105,4 +105,5 @@ $$\begin{aligned}
 \end{bmatrix} \\
 & = 
 \frac{\partial p(o_{in_1})}{\partial o_{in_1}} = 
-p(o_{in_1})(1 - p(o_{in_1}))$$ 
+p(o_{in_1})(1 - p(o_{in_1}))
+\end{aligned}$$ 

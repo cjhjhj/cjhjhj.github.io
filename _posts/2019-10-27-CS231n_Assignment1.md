@@ -111,7 +111,7 @@ p(o_{in_1})(1 - p(o_{in_1}))
 
 The third derivative is  
 $$\frac{\partial o_{in_1}}{\partial w^2_{11}} = 
-\frac{\partial}{\partial w^2_{11}} (h_{out_1}w^2_{11} + h_{out_2}w^2_{21) + \cdots + h_{out_10}w^2_{10,1}) = 
-h_{out_1}$$
+\frac{\partial}{\partial w^2_{11}} ( h_{out_1}w^2_{11} + h_{out_2}w^2_{21}+ \cdots + h_{out_{10}}w^2_{10,1}) = 
+h_{out_1}$$  
 
 test

@@ -33,8 +33,9 @@ It means that (for one input sample), $x$ = [1 x 4] vector, $W^1$ = [4 x 10] mat
 $h_{in}$ and $h_{out}$ = [1 x 10] vector, and $o_{in}$ and $o_{out}$ = [1 x 3] vector, i.e. scores for three classes.  
 
 ### Forward-propagation
+
 $$a = b \\[10pt]
 b = c \\[5pt]
 c = d$$
 
-test6
+test1

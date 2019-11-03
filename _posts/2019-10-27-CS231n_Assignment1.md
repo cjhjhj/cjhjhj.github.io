@@ -45,7 +45,7 @@ $$h_{in} = x \cdot W^1 =
 \end{bmatrix} = 
 \begin{bmatrix}
   h_{in_1} & h_{in_2} & \cdots & h_{in_{10}}
-\end{bmatrix} 
+\end{bmatrix}$$  
 $$h_{out} = ReLU(h_{in}) = 
 \begin{bmatrix}
   max(0, h_{in_1}) & max(0, h_{in_2}) & \cdots & max(0, h_{in_{10}})
@@ -62,8 +62,7 @@ $$o_{in} & = h_{out} \cdot W^2 =
 \end{bmatrix} = 
 \begin{bmatrix}
   o_{in_1} & o_{in_2} & o_{in_3}
-\end {bmatrix}
-\end{aligned}$$  
+\end{bmatrix}$$  
 
 Let softmax(x) function be $p(x)$,  
 $$o_{out} = softmax(o_{in}) = p(o_{in}) =

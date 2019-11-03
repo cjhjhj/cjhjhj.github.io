@@ -102,4 +102,19 @@ $$\frac{\partial o_{in_1}}{\partial w^2_{11}} =
 \frac{\partial}{\partial w^2_{11}} ( h_{out_1}w^2_{11} + h_{out_2}w^2_{21}+ \cdots + h_{out_{10}}w^2_{10,1}) = 
 h_{out_1}$$  
 
-test1
+Generlized results are as follows,  
+$$\frac{\partial L}{\partial w^2_{jk}} = \frac{\partial L}{\partial o_{out_k}}\frac{\partial o_{out_k}}{\partial o_{in_k}}\frac{\partial o_{in_k}}{\partial w^2_{jk}}$$  
+$$\frac{\partial L}{\partial o_{out_k}} = \frac{\partial}{\partial o_{out_k}} (o_{out_1} + \cdots + o_{out_k} + \cdots) = 1$$  
+$$\frac{\partial o_{out_k}}{\partial o_{in_k}} = 
+\begin{bmatrix}
+  \frac{\partial p(o_{in_1})}{\partial o_{in_k}} &
+  \cdots &
+  \frac{\partial p(o_{in_k})}{\partial o_{in_k}} & 
+  \cdots
+\end{bmatrix} = 
+\frac{\partial p(o_{in_k})}{\partial o_{in_k}} = 
+p(o_{in_k})(1 - p(o_{in_k}))$$  
+$$\frac{\partial o_{in_k}}{\partial w^2_{jk}} = 
+\frac{\partial}{\partial w^2_{jk}} ( h_{out_1}w^2_{1k} + \cdots + h_{out_j}w^2_{jk}+ \cdots + h_{out_{10}}w^2_{10,k}) = 
+h_{out_j}$$  
+

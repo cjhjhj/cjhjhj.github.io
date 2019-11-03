@@ -33,8 +33,7 @@ It means that (for one input sample), $x$ = [1 x 4] vector, $W^1$ = [4 x 10] mat
 $h_{in}$ and $h_{out}$ = [1 x 10] vector, and $o_{in}$ and $o_{out}$ = [1 x 3] vector, i.e. scores for three classes.  
 
 ### Forward-propagation
-$$\begin{aligned}
-h_{in} & = x \cdot W^1 = 
+$$h_{in} = x \cdot W^1 = 
 \begin{bmatrix}
   x_1 & x_2 & x_3 & x_4 
 \end{bmatrix}
@@ -43,19 +42,15 @@ h_{in} & = x \cdot W^1 =
   w^1_{21} & w^1_{22} & \cdots & w^1_{2,10} \\
   \vdots & \vdots & \ddots & \vdots \\
   w^1_{41} & w^1_{42} & \cdots & w^1_{4,10}
-\end{bmatrix} \\
-& = 
+\end{bmatrix} = 
 \begin{bmatrix}
   h_{in_1} & h_{in_2} & \cdots & h_{in_{10}}
 \end{bmatrix} 
-\end{aligned}$$  
-$$ $$  
 $$h_{out} = ReLU(h_{in}) = 
 \begin{bmatrix}
   max(0, h_{in_1}) & max(0, h_{in_2}) & \cdots & max(0, h_{in_{10}})
 \end{bmatrix}$$  
-$$\begin{aligned}
-o_{in} & = h_{out} \cdot W^2 =
+$$o_{in} & = h_{out} \cdot W^2 =
 \begin{bmatrix}
   h_{out_1} & \cdots & h_{out_{10}} 
 \end{bmatrix}
@@ -64,27 +59,24 @@ o_{in} & = h_{out} \cdot W^2 =
   w^2_{21} & w^2_{22} & w^2_{23} \\
   \vdots & \ddots & \vdots \\
   w^2_{10,1} & w^2_{10,2} & w^2_{10,3}
-\end{bmatrix} \\
-& = 
+\end{bmatrix} = 
 \begin{bmatrix}
   o_{in_1} & o_{in_2} & o_{in_3}
 \end {bmatrix}
 \end{aligned}$$  
 
-Let $softmax(x)$ function be $p(x)$,  
-$$\begin{aligned}
-o_{out} & = softmax(o_{in}) = p(o_{in}) =
+Let softmax(x) function be $p(x)$,  
+$$o_{out} = softmax(o_{in}) = p(o_{in}) =
 \begin{bmatrix}
   p(o_{in_1}) & p(o_{in_2}) & p(o_{in_3})
-\end{bmatrix} \\
-& = 
+\end{bmatrix} = 
 \begin{bmatrix}
   \frac{e^{o_{in_1}}}{\sum_{j = 1}^3 e^{o_{in_j}}} &
   \frac{e^{o_{in_2}}}{\sum_{j = 1}^3 e^{o_{in_j}}} &
   \frac{e^{o_{in_3}}}{\sum_{j = 1}^3 e^{o_{in_j}}}
-\end{bmatrix}
-\end{aligned}$$  
-$$ $$  
+\end{bmatrix}$$  
+
+Softmax loss function is defined as,  
 $$L = \sum_{j = 1}^3 o_{out_j} = o_{out_1} + o_{out_2} + o_{out_3}$$  
 
 ### Back-propagation
@@ -96,17 +88,14 @@ The first derivative is
 $$\frac{\partial L}{\partial o_{out_1}} = \frac{\partial}{\partial o_{out_1}} (o_{out_1} + o_{out_2} + o_{out_3}) = 1$$  
 
 The second derivative is  
-$$\begin{aligned}
-\frac{\partial o_{out_1}}{\partial o_{in_1}} & = 
+$$\frac{\partial o_{out_1}}{\partial o_{in_1}} = 
 \begin{bmatrix}
   \frac{\partial p(o_{in_1})}{\partial o_{in_1}} & 
   \frac{\partial p(o_{in_2})}{\partial o_{in_1}} & 
   \frac{\partial p(o_{in_3})}{\partial o_{in_1}}
-\end{bmatrix} \\
-& = 
+\end{bmatrix} = 
 \frac{\partial p(o_{in_1})}{\partial o_{in_1}} = 
-p(o_{in_1})(1 - p(o_{in_1}))
-\end{aligned}$$ 
+p(o_{in_1})(1 - p(o_{in_1}))$$ 
 (The proof can be found below)
 
 The third derivative is  

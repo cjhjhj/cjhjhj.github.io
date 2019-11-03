@@ -50,7 +50,7 @@ $$h_{out} = ReLU(h_{in}) =
 \begin{bmatrix}
   max(0, h_{in_1}) & max(0, h_{in_2}) & \cdots & max(0, h_{in_{10}})
 \end{bmatrix}$$  
-$$o_{in} & = h_{out} \cdot W^2 =
+$$o_{in} = h_{out} \cdot W^2 =
 \begin{bmatrix}
   h_{out_1} & \cdots & h_{out_{10}} 
 \end{bmatrix}

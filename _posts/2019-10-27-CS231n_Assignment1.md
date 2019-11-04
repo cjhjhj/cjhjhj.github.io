@@ -141,7 +141,7 @@ $$\begin{aligned}
   h_{out_1} \\
   h_{out_2} \\
   \vdots \\
-  h_{out_1}
+  h_{out_{10}}
 \end{bmatrix}
 \begin{bmatrix}
   p(o_{in_1})(1 - p(o_{in_1})) & p(o_{in_2})(1 - p(o_{in_2})) & p(o_{in_3})(1 - p(o_{in_3}))

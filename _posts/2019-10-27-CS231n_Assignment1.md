@@ -131,10 +131,10 @@ $$\begin{aligned}
   \frac{\partial L}{\partial w^2_{10,1}} & \frac{\partial L}{\partial w^2_{10,2}} & \frac{\partial L}{\partial w^2_{10,3}}
 \end{bmatrix} = 
 \begin{bmatrix}
-  h_{out_1}p(o_{in_1})(1 - p(o_{in_1})) & h_{out_1}p(o_{in_2})(1 - p(o_{in_2})) & h_{out_1}p(o_{in_3})(1 - p(o_{in_3})) \\
-  h_{out_2}p(o_{in_1})(1 - p(o_{in_1})) & h_{out_2}p(o_{in_2})(1 - p(o_{in_2})) & h_{out_2}p(o_{in_3})(1 - p(o_{in_3})) \\
+  h_{out_1}\cdotp(o_{in_1})(1 - p(o_{in_1})) & h_{out_1}\cdotp(o_{in_2})(1 - p(o_{in_2})) & h_{out_1}\cdotp(o_{in_3})(1 - p(o_{in_3})) \\
+  h_{out_2}\cdotp(o_{in_1})(1 - p(o_{in_1})) & h_{out_2}\cdotp(o_{in_2})(1 - p(o_{in_2})) & h_{out_2}\cdotp(o_{in_3})(1 - p(o_{in_3})) \\
   \vdots & \vdots & \vdots \\
-  h_{out_10}p(o_{in_1})(1 - p(o_{in_1})) & h_{out_10}p(o_{in_2})(1 - p(o_{in_2})) & h_{out_10}p(o_{in_3})(1 - p(o_{in_3}))
+  h_{out_{10}}\cdotp(o_{in_1})(1 - p(o_{in_1})) & h_{out_{10}}\cdotp(o_{in_2})(1 - p(o_{in_2})) & h_{out_{10}}\cdotp(o_{in_3})(1 - p(o_{in_3}))
 \end{bmatrix} \\
 &= 
 \begin{bmatrix}

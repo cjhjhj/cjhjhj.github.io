@@ -121,7 +121,7 @@ $$\therefore \frac{\partial L}{\partial w^2_{jk}} =
 \frac{\partial L}{\partial o_{out_k}}\frac{\partial o_{out_k}}{\partial o_{in_k}}\frac{\partial o_{in_k}}{\partial w^2_{jk}} =
 1\cdot p(o_{in_k})(1 - p(o_{in_k}))\cdot h_{out_j}$$  
 
-
+The derivative of $W^2$ can be expressed as,  
 $$\begin{aligned}
 \frac{\partial L}{\partial W^2} &= 
 \begin{bmatrix}

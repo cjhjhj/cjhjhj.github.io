@@ -117,4 +117,21 @@ p(o_{in_k})(1 - p(o_{in_k}))$$
 $$\frac{\partial o_{in_k}}{\partial w^2_{jk}} = 
 \frac{\partial}{\partial w^2_{jk}} ( h_{out_1}w^2_{1k} + \cdots + h_{out_j}w^2_{jk}+ \cdots + h_{out_{10}}w^2_{10,k}) = 
 h_{out_j}$$  
+$$\therfore \frac{\partial L}{\partial w^2_{jk}} = 
+\frac{\partial L}{\partial o_{out_k}}\frac{\partial o_{out_k}}{\partial o_{in_k}}\frac{\partial o_{in_k}}{\partial w^2_{jk}} =
+1\cdot p(o_{in_k})(1 - p(o_{in_k}))\cdot h_{out_j}$$  
 
+
+$$\frac{\partial L}{\partial W^2} = 
+\begin{bmatrix}
+  \frac{\partial L}{\partial w^2_{11}} & \frac{\partial L}{\partial w^2_{12}} & \frac{\partial L}{\partial w^2_{13}} \\
+  \frac{\partial L}{\partial w^2_{21}} & \frac{\partial L}{\partial w^2_{22}} & \frac{\partial L}{\partial w^2_{13}} \\
+  \vdots & \vdots & \vdots \\
+  \frac{\partial L}{\partial w^2_{10,1}} & \frac{\partial L}{\partial w^2_{10,2}} & \frac{\partial L}{\partial w^2_{10,3}}
+\end{bmatrix} = 
+\begin{bmatrix}
+  h_{out_1}p(o_{in_1})(1 - p(o_{in_1})) & h_{out_1}p(o_{in_2})(1 - p(o_{in_2})) & h_{out_1}p(o_{in_3})(1 - p(o_{in_3})) \\
+  h_{out_2}p(o_{in_1})(1 - p(o_{in_1})) & h_{out_2}p(o_{in_2})(1 - p(o_{in_2})) & h_{out_2}p(o_{in_3})(1 - p(o_{in_3})) \\
+  \vdots & \vdots & \vdots \\
+  h_{out_10}p(o_{in_1})(1 - p(o_{in_1})) & h_{out_10}p(o_{in_2})(1 - p(o_{in_2})) & h_{out_10}p(o_{in_3})(1 - p(o_{in_3}))
+\end{bmatrix} = 

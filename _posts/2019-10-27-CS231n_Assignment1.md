@@ -159,7 +159,10 @@ The second derivative is also simple (the derivative of ReLU function),
 $$\begin{aligned}
   \frac{\partial h_{out_1}}{\partial h_{in_1}} = \frac{\partial}{\partial h_{in_1}} max(0, h_{in_1}) &= 
   0 (h_{in_1} \le 0) \\
-  &= 1 (h_{in_1} \gt 0)$$  
+  &= 1 (h_{in_1} \gt 0)
+\end{aligned}$$  
 
+The first derivative is a bit complicated since it has to be expanded using chain rule again.  
+$$\frac{\partial L}{\partial h_{out_1}} = \frac{\partial L}{\partial o_{out_1}}\frac{\partial o_{in_1}}{\partial o_{out_1}}\frac{\partial o_{in_1}}{\partial h_{out_1}}$$  
 
 

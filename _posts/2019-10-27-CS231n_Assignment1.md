@@ -147,3 +147,16 @@ $$\begin{aligned}
   p(o_{in_1})(1 - p(o_{in_1})) & p(o_{in_2})(1 - p(o_{in_2})) & p(o_{in_3})(1 - p(o_{in_3}))
 \end{bmatrix}
 \end{aligned}$$
+
+
+Next, we need to go up to $W^1$ which makes the relationship between input an hidden layer. As similar to above, the derivative of loss w.r.t $w^1_{11}$ can be expressed as follows based on chain rule,  
+$$\frac{\partial L}{\partial w^1_{11}} = \frac{\partial L}{\partial h_{out_1}}\frac{\partial h_{out_1}}{\partial h_{in_1}}\frac{\partial h_{in_1}}{\partial w^1_{11}}$$  
+
+The last derivative is simple as follows,
+$$\frac{\partial h_{in_1}}{\partial w^1_{11}} = \frac{\partial}{\partial w^1_{11}} (x_1\cdotw^1_{11} + \cdots + x_4\cdotw^1_{41}) = x_1$$  
+
+The second derivative is also simple (the derivative of ReLU function),  
+$$\frac{\partial h_{out_1}}{\partial h_{in_1}} = \frac{\partial}{\partial h_{in_1}} max(0, h_{in_1}) = 0 (h_{in_1} \le 0) or 1 (h_{in_1} \gt 0)$$  
+
+
+

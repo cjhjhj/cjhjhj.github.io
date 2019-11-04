@@ -117,7 +117,7 @@ p(o_{in_k})(1 - p(o_{in_k}))$$
 $$\frac{\partial o_{in_k}}{\partial w^2_{jk}} = 
 \frac{\partial}{\partial w^2_{jk}} ( h_{out_1}w^2_{1k} + \cdots + h_{out_j}w^2_{jk}+ \cdots + h_{out_{10}}w^2_{10,k}) = 
 h_{out_j}$$  
-$$\therfore \frac{\partial L}{\partial w^2_{jk}} = 
+$$\therefore \frac{\partial L}{\partial w^2_{jk}} = 
 \frac{\partial L}{\partial o_{out_k}}\frac{\partial o_{out_k}}{\partial o_{in_k}}\frac{\partial o_{in_k}}{\partial w^2_{jk}} =
 1\cdot p(o_{in_k})(1 - p(o_{in_k}))\cdot h_{out_j}$$  
 

@@ -158,25 +158,38 @@ $$\frac{\partial h_{in_1}}{\partial w^1_{11}} = \frac{\partial}{\partial w^1_{11
 The second derivative is also simple (the derivative of ReLU function),  
 $$\begin{aligned}
   \frac{\partial h_{out_1}}{\partial h_{in_1}} = \frac{\partial}{\partial h_{in_1}} max(0, h_{in_1}) &= 
-  0 (h_{in_1} \le 0) \\
-  &= 1 (h_{in_1} \gt 0)
+  0 \ (h_{in_1} \le 0) \\
+  &= 1 \ (h_{in_1} \gt 0)
 \end{aligned}$$  
 
 The first derivative is a bit complicated since $h_{out_1}$ contributes every $L_1$, $L_2$ and $L_3$.  
 $$\frac{\partial L}{\partial h_{out_1}} = \frac{\partial (L_1 + L_2 + L_3)}{\partial h_{out_1}}$$  
 
 Each derivative is as follows,  
-$$\frac{\partial L_1}{\partial h_{out_1}} = \frac{\partial L_1}{\partial o_{out_1}}\frac{\partial o_{in_1}}{\partial o_{out_1}}\frac{\partial o_{in_1}}{\partial h_{out_1}} = 1 \cdot p(o_{in_1})(1 - p(o_{in_1})) \cdot w^1_{11}$$  
-$$\frac{\partial L_2}{\partial h_{out_1}} = \frac{\partial L_2}{\partial o_{out_2}}\frac{\partial o_{in_2}}{\partial o_{out_2}}\frac{\partial o_{in_2}}{\partial h_{out_1}} = 1 \cdot p(o_{in_2})(1 - p(o_{in_2})) \cdot w^1_{12}$$  
-$$\frac{\partial L_3}{\partial h_{out_1}} = \frac{\partial L_3}{\partial o_{out_3}}\frac{\partial o_{in_3}}{\partial o_{out_3}}\frac{\partial o_{in_3}}{\partial h_{out_1}} = 1 \cdot p(o_{in_3})(1 - p(o_{in_3})) \cdot w^1_{13}$$  
+$$\frac{\partial L_1}{\partial h_{out_1}} = \frac{\partial L_1}{\partial o_{out_1}}\frac{\partial o_{in_1}}{\partial o_{out_1}}\frac{\partial o_{in_1}}{\partial h_{out_1}} = 1 \cdot p(o_{in_1})(1 - p(o_{in_1})) \cdot w^2_{11}$$  
+$$\frac{\partial L_2}{\partial h_{out_1}} = \frac{\partial L_2}{\partial o_{out_2}}\frac{\partial o_{in_2}}{\partial o_{out_2}}\frac{\partial o_{in_2}}{\partial h_{out_1}} = 1 \cdot p(o_{in_2})(1 - p(o_{in_2})) \cdot w^2_{12}$$  
+$$\frac{\partial L_3}{\partial h_{out_1}} = \frac{\partial L_3}{\partial o_{out_3}}\frac{\partial o_{in_3}}{\partial o_{out_3}}\frac{\partial o_{in_3}}{\partial h_{out_1}} = 1 \cdot p(o_{in_3})(1 - p(o_{in_3})) \cdot w^2_{13}$$  
+$$\frac{\partial L}{\partial h_{out_1}} = w^2_{11}p(o_{in_1})(1 - p(o_{in_1})) + 
+w^2_{12}p(o_{in_2})(1 - p(o_{in_2})) +
+w^2_{13}p(o_{in_3})(1 - p(o_{in_3}))$$  
 
-Therefore,
-$$\frac{\partial L}{\partial h_{out_1}} = w^1_{11}p(o_{in_1})(1 - p(o_{in_1})) + 
-w^1_{12}p(o_{in_2})(1 - p(o_{in_2})) +
-w^1_{13}p(o_{in_3})(1 - p(o_{in_3}))$$  
+Therefore, 
+$$\begin{aligned}
+  \frac{\partial L}{\partial w^1_{11}} &= x_1(w^2_{11}p(o_{in_1})(1 - p(o_{in_1})) + w^2_{12}p(o_{in_2})(1 - p(o_{in_2})) + w^2_{13}p(o_{in_3})(1 - p(o_{in_3}))) \ (h_{in_1} > 0) \\
+  &= 0 \ (otherwise)
+\end{aligned}$$  
 
-The derivative of $W^1$ is expressed as,  
+Similarly,
+$$\begin{aligned}
+  \frac{\partial L}{\partial w^1_{12}} &= x_1(w^2_{11}p(o_{in_1})(1 - p(o_{in_1})) + w^2_{12}p(o_{in_2})(1 - p(o_{in_2})) + w^2_{13}p(o_{in_3})(1 - p(o_{in_3}))) \ (h_{in_1} > 0) \\
+  &= 0 \ (otherwise)
+\end{aligned}$$  
 
+The generalized result is,  
+$$\begin{aligned}
+  \frac{\partial L}{\partial w^1_{ij}} &= x_1(w^2_{11}p(o_{in_1})(1 - p(o_{in_1})) + w^2_{12}p(o_{in_2})(1 - p(o_{in_2})) + w^2_{13}p(o_{in_3})(1 - p(o_{in_3}))) \ (h_{in_1} > 0) \\
+  &= 0 \ (otherwise)
+\end{aligned}$$  
 
 
 

@@ -185,6 +185,19 @@ $$\begin{aligned}
   &= 0 \ (h_{in_1} \le 0)
 \end{aligned}$$  
 
+$$\begin{aligned}
+  \frac{\partial L}{\partial w^1_{12}} &= x_1(w^2_{21}p(o_{in_1})(1 - p(o_{in_1})) + w^2_{22}p(o_{in_2})(1 - p(o_{in_2})) + w^2_{23}p(o_{in_3})(1 - p(o_{in_3}))) \ (h_{in_2} \gt 0) \\
+  &= 0 \ (h_{in_2} \le 0)
+\end{aligned}$$  
+$$\begin{aligned}
+  \frac{\partial L}{\partial w^1_{1,10}} &= x_1(w^2_{10,1}p(o_{in_1})(1 - p(o_{in_1})) + w^2_{10,2}p(o_{in_2})(1 - p(o_{in_2})) + w^2_{10,3}p(o_{in_3})(1 - p(o_{in_3}))) \ (h_{in_2} \gt 0) \\
+  &= 0 \ (h_{in_2} \le 0)
+\end{aligned}$$  
+$$\begin{aligned}
+  \frac{\partial L}{\partial w^1_{21}} &= x_2(w^2_{11}p(o_{in_1})(1 - p(o_{in_1})) + w^2_{12}p(o_{in_2})(1 - p(o_{in_2})) + w^2_{13}p(o_{in_3})(1 - p(o_{in_3}))) \ (h_{in_1} \gt 0) \\
+  &= 0 \ (h_{in_1} \le 0)
+\end{aligned}$$  
+
 Let $p(o_{in_k})(1 - p(o_{in_k})$ be $q_k$ for simplicity. Then, the generalized result is,  
 $$\begin{aligned}
   \frac{\partial L}{\partial w^1_{ij}} = x_i(w^2_{j1}q_1 + w^2_{j2}q_2 + w^2_{j3}q_3) &= x_i\sum_k (w^2_{jk}q_k) \ (h_{in_j} \gt 0) \\

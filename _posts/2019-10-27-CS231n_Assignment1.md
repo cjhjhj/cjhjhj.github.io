@@ -171,11 +171,9 @@ $$\frac{\partial L_2}{\partial h_{out_1}} = \frac{\partial L_2}{\partial o_{out_
 $$\frac{\partial L_3}{\partial h_{out_1}} = \frac{\partial L_3}{\partial o_{out_3}}\frac{\partial o_{in_3}}{\partial o_{out_3}}\frac{\partial o_{in_3}}{\partial h_{out_1}} = 1 \cdot p(o_{in_3})(1 - p(o_{in_3})) \cdot w^1_{13}$$  
 
 Therefore,
-$$\begin{aligned}
-  \frac{\partial L}{\partial h_{out_1}} = &w^1_{11}p(o_{in_1})(1 - p(o_{in_1})) \\
-  &+ w^1_{12}p(o_{in_2})(1 - p(o_{in_2})) \\
-  &+ w^1_{13}p(o_{in_3})(1 - p(o_{in_3}))
-\end{aligned}$$
+$$\frac{\partial L}{\partial h_{out_1}} = w^1_{11}p(o_{in_1})(1 - p(o_{in_1})) + 
+w^1_{12}p(o_{in_2})(1 - p(o_{in_2})) +
+w^1_{13}p(o_{in_3})(1 - p(o_{in_3}))$$
 
 
 

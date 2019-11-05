@@ -163,10 +163,19 @@ $$\begin{aligned}
 \end{aligned}$$  
 
 The first derivative is a bit complicated since $h_{out_1}$ contributes every $L_1$, $L_2$ and $L_3$.  
-$$\frac{\partial L}{\partial h_{out_1}} = \frac{\partia l (L_1 + L_2 + L_3)}{\partial h_{out_1}}$$  
+$$\frac{\partial L}{\partial h_{out_1}} = \frac{\partial (L_1 + L_2 + L_3)}{\partial h_{out_1}}$$  
 
 Each derivative is as follows,  
 $$\frac{\partial L_1}{\partial h_{out_1}} = \frac{\partial L_1}{\partial o_{out_1}}\frac{\partial o_{in_1}}{\partial o_{out_1}}\frac{\partial o_{in_1}}{\partial h_{out_1}} = 1 \cdot p(o_{in_1})(1 - p(o_{in_1})) \cdot w^1_{11}$$  
+$$\frac{\partial L_2}{\partial h_{out_1}} = \frac{\partial L_2}{\partial o_{out_2}}\frac{\partial o_{in_2}}{\partial o_{out_2}}\frac{\partial o_{in_2}}{\partial h_{out_1}} = 1 \cdot p(o_{in_2})(1 - p(o_{in_2})) \cdot w^1_{12}$$  
+$$\frac{\partial L_3}{\partial h_{out_1}} = \frac{\partial L_3}{\partial o_{out_3}}\frac{\partial o_{in_3}}{\partial o_{out_3}}\frac{\partial o_{in_3}}{\partial h_{out_1}} = 1 \cdot p(o_{in_3})(1 - p(o_{in_3})) \cdot w^1_{13}$$  
+
+Therefore,
+$$\begin{aligned}
+  \frac{\partial L}{\partial h_{out_1}} = &w^1_{11}p(o_{in_1})(1 - p(o_{in_1})) \\
+  &+ w^1_{12}p(o_{in_2})(1 - p(o_{in_2})) \\
+  &+ w^1_{13}p(o_{in_3})(1 - p(o_{in_3}))
+\end{aligned}$$
 
 
 

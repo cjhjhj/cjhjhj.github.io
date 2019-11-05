@@ -191,6 +191,7 @@ $$\begin{aligned}
   &= 0 \ (h_{in_j} \le 0)
 \end{aligned}$$  
 
+The matrix form is as follows,  
 $$\begin{aligned}
 	\begin{bmatrix}
 		\frac{\partial L}{\partial w^1_{11}} & \frac{\partial L}{\partial w^1_{12}} & \cdots & 

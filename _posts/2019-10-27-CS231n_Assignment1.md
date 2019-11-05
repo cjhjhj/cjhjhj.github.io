@@ -173,7 +173,10 @@ $$\frac{\partial L_3}{\partial h_{out_1}} = \frac{\partial L_3}{\partial o_{out_
 Therefore,
 $$\frac{\partial L}{\partial h_{out_1}} = w^1_{11}p(o_{in_1})(1 - p(o_{in_1})) + 
 w^1_{12}p(o_{in_2})(1 - p(o_{in_2})) +
-w^1_{13}p(o_{in_3})(1 - p(o_{in_3}))$$
+w^1_{13}p(o_{in_3})(1 - p(o_{in_3}))$$  
+
+The derivative of $W^1$ is expressed as,  
+
 
 
 

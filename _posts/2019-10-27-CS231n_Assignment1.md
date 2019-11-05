@@ -187,8 +187,8 @@ $$\begin{aligned}
 
 Let $p(o_{in_k})(1 - p(o_{in_k})$ be $q_k$ for simplicity. Then, the generalized result is,  
 $$\begin{aligned}
-  \frac{\partial L}{\partial w^1_{ij}} &= x_i(w^2_{j1}q_1 + w^2_{j2}q_2 + w^2_{j3}q_3)  = x_i\sum_k (w^2_{jk}q_k) \ (h_{in_1} > 0) \\
-  &= 0 \ (otherwise)
+  \frac{\partial L}{\partial w^1_{ij}} = x_i(w^2_{j1}q_1 + w^2_{j2}q_2 + w^2_{j3}q_3) &= x_i\sum_k (w^2_{jk}q_k) \ (h_{in_j} \gt 0) \\
+  &= 0 \ (h_{in_j} \le 0)
 \end{aligned}$$  
 
 $$\begin{aligned}

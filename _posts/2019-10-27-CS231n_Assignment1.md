@@ -175,14 +175,14 @@ w^2_{13}p(o_{in_3})(1 - p(o_{in_3}))$$
 
 Therefore,  
 $$\begin{aligned}
-  \frac{\partial L}{\partial w^1_{11}} &= x_1(w^2_{11}p(o_{in_1})(1 - p(o_{in_1})) + w^2_{12}p(o_{in_2})(1 - p(o_{in_2})) + w^2_{13}p(o_{in_3})(1 - p(o_{in_3}))) \ (h_{in_1} > 0) \\
-  &= 0 \ (otherwise)
+  \frac{\partial L}{\partial w^1_{11}} &= x_1(w^2_{11}p(o_{in_1})(1 - p(o_{in_1})) + w^2_{12}p(o_{in_2})(1 - p(o_{in_2})) + w^2_{13}p(o_{in_3})(1 - p(o_{in_3}))) \ (h_{in_1} \gt 0) \\
+  &= 0 \ (h_{in_1} \le 0)
 \end{aligned}$$  
 
 Similarly,  
 $$\begin{aligned}
-  \frac{\partial L}{\partial w^1_{12}} &= x_1(w^2_{11}p(o_{in_1})(1 - p(o_{in_1})) + w^2_{12}p(o_{in_2})(1 - p(o_{in_2})) + w^2_{13}p(o_{in_3})(1 - p(o_{in_3}))) \ (h_{in_1} > 0) \\
-  &= 0 \ (otherwise)
+  \frac{\partial L}{\partial w^1_{12}} &= x_1(w^2_{11}p(o_{in_1})(1 - p(o_{in_1})) + w^2_{12}p(o_{in_2})(1 - p(o_{in_2})) + w^2_{13}p(o_{in_3})(1 - p(o_{in_3}))) \ (h_{in_1} \gt 0) \\
+  &= 0 \ (h_{in_1} \le 0)
 \end{aligned}$$  
 
 Let $p(o_{in_k})(1 - p(o_{in_k})$ be $q_k$ for simplicity. Then, the generalized result is,  

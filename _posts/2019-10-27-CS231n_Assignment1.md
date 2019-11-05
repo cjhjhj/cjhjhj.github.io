@@ -173,25 +173,24 @@ $$\frac{\partial L}{\partial h_{out_1}} = w^2_{11}p(o_{in_1})(1 - p(o_{in_1})) +
 w^2_{12}p(o_{in_2})(1 - p(o_{in_2})) +
 w^2_{13}p(o_{in_3})(1 - p(o_{in_3}))$$  
 
-Therefore, 
+Therefore,  
 $$\begin{aligned}
   \frac{\partial L}{\partial w^1_{11}} &= x_1(w^2_{11}p(o_{in_1})(1 - p(o_{in_1})) + w^2_{12}p(o_{in_2})(1 - p(o_{in_2})) + w^2_{13}p(o_{in_3})(1 - p(o_{in_3}))) \ (h_{in_1} > 0) \\
   &= 0 \ (otherwise)
 \end{aligned}$$  
 
-Similarly,
+Similarly,  
 $$\begin{aligned}
   \frac{\partial L}{\partial w^1_{12}} &= x_1(w^2_{11}p(o_{in_1})(1 - p(o_{in_1})) + w^2_{12}p(o_{in_2})(1 - p(o_{in_2})) + w^2_{13}p(o_{in_3})(1 - p(o_{in_3}))) \ (h_{in_1} > 0) \\
   &= 0 \ (otherwise)
 \end{aligned}$$  
 
-The generalized result is,  
+Let $p(o_{in_k})(1 - p(o_{in_k})$ be $q_k$ for simplicity. Then, the generalized result is,  
 $$\begin{aligned}
-  \frac{\partial L}{\partial w^1_{ij}} &= x_i(w^2_{j1}p(o_{in_1})(1 - p(o_{in_1})) + w^2_{j2}p(o_{in_2})(1 - p(o_{in_2})) + w^2_{j3}p(o_{in_3})(1 - p(o_{in_3})))  = x_i\sum_k  (w^1_{jk}p(o_{in_k})(1 - p(o_{in_k})) \ (h_{in_1} > 0) \\
+  \frac{\partial L}{\partial w^1_{ij}} &= x_i(w^2_{j1}q_1 + w^2_{j2}q_2 + w^2_{j3}q_3)  = x_i\sum_k (w^1_{jk}q_k) \ (h_{in_1} > 0) \\
   &= 0 \ (otherwise)
 \end{aligned}$$  
 
-Let $p(o_{in_k})(1 - p(o_{in_k})$ be $q_k$ for simplicity.  
 $$\begin{aligned}
 	\begin{bmatrix}
 		\frac{\partial L}{\partial w^1_{11}} & \frac{\partial L}{\partial w^1_{12}} & \cdots & 
@@ -223,7 +222,7 @@ $$\begin{aligned}
 			w^2_{11} & \cdots & w^2_{13} \\
 			w^2_{21} & \cdots & w^2_{23} \\
 			\vdots & \vdots & \vdots \\
-			w^2_{10,1} & \cdots & w^2_{10,3} \\	
+			w^2_{10,1} & \cdots & w^2_{10,3}
 		\end{bmatrix} ^ T
 	\right)
 \end{aligned}$$  

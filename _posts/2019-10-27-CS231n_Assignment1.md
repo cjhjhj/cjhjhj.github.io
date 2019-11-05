@@ -70,13 +70,13 @@ $$o_{out} = softmax(o_{in}) = p(o_{in}) =
   p(o_{in_1}) & p(o_{in_2}) & p(o_{in_3})
 \end{bmatrix} = 
 \begin{bmatrix}
-  \frac{e^{o_{in_1}}}{\sum_{j = 1}^3 e^{o_{in_j}}} &
-  \frac{e^{o_{in_2}}}{\sum_{j = 1}^3 e^{o_{in_j}}} &
-  \frac{e^{o_{in_3}}}{\sum_{j = 1}^3 e^{o_{in_j}}}
+  \frac{e^{o_{in_1}}}{\sum_{k = 1}^3 e^{o_{in_k}}} &
+  \frac{e^{o_{in_2}}}{\sum_{k = 1}^3 e^{o_{in_k}}} &
+  \frac{e^{o_{in_3}}}{\sum_{k = 1}^3 e^{o_{in_k}}}
 \end{bmatrix}$$  
 
 Softmax loss function is defined as,  
-$$L = \sum_{j = 1}^3 o_{out_j} = o_{out_1} + o_{out_2} + o_{out_3}$$  
+$$L = \sum_{k = 1}^3 L_k = \sum_{k = 1}^3 o_{out_k} = o_{out_1} + o_{out_2} + o_{out_3}$$  
 
 ### Back-propagation
 First, let's think about the update of $W^2$ matrix (i.e. back-progation between output and hidden layers). According to the chain rule,
@@ -162,7 +162,11 @@ $$\begin{aligned}
   &= 1 (h_{in_1} \gt 0)
 \end{aligned}$$  
 
-The first derivative is a bit complicated since it has to be expanded using chain rule again.  
-$$\frac{\partial L}{\partial h_{out_1}} = \frac{\partial L}{\partial o_{out_1}}\frac{\partial o_{in_1}}{\partial o_{out_1}}\frac{\partial o_{in_1}}{\partial h_{out_1}}$$  
+The first derivative is a bit complicated since $h_{out_1}$ contributes every $L_1$, $L_2$ and $L_3$.  
+$$\frac{\partial L}{\partial h_{out_1}} = \frac{\partia l (L_1 + L_2 + L_3)}{\partial h_{out_1}}$$  
+
+Each derivative is as follows,  
+$$\frac{\partial L_1}{\partial h_{out_1}} = \frac{\partial L_1}{\partial o_{out_1}}\frac{\partial o_{in_1}}{\partial o_{out_1}}\frac{\partial o_{in_1}}{\partial h_{out_1}} = 1 \cdot p(o_{in_1})(1 - p(o_{in_1})) \cdot w^1_{11}$$  
+
 
 

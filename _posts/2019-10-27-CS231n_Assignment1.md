@@ -187,7 +187,7 @@ $$\begin{aligned}
 
 Let $p(o_{in_k})(1 - p(o_{in_k})$ be $q_k$ for simplicity. Then, the generalized result is,  
 $$\begin{aligned}
-  \frac{\partial L}{\partial w^1_{ij}} &= x_i(w^2_{j1}q_1 + w^2_{j2}q_2 + w^2_{j3}q_3)  = x_i\sum_k (w^1_{jk}q_k) \ (h_{in_1} > 0) \\
+  \frac{\partial L}{\partial w^1_{ij}} &= x_i(w^2_{j1}q_1 + w^2_{j2}q_2 + w^2_{j3}q_3)  = x_i\sum_k (w^2_{jk}q_k) \ (h_{in_1} > 0) \\
   &= 0 \ (otherwise)
 \end{aligned}$$  
 
@@ -202,13 +202,10 @@ $$\begin{aligned}
 		\frac{\partial L}{\partial w^1_{4,10}}
 	\end{bmatrix} & = 
 	\begin{bmatrix}
-		x_1(w^2_{11}q_1 + w^2_{12}q_2 + w^2_{13}q_3) & x_1(w^2_{21}q_1 + w^2_{22}q_2 + 
-		w^2_{23}q_3) & \cdots & x_1(w^2_{10,1}q_1 + w^2_{10,2}q_2 + w^2_{10,3}q_3) \\
-		x_2(w^2_{11}q_1 + w^2_{12}q_2 + w^2_{13}q_3) & x_2(w^2_{21}q_1 + w^2_{22}q_2 + 
-		w^2_{23}q_3) & \cdots & x_2(w^2_{10,1}q_1 + w^2_{10,2}q_2 + w^2_{10,3}q_3) \\
+		x_1\sum_k (w^2_{1k}q_k) & x_1\sum_k (w^2_{2k}q_k) & \cdots & x_1\sum_k (w^2_{10k}q_k) \\
+		x_2\sum_k (w^2_{1k}q_k) & x_2\sum_k (w^2_{2k}q_k) & \cdots & x_2\sum_k (w^2_{10k}q_k) \\
 		\vdots & \vdots & \ddots & \vdots \\
-		x_4(w^2_{11}q_1 + w^2_{12}q_2 + w^2_{13}q_3) & x_4(w^2_{21}q_1 + w^2_{22}q_2 + 
-		w^2_{23}q_3) & \cdots & x_4(w^2_{10,1}q_1 + w^2_{10,2}q_2 + w^2_{10,3}q_3)
+		x_4\sum_k (w^2_{1k}q_k) & x_4\sum_k (w^2_{2k}q_k) & \cdots & x_4\sum_k (w^2_{10k}q_k)
 	\end{bmatrix} \\
 	&=
 	\begin{bmatrix}
